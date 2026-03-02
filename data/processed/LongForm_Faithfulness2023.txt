@@ -280,7 +280,7 @@ method, and all samples were found to be correct,
 benefiting from their straightforward format.
 Comparing generated captions with human
 written captions: For the captions generated using
-the QA to caption conversionmethod, it is worth
+the QA to caption conversion method, it is worth
 asking how the distribution of such captions com-
 pares with that of human written captions in exist-
 ing datasets, such as, COCO captions (Chen et al.,
@@ -292,7 +292,7 @@ questions and answers, and found that they are
 statistically significantly different from each other
 (Kolmogorov-Smirnov test, p < 0.001). Conse-
 quently, we expect the captions generated through
-our QA to caption conversionmethod to exhibit dif-
+our QA to caption conversion method to exhibit dif-
 ferent distributions of nouns, verbs, and adjectives
 compared to the human-written captions. How-
 ever, (Antol et al., 2015) also show that the VQA
@@ -317,7 +317,7 @@ tions generated in this way are unique in that even
 for incorrect captions, a significant portion of it
 (corresponding to the question part) is still correct.
 Thus, such a dataset of captions serves as a good
-stress testdataset for examining the robustness of
+stress test dataset for examining the robustness of
 reference-free image captioning metrics.
 To obtain correct and incorrect answers, we ob-
 tained predictions from the ALBEF (Li et al., 2021)
@@ -418,11 +418,11 @@ on average to incorrect captions for four question
 types: 'how many', 'what time', 'which', and 'oth-
 ers'. On the other hand, PAC-S assigns higher
 scores on average to incorrect captions for 'what
-time' and 'others' question types, suggesting all
+time' and 'others' question types, suggestingall
 metrics show poor performance for 'what time'
 questions, which is considered to be a hard ques-
 tion type. Moreover, CLIPScore and UMIC show
-poor performance for 'how many' questions. Al-
+poor performance for 'how many' questions.Al-
 though PAC-S assigns higher average to correct
 captions over incorrect captions for 'how many'
 question type, the gap between the absolute values
@@ -865,7 +865,7 @@ Anuj Diwan, Layne Berry, Eunsol Choi, David Harwath,
 and Kyle Mahowald. 2022. Why is winoground
 hard? investigating failures in visuolinguistic compo-
 sitionality. In Proceedings of the 2022 Conference on
-Empirical Methods in Natural Language Processing,
+Empirical Methods in Natural Language Processing ,
 pages 2236-2250, Abu Dhabi, United Arab Emirates.
 Association for Computational Linguistics.
 Joshua Feinglass and Yezhou Yang. 2021. Smurf: Se-
@@ -890,7 +890,7 @@ Jack Hessel, Ari Holtzman, Maxwell Forbes, Ronan
 Le Bras, and Yejin Choi. 2021. CLIPScore: A
 reference-free evaluation metric for image captioning.
 In Proceedings of the 2021 Conference on Empiri-
-cal Methods in Natural Language Processing, pages
+cal Methods in Natural Language Processing , pages
 7514-7528, Online and Punta Cana, Dominican Re-
 public. Association for Computational Linguistics.
 Cheng-Yu Hsieh, Jieyu Zhang, Zixian Ma, Aniruddha
@@ -910,7 +910,7 @@ unreferenced metric for image captioning via con-
 trastive learning. In Proceedings of the 59th An-
 nual Meeting of the Association for Computational
 Linguistics and the 11th International Joint Confer-
-ence on Natural Language Processing (Volume 2:
+ence on Natural Language Processing (V olume 2:
 Short Papers), pages 220-226, Online. Association
 for Computational Linguistics.
 Junnan Li, Ramprasaath R. Selvaraju, Akhilesh Deepak
@@ -944,7 +944,7 @@ Kishore Papineni, Salim Roukos, Todd Ward, and Wei-
 Jing Zhu. 2002. Bleu: a method for automatic evalu-
 ation of machine translation. In Proceedings of the
 40th Annual Meeting of the Association for Compu-
-tational Linguistics, pages 311-318, Philadelphia,
+tational Linguistics , pages 311-318, Philadelphia,
 Pennsylvania, USA. Association for Computational
 Linguistics.
 Letitia Parcalabescu, Michele Cafagna, Lilitta Murad-
@@ -953,7 +953,7 @@ jan, Anette Frank, Iacer Calixto, and Albert Gatt.
 vision and language models centered on linguistic
 phenomena. In Proceedings of the 60th Annual Meet-
 ing of the Association for Computational Linguistics
-(Volume 1: Long Papers), pages 8253-8280, Dublin,
+(V olume 1: Long Papers), pages 8253-8280, Dublin,
 Ireland. Association for Computational Linguistics.
 Alec Radford, Jong Wook Kim, Chris Hallacy, Aditya
 Ramesh, Gabriel Goh, Sandhini Agarwal, Girish Sas-
@@ -972,7 +972,7 @@ relie Herbelot, Moin Nabi, Enver Sangineto, and Raf-
 faella Bernardi. 2017. "foil it! find one mismatch
 between image and language caption". In Proceed-
 ings of the 55th Annual Meeting of the Association for
-Computational Linguistics (ACL) (Volume 1: Long
+Computational Linguistics (ACL) (V olume 1: Long
 Papers), pages 255-265.
 Tristan Thrush, Ryan Jiang, Max Bartolo, Amanpreet
 Singh, Adina Williams, Douwe Kiela, and Candace
@@ -997,7 +997,7 @@ Mert Yuksekgonul, Federico Bianchi, Pratyusha Kalluri,
 Dan Jurafsky, and James Zou. 2023. When and why
 vision-language models behave like bags-of-words,
 and what to do about it? In The Eleventh Interna-
-tional Conference on Learning Representations.
+tional Conference on Learning Representations .
 Le Zhang, Rabiul Awal, and Aishwarya Agrawal.
 2023. Contrasting intra-modal and ranking cross-
 modal hard negatives to enhance visio-linguistic fine-
@@ -1007,7 +1007,7 @@ Shen, Kyusong Lee, Xiaopeng Lu, and Jianwei Yin.
 2022. An explainable toolbox for evaluating pre-
 trained vision-language models. In Proceedings of
 the 2022 Conference on Empirical Methods in Nat-
-ural Language Processing: System Demonstrations,
+ural Language Processing: System Demonstrations ,
 pages 30-37, Abu Dhabi, UAE. Association for Com-
 putational Linguistics.
 A Appendix

@@ -1,5 +1,5 @@
 Ragas: Automated Evaluation of Retrieval Augmented Generation
-Shahul Es†, Jithin James†, Luis Espinosa-Anke∗♢, Steven Schockaert∗
+Shahul Es†, Jithin James †, Luis Espinosa-Anke ∗♢, Steven Schockaert ∗
 †Exploding Gradients
 ∗CardiffNLP, Cardiff University, United Kingdom
 ♢AMPLYFI, United Kingdom
@@ -100,7 +100,7 @@ for building RAG solutions, thus enabling devel-
 opers to easily integrate Ragas into their standard
 workflow.
 2 Related Work
-Estimating faithfulness using LLMsThe prob-
+Estimating faithfulness using LLMs The prob-
 lem of detecting hallucinations in LLM generated
 responses has been extensively studied (Ji et al.,
 2023). Several authors have suggested the idea
@@ -203,7 +203,7 @@ often used in applications where the factual con-
 sistency of the generated text w.r.t. the grounded
 sources is highly important, e.g. in domains such as
 law, where information is constantly evolving. Sec-
-ond, Answer Relevancerefers to the idea that the
+ond, Answer Relevance refers to the idea that the
 generated answer should address the actual ques-
 tion that was provided. Finally,Context Relevance
 refers to the idea that the retrieved context should
@@ -256,7 +256,7 @@ from the specified format.
 statement: [statement 1]
 ...
 statement: [statement n]
-The final faithfulness score, F, is then computed
+The final faithfulness score, F , is then computed
 as F = |V |
 |S| , where |V | is the number of statements
 that were supported according to the LLM and |S|

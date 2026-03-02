@@ -3,8 +3,8 @@ https://doi.org/10.1007/sxxxxx-yyy-zzzz-1
 REVIEW ARTICLE
 Retrieval Augmented Generation Evaluation in the Era of
 Large Language Models: A Comprehensive Survey
-Aoran GAN1, Hao YU2, Kai ZHANG1, Qi LIU(B)1, Wenyu YAN1, Zhenya HUANG1,
-Shiwei TONG3, Enhong CHEN1, Guoping HU1,4
+Aoran GAN1, Hao YU 2, Kai ZHANG 1, Qi LIU(B)1, Wenyu Y AN1, Zhenya HUANG1,
+Shiwei TONG3, Enhong CHEN 1, Guoping HU 1,4
 1 State Key Laboratory of Cognitive Intelligence, University of Science and Technology of China, Hefei, China
 2 McGill University, Montreal, Canada
 3 Tencent Company, Shenzhen, China
@@ -92,7 +92,7 @@ The remainder of this paper is organized as follows: Sec-
 tion 2 offers a concise review of the existing LLM-based RAG
 system to provide the reader with relevant background knowl-
 edge. Our comprehensive evaluation is divided into two dis-
-tinct sections: Internal Evaluation(Section 3) and External
+tinct sections: Internal Evaluation (Section 3) and External
 Evaluation (Section 4). Internal Evaluation assesses com-
 ponent level performance and methodology-specific metrics
 within basic RAG systems, focusing on technical advance-
@@ -378,32 +378,32 @@ two main stages, recall and ranking. The outputs, relevant
 documents, for both are similar to evaluate. Then we can con-
 struct several pairwise relationships for the retrieval compo-
 nent by defining the target as follows:
-Relevance (Relevant Documents↔Query) evaluates how
+Relevance (Relevant Documents ↔ Query) evaluates how
 well the retrieved documents match the information needed
 expressed in the query. It measures the precision and speci-
 ficity of the retrieval process.
-Comprehensiveness (Relevant Documents↔Relevant Doc-
+Comprehensiveness (Relevant Documents ↔ Relevant Doc-
 uments) evaluates the diversity and coverage of the retrieved
 documents. This metric assesses how well the system cap-
 tures a wide range of relevant information, ensuring that the
 retrieved documents provide a comprehensive view of the
 topic according to the query.
-Correctness (Relevant Documents↔Documents Candi-
+Correctness (Relevant Documents ↔ Documents Candi-
 dates) assesses how accurate the retrieved documents are in
 comparison to a set of candidate documents. It is a measure of
 the system's ability to identify and score relevant documents
 higher than less relevant or irrelevant ones.
 The similar pairwise relations and targets for the genera-
 tion component are outlined below.
-Relevance (Response ↔Query) measures how well the
+Relevance (Response ↔ Query) measures how well the
 generated response aligns with the intent and content of the
 initial query. It ensures that the response is related to the
 query topic and meets the query's specific requirements.
-Faithfulness (Response ↔Relevant Documents) evalu-
+Faithfulness (Response ↔ Relevant Documents ) evalu-
 ates how the generated response accurately reflects the infor-
 mation contained in the relevant documents and measures the
 consistency between the generated and source documents.
-Correctness (Response ↔Sample Response) Similar to
+Correctness (Response ↔ Sample Response ) Similar to
 the accuracy in the retrieval component, this measures the ac-
 curacy of the generated response against a sample response,
 which serves as a ground truth. It checks if the response is
@@ -419,36 +419,36 @@ to evaluate the retrieval and generation of RAG as follows.
 The IR-related metrics refer to the indicators associated with
 conventional retrieval systems. These metrics are categorized
 into two groups based on their correlation to ranking:
-•Non-rank-based Metrics
+• Non-rank-based Metrics
 The non-rank-based metrics typically evaluate binary outcomes,
 that is, whether an item is relevant or not, without taking into
 account the item's position in a ranked list.
 Accuracy/Hit@K is the proportion of true results (both
 true positives and true negatives) among the cases examined.
-Accuracy = T P+ T N
-TotalNumber
-where T Pis the number of true positives, T Nis the number
+Accuracy = T P + T N
+T otalNumber
+where T P is the number of true positives, T N is the number
 of true negatives in the response.
 Fig. 2 The evaluation target of the Retrieval and Generation component in RAG.
 Aoran GAN et al. Retrieval Augmented Generation Evaluation in the Era of LLMs 5
 Recall@K is the portion of relevant instances that have
 been retrieved over the total amount of relevant cases, con-
 sidering only the top k results.
-Recall = |RD ∩Top kd|
+Recall = |RD ∩ T opkd|
 |RD|
-where RD is the relevant documents, and Top kd is the top-k
+where RD is the relevant documents, and T opkd is the top-k
 retrieved documents.
 Precision@K is the fraction of relevant instances among
 the retrieved instances, considering only the top k results.
 Precision = T P
-T P+ FP
-where T Prepresents true positives and FP represents false
+T P + FP
+where T P represents true positives and FP represents false
 positives, respectively.
-F1 Scoremeasures the balance between precision and re-
+F1 Score measures the balance between precision and re-
 call, defined as the Harmonic Mean of the two.
-F1 = 2 ×Precision ×Recall
+F1 = 2 × Precision × Recall
 Precison + Recall
-•Rank-Based Metrics
+• Rank-Based Metrics
 The rank-based metrics focuse on the sequential presentation
 of relevant items, assigning greater significance to the posi-
 tioning of these items within the ranking list.
@@ -459,7 +459,7 @@ MRR = 1
 |Q|X
 i=1
 ranki
-where |Q|is the number of queries and ranki is the rank posi-
+where |Q| is the number of queries and ranki is the rank posi-
 tion of the first relevant document for the i-th query.
 NDCG (Normalized Discounted Cumulative Gain) accounts
 for the position of the relevant documents by penalizing rele-
@@ -473,7 +473,7 @@ DCG@k is defined as:
 DCG@k =
 kX
 i=1
-2reli −1
+2reli − 1
 log2(i + 1)
 with reli being the graded relevance of the result at positioni.
 MAP (Mean Average Precision) is the mean of the average
@@ -483,9 +483,9 @@ MAP = 1
 |Q|X
 q=1
 Pn
-k=1(P(k) ×rel(k))
+k=1(P(k) × rel(k))
 |relevant documentsq|
-where P(k) is the precision at cuto ff k in the list, rel(k) is an
+where P(k) is the precision at cuto ffk in the list, rel(k) is an
 indicator function equaling 1 if the item at rankk is a relevant
 document in the n retrieved documents, 0 otherwise.
 3.2.2 NLG-related Metrics
@@ -525,9 +525,9 @@ by incorporating mechanisms like synonymization, stemming
 matching, and word order penalties, demonstrating a stronger
 correlation with results obtained from manual evaluations.
 METEOR is defined as:
-METEOR = (1 −p)(α2 + 1)Precision ×Recall
+METEOR = (1 − p)(α2 + 1)Precision × Recall
 Recall + αPrecision ,
-where αis the balanced factor, andp is the penalization factor
+where α is the balanced factor, andp is the penalization factor
 for word order.
 BertScore [53] leverages the contextual embedding from
 pre-trained transformers like BERT to evaluate the semantic
@@ -540,10 +540,10 @@ sitive to semantic equivalence. It has multiple variants, in-
 cluding backbone advanced pre-trained models (e.g. BERT,
 RoBERTa and BART) and supervised evaluation based on ex-
 ternal classifier design.
-Textual Similaritymeasures the semantic variety in re-
+Textual Similarity measures the semantic variety in re-
 trieved documents. It can be calculated using metrics like
 6 Front. Comput. Sci., 2025, 0(0): 1-18
-Intra-Document Similarityor Inter-Document Similarity, which
+Intra-Document Similarity or Inter-Document Similarity, which
 assess the similarity between documents within a set.
 Similarity = 1
 |D|2
@@ -551,9 +551,9 @@ Similarity = 1
 i=1
 |D|X
 j=1
-sim(di,dj)
-where D is the set of retrieved documents, di and dj are em-
-beddings of individual documents, and sim(di,dj) is a simi-
+sim(di, d j)
+where D is the set of retrieved documents, di and d j are em-
+beddings of individual documents, and sim(di, d j) is a simi-
 larity measure (e.g.,the most commonly used cosine similar-
 ity) between the two documents.
 Coverage measures the proportion of relevant documents
@@ -562,13 +562,13 @@ able in the dataset. It quantifies how comprehensively the
 system captures all pertinent information across the corpus,
 across topics, categories, or entities defined by humans or in
 the knowledge base.
-Coverage = |RD ∩Retrieved|
+Coverage = |RD ∩ Retrieved|
 |RD|
 where RD is the set of relevant documents and the notation
 Retrieved is the set of retrieved documents. The coverage
 can also be calculated at the group level, where the relevant
 documents are grouped into different categories or topics.
-Coverage = |Relevant Groups ∩Retrieved Groups|
+Coverage = |Relevant Groups ∩ Retrieved Groups|
 |Relevant Groups|
 Perplexity (PPL) gauges a language model's predictive
 prowess, illustrating its level of uncertainty concerning test
@@ -576,12 +576,12 @@ data. Essentially, it is an exponential variation of cross-entropy,
 quantifying the model's fit to the probability distribution of
 the text. It is defined base on the generative LM output as
 Perplexity = exp
-−1
+− 1
 N
 NX
 i=1
-log p(wi|w1,w2,..., wi−1)
-.
+log p(wi|w1, w2, . . . ,wi−1)
+ .
 It's important to note that the IR-related and NLG-related
 methods are not directly equivalent to retrieval and generation
 assessment methods. In RAG systems, retrieval and genera-
@@ -604,7 +604,7 @@ The evaluation of chunking methods can be conducted at
 two levels. First, chunk-specific evaluation focuses on in-
 trinsic metrics such as Accuracy, measured by Full Keyword
 Coverage-the percentage of required keywords present in at
-least one retrieved chunk-and the Tokens To Answermet-
+least one retrieved chunk-and the Tokens To Answer met-
 ric, which tracks the index of the first fully comprehensive
 chunk and cumulative token count needed for full context
 coverage [57]. Second, extrinsic evaluation analyzes how dif-
@@ -655,8 +655,8 @@ nent by prompt engineering. Methods like RAGAS [61] and
 Aoran GAN et al. Retrieval Augmented Generation Evaluation in the Era of LLMs 7
 Databricks Eval [62] prompt GPT-based judges with explicit
 instructions, such as "Check if the response is supported by
-the retrieved context. "or "Assess completeness with respect
-to the user query. "Zhang et al. [63] utilized GPT-4 with a
+the retrieved context. " or "Assess completeness with respect
+to the user query. " Zhang et al. [63] utilized GPT-4 with a
 few-shot prompt design to determine whether the generated
 answer matches the gold ones comprehensively. Finsås et
 al. [64] implemented a multi-agent LLM framework to eval-
@@ -675,19 +675,19 @@ Dai et al. [66] proposed a new metric Semantic Perplexity
 rectness of the generated answer. Given the query q and the
 reference answers a∗, SePer is defined as the output sequence
 likelihood with clustered entity target as:
-S ePerM(q,a∗) = PM(a∗|q) ≈
+S ePerM(q, a∗) = PM(a∗ | q) ≈
 X
 Ci∈C
-k(Ci,a∗)pM(Ci |q),
-where M is the specific LLM. Cis the cluster set that the an-
+k(Ci, a∗)pM(Ci | q),
+where M is the specific LLM. C is the cluster set that the an-
 other clustering model groupes the responses into. pM(Ci |
 q) means the probability that a response generated by M is
-mapped to the cluster Ci. k(Ci,a∗) is a simple kernal fuc-
+mapped to the cluster Ci. k(Ci, a∗) is a simple kernal fuc-
 tion to measure the distance between the meaning of semantic
 cluster Ci and a∗ by utilizing char-level matching or simply
 asking the LLM to get a True / False response.
 Qi et al. [67] introduced the key point extraction to the
-RAG evaluation and designedKPR metric to evaluate the ex-
+RAG evaluation and designed KPR metric to evaluate the ex-
 tent to which LLMs incorporate key points extracted from the
 retrieved documents into their generated responses:
 KPR(·) = 1
@@ -695,48 +695,48 @@ KPR(·) = 1
 X
 q∈Q
 P
-x∈xq I(x,M(q∥dq))
+x∈xq I(x, M(q∥dq))
 |xq| ,
-where Q is the global query set, and I(x,M(q∥dq)) is a fuc-
+where Q is the global query set, and I(x, M(q∥dq)) is a fuc-
 tion to judge whether a single LLM output sequenceM(q∥dq)
 based on the queryq and the recalled documentsdq entails the
 predefined key points xq.
 To evaluate the inconsistency of the different retrievers in
 RAG, Li et al. [68] proposed a pair of naive metrics called
 Mean Relative Win /Lose Ratio (MRWR /MRLR). Given M
-different retrievers R= {r1,r2,..., rM}and the dataset with N
+different retrievers R = {r1, r2, ..., rM} and the dataset with N
 query & answer pairs, the correctness of model response for
-each sample <qn,an >is first cauculated, denoted byIm(n) =
+each sample < qn, an > is first cauculated, denoted byIm(n) =
 1 if the retriever rm answers correctly on sample sn otherwise
 0. Then the Relative Win Ratio (RWR) of retriever ri over
-another retriever rj is defined as:
+another retriever r j is defined as:
 RWR(i, j) =
 PN
-n=1 Ii(n) ∗(1 −Ij(n))
+n=1 Ii(n) ∗ (1 − I j(n))
 PN
-n=1 1 −Ij(n)
+n=1 1 − I j(n)
 ,
 which represents the proportion of questions answered incor-
-rectly by retrieverrj that were correctly answered by retriever
+rectly by retrieverr j that were correctly answered by retriever
 ri. MRWR and MRLR are calculated by respectively averag-
 ing RWR across rows and columns among the retrievers:
 MRWR(i) = 1
-M −1
+M − 1
 X
 j,i
 RWR(i, j),
 MRLR(i) = 1
-M −1
+M − 1
 X
 j,i
-RWR(j,i).
+RWR(j, i).
 Especially, MRLR(i) = 0 implies that retrieverri consistently
 outperforms all of the other ones.
-Min et al. [69] proposedFactScoreto messure whether the
+Min et al. [69] proposed FactScoreto messure whether the
 generated content matches the given knowledge source by
 breaking the generations into atomic facts. Chiang et al. [70]
 further consideder the synonym expression and proposed the
-advanced D-FAatScore. FactScore is a simple statistical de-
+advanced D-F AatScore. FactScore is a simple statistical de-
 termination whether the factual contenta in the generated text
 y matches the external knowledge base C:
 FS(y) = 1
@@ -744,7 +744,7 @@ FS(y) = 1
 X
 a∈Ay
 I[a is supported by C].
-D-FActScorelinks synonymous entities into the same cluster
+D-F ActScorelinks synonymous entities into the same cluster
 Ayi and consider a cluster-level evaluation:
 DFS(y) = 1
 |Ay|
@@ -763,19 +763,19 @@ aspects are defined as:
 1) Risk that measures the proprotion of risky casess among
 the kept samples:
 Risk = |UK|
-|AK|+ |UK|
-2) Care f ulnessindicates the percentage of incorrect and dis-
+|AK| + |UK|
+2) Care f ulness indicates the percentage of incorrect and dis-
 carded samples that are equivalent to recall for the unanswer-
 able samples:
-Care f ulness= |UD|
-|UK|+ |UD|
+Care f ulness = |UD|
+|UK| + |UD|
 3) Alignment refers to the proportion of samples in which the
 system's judgment align with the assigned labels:
-Alignment = |AK|+ |UD|
-|AK|+ |AD|+ |UK|+ |UD|
+Alignment = |AK| + |UD|
+|AK| + |AD| + |UK| + |UD|
 4) Coverage quantifies the proportion of samples retained:
-Coverage = |AK|+ |UK|
-|AK|+ |AD|+ |UK|+ |UD|
+Coverage = |AK| + |UK|
+|AK| + |AD| + |UK| + |UD|
 8 Front. Comput. Sci., 2025, 0(0): 1-18
 3.3.2 LLM Representation based Methods
 The representation-based methods, conversely, captures valu-
@@ -804,7 +804,7 @@ equate knowledge pertaining to a task, it should e ffectively
 cluster samples related to that task through its hidden states.
 The Thrust metric was defined as:
 sthrust(q) =
-N ·K
+N · K
 NX
 l=1
 KX
@@ -814,7 +814,7 @@ k=1
 ∥dkl(q)∥
 ,
 where N is the number of classes for the specific task, K is
-the number of clusters per class, |Ckl|denotes the cardinality
+the number of clusters per class, |Ckl| denotes the cardinality
 of the set. dkl(q) is a vector pointing from the representacion
 of the query to the centroid.
 Zhu et al. [75] introduced the information bottleneck the-
@@ -822,22 +822,22 @@ ory into retrieval component to messure the relevance of the
 recalled document and candidate document. Moreover, a new
 information bottleneck-based loss function was derived and
 used to train a better noise filter for the retriever. Given the
-sample {q,x,y}from the dataset and the noise filter p( ˜x|x,q)
+sample {q, x, y} from the dataset and the noise filter p( ˜x|x, q)
 (need tuning), the information bottleneck in the RAG task is
 derived and formulated as:
-IB( ˜x) = PLLM(x|[q, ˜x,y]) −αPLLM(y|[q, ˜x]),
-where [·] means the concatenation operation. PLLM means
+IB( ˜x) = PLLM(x|[q, ˜x, y]) − αPLLM(y|[q, ˜x]),
+where [ ·] means the concatenation operation. PLLM means
 the final output probability of the LLM.
 Li et al. [76] proposed a new metric GECE based on ME-
 TEOR for assessing the extent of the long-tailness of the gen-
 erated text in RAG:
 GECE =
-|METEOR(pred,re f) −1
+|METEOR(pred, re f) − 1
 n
 Pn
 i=1 PLLM (ti)|
-α·[E(▽ins) ·▽ins] ,
-where αis the average word frequency, ▽ins and E(▽ins) are
+α · [E(▽ins) · ▽ins] ,
+where α is the average word frequency, ▽ins and E(▽ins) are
 the gradient w.r.t. the current instance and the mean gradient
 of the total dataset, separately. A long-tail instance usually
 has a smaller α and ▽ins, obtaining a larger GECE , which
@@ -855,11 +855,11 @@ t = 1
 |r|
 X
 t∈r
-e ·xL
+e · xL
 t
 ∥e∥∥xL
-t ∥,
-where |r|means the length of the response r, xL
+t ∥ ,
+where |r| means the length of the response r, xL
 t is the t-th
 token's vector logit of the last layer L. e is a pooled vector
 of the most relevant vectors of xL
@@ -913,7 +913,7 @@ Aoran GAN et al. Retrieval Augmented Generation Evaluation in the Era of LLMs 9
 Rate, aiming to emphases the system's stability and robust-
 ness, quantifies the percentage of instances where the sys-
 tem's responses remain accurate, both prior to and follow-
-ing retrieval augmentation. 2) Boost Ratequantifies the pro-
+ing retrieval augmentation. 2) Boost Rate quantifies the pro-
 portion of instances initially answered erroneously that were
 subsequently corrected upon the introduction of a retrieved
 document, evaluating the effectiveness of RAG.
@@ -926,10 +926,10 @@ be misleading [78]; the Hallucination Rate, the frequency of
 generated information not supported by or contradicting re-
 trieved documents, often measured via LLM-as-judge [85] or
 human evaluation; Citation Accuracy, assessing correct attri-
-bution to sources using Citation Precisionand Citation Re-
+bution to sources using Citation Precision and Citation Re-
 call [20, 85]; and Faithfulness Metrics, evaluating how accu-
 rately the output reflects retrieved information [83].
-Adversarial attackstarget specific components within the
+Adversarial attacks target specific components within the
 RAG pipeline. Knowledge database poisoning (PoisonedRAG
 [86]) targets the retrieval corpus by injecting malicious texts
 that trigger predetermined outputs when retrieved. This at-
@@ -945,10 +945,10 @@ sessed through oracle-based metrics.
 Privacy assess information exposure risks from retrieval
 databases or user queries [90]. Evaluation often involves sim-
 ulated attacks [91,92]. Key metrics about privacy include the
-Extraction Success Rate, the frequency or success rate of at-
+Extraction Success Rate , the frequency or success rate of at-
 tacks extracting specific private information (e.g., names, PII)
 from the knowledge base, often measured by the count of
-successfully extracted items [90]; the PII Leakage Rate, the
+successfully extracted items [90]; the PII Leakage Rate , the
 amount or percentage of Personally Identifiable Information
 inadvertently revealed in generated outputs, typically found
 via pattern matching or inspection [93]; and the Membership
@@ -960,20 +960,20 @@ fies biases from retrieved documents or training, leading to
 inequitable outputs [94]. Bias Metrics are used to analyze
 the outputs for disparities, which are quantitative measures
 of performance disparities (e.g., error rates, sentiment scores)
-across demographic groups [94]. Stereotype Detectionmea-
+across demographic groups [94]. Stereotype Detection mea-
 sures the frequency or severity of harmful stereotypes in gen-
 erated text, assessed via lists or human evaluation. Coun-
-terfactual Fairnesschecks if outputs change inappropriately
+terfactual Fairness checks if outputs change inappropriately
 when sensitive attributes in queries or context are altered.
 Transparency / Accountability assesses the understand-
 ability and traceability of the RAG system's reasoning pro-
 cess, enabling verification of sources and justification [95,
 96]. Metrics are often qualitative or user-focused, such as
-Explanation Quality, based on human ratings of the clarity,
+Explanation Quality , based on human ratings of the clarity,
 completeness, and usefulness of explanations or provenance
 information [96]; Traceability, the ease of linking the final
 output back to specific source documents or passages; and
-Citation Accuracy(precision/recall) [20].
+Citation Accuracy (precision/recall) [20].
 Comprehensive safety benchmarks standardize evaluation
 across multiple dimensions. SafeRAG [80] classifies attack
 tasks into four categories with tailored datasets. VERA frame-
@@ -1005,18 +1005,18 @@ and generation time for all tokens. Hofstatte et al. [99] pro-
 posed Single Query Latency that refers to the complete end-
 to-end time taken to process a single query, including both
 complete retrieval and generation phases.
-Resources and Money Costevaluation of RAG systems is
+Resources and Money Cost evaluation of RAG systems is
 another critical component for assessing the e fficiency. Cost
 evaluation methodologies typically focus on quantifying both
 direct expenditures and efficiency metrics that impact overall
 system economics. The total cost of RAG systems can be
 categorized into several key components [126]:
-• Infrastructure Costs: Computing local resources for
+• Infrastructure Costs : Computing local resources for
 embedding generation, vector database maintenance,
 and LLM inference for open models.
 • Token-based Expenses: API charges for external LLM
 services based on input and output token usage.
-• Storage Costs: Vector database hosting and mainte-
+• Storage Costs : Vector database hosting and mainte-
 nance expenses that scale with corpus size.
 10 Front. Comput. Sci., 2025, 0(0): 1-18
 Table 1 Overview of RAG benchmarks and their evaluation datasets. Source Domain indicates the data origin (e.g., real-time news, specialized corpora),
@@ -1058,7 +1058,7 @@ SCARF [54] 2025.04 (User-provided) Generic multi-domain Modular or black-box app
 integrates wide metrics (LLM judge)
 • Operational Overhead: Human supervision, system main-
 tenance, and regular updates to knowledge bases.
-• Development Costs: Initial implementation, integra-
+• Development Costs : Initial implementation, integra-
 tion, and customization expenses.
 For more details in the token-based expenses, LLM providers
 such as OpenAI and Google o ffer token usage metrics that
@@ -1067,10 +1067,10 @@ processes. This approach calculates costs by multiplying to-
 ken counts by their respective pricing rates [127]. Researchers
 have developed metrics to evaluate the economic efficiency of
 RAG implementations:
-• Cost-Effectiveness Ratio: Measures performance im-
+• Cost-Effectiveness Ratio : Measures performance im-
 provement per unit of cost, allowing for standardized
 comparison between different RAG configurations [127].
-• Retrieval Precision ROI: Quantifies the economic re-
+• Retrieval Precision ROI : Quantifies the economic re-
 turn of improving retrieval precision by measuring the
 reduction in irrelevant context processing costs [127].
 This metric demonstrated that optimizing retrieval can
@@ -1083,7 +1083,7 @@ of the relationship between retrieval costs and accu-
 racy. This approach enables evaluating RAG systems
 across a spectrum of cost constraints rather than at fixed
 operating points.
-• Comparative Cost Analysis: Methodologies for eval-
+• Comparative Cost Analysis : Methodologies for eval-
 uating relative cost e fficiency between di fferent RAG
 implementations for specific use cases, considering both
 direct costs and long-term economic sustainability [129].
@@ -1122,7 +1122,7 @@ Benchmark ARES [73] 2023.11 Context R, Answer F, Answer R LLM+ Classifier LLM+ C
 LLM+ Classifier
 Benchmark RGB [85] 2023.12 Info Integration,NoiseRobust,
 NegRejection, Counterfact - Accuracy
-Tool Databricks Eval [62] 2023.12 C,Readability, Comprehensiveness - LLM as Judge
+Tool Databricks Eval [62] 2023.12 C, Readability, Comprehensiveness - LLM as Judge
 Benchmark MultiHop-RAG [7] 2024.01 Retrieval C, Response C MAP, MRR, Hit@K LLM as Judge
 Benchmark CRUD-RAG [106] 2024.02 Create, Read, Update, Delete - ROUGE, BLEU,
 RAGQuestEval
@@ -1155,7 +1155,7 @@ Benchmark OmniEval [120] 2024.12 Factual Acc.,Domain Tasks Rule+LLM Manual or LL
 Benchmark CRAG [121] 2024.12 Accuracy,Dynamism, Complex Facts,
 R, C Weighted scoring Accuracy, Truthfulness measure
 Benchmark OCR Hinders RAG [55] 2024.12 Accuracy,OCR Noise,
-Semantic vs. Format Noise EditDist, LCS F1-score
+Semantic vs. F ormat Noise EditDist, LCS F1-score
 Benchmark RAG Playground [122] 2024.12 Retrieval Strategy,
 Prompt Eng. Comparison-based LLM-based Eval
 Benchmark MTRAG [123] 2025.01 Multi-turn Quality, Conv. C Recall, nDCG LLM as Judge
@@ -1179,7 +1179,7 @@ characteristics according to the original resource, as shown
 in Table 1. Noted that only the datasets containing retrieved
 ground truth documents are included, indicating a concern for
 more in-depth system component evaluation.
-Frameworks with Evaluation Methods. We compiled
+Frameworks with Evaluation Methods . We compiled
 and summarized the evaluation methods devised by exist-
 ing frameworks, as illustrated in Table 2. These e fforts span
 from initial, point-level researches [40, 99] to later, multi-
@@ -1233,7 +1233,7 @@ research and evaluation of RAG systems, as indicated by the
 extensive coverage of the retrieval and generation processes.
 In contrast, external evaluations, particularly those related to
 safety, have garnered less attention.
-Metric Preference. Word frequency counts were con-
+Metric Preference . Word frequency counts were con-
 ducted for the assessment metrics mentioned in the papers,
 with the wordcloud displayed in Figure 4. Whenever a met-
 ric is formally introduced in the body of a paper or reported in
@@ -1259,7 +1259,7 @@ versely, the LLM-based methods often require more e ffort
 and involve multiple settings that are di fficult to keep the
 same across di fferent researches, such as the LLM version
 and prompt design.
-Trend of LLM Usage. Despite the potential issues with
+Trend of LLM Usage . Despite the potential issues with
 LLM-based methods, there is an observable trend of increas-
 ing application, as shown in Figure 5. 2024 H2 and 2025 H1
 have the top two highest numbers. LLM judges are ultimately
@@ -1270,7 +1270,7 @@ sively improving, and the supported functions expanding.
 6.2 Challenges and Future Directions
 This section addresses several challenges inherent in contem-
 porary RAG evaluation.
-Limitations of LLM-based Methods. The current evalu-
+Limitations of LLM-based Methods . The current evalu-
 ation design does not su fficiently address the timeliness and
 the black-box nature inherent in the LLM. The method of
 employing LLMs for assessments, particularly through di-
@@ -1278,13 +1278,13 @@ rect prompts, raises latent risk about stability and security.
 Future research should focus on enhancing the robustness of
 the evaluation process itself and minimizing the likelihood of
 LLM errors in the RAG system.
-Cost of Evaluation. The cost associated with the RAG
+Cost of Evaluation . The cost associated with the RAG
 system has garnered attention. Nevertheless, a thorough eval-
 uation remains expensive due to the vast scale of the tools
 and datasets involved. Determining an e fficient method for
 system evaluation, or striking a balance between cost and ef-
 fectiveness, is one of the directions for future research.
-Advanced Evaluation Methods. As LLMs continue to
+Advanced Evaluation Methods . As LLMs continue to
 evolve, the components of RAG systems are becoming more
 diverse. Currently, many of these components are evaluated
 using end-to-end RAG ontology metrics, with a lack of com-
@@ -1421,7 +1421,7 @@ W t. Dense passage retrieval for open-domain question answering.
 In: Webber B, Cohn T, He Y , Liu Y , eds, Proceedings of the 2020
 Conference on Empirical Methods in Natural Language Processing
 (EMNLP). November 2020, 6769-6781
-31. Google . Programmable Search Engine |Google for Developers, 2024
+31. Google . Programmable Search Engine | Google for Developers, 2024
 32. Yepes A J, You Y , Milczek J, Laverde S, Li R. Financial report
 chunking for effective retrieval augmented generation. arXiv preprint
 arXiv:2402.05131, 2024
@@ -1475,7 +1475,7 @@ generation. arXiv preprint arXiv:2503.10677, 2025
 47. J ¨arvelin K, Kek¨al¨ainen J. Cumulated gain-based evaluation of ir tech-
 niques. ACM Transactions on Information Systems (TOIS), 2002,
 20(4): 422-446
-48. Sanko ff D, Kruskal J B. Time warps, string edits, and macro-
+48. Sanko ffD, Kruskal J B. Time warps, string edits, and macro-
 molecules: the theory and practice of sequence comparison. Reading:
 Addison-Wesley Publication, 1983
 49. Yujian L, Bo L. A normalized levenshtein distance metric. IEEE
@@ -1514,7 +1514,7 @@ NORWEGIAN SCHOOL OF ECONOMICS, 2024
 58. Finardi P, Avila L, Castaldoni R, Gengo P, Larcher C, Piau M, Costa
 P, Carid´a V . The chronicles of rag: The retriever, the chunk and the
 generator. arXiv preprint arXiv:2401.07883, 2024
-59. Muennigho ff N, Tazi N, Magne L, Reimers N. Mteb: Massive text
+59. Muennigho ffN, Tazi N, Magne L, Reimers N. Mteb: Massive text
 embedding benchmark. arXiv preprint arXiv:2210.07316, 2022
 60. Enevoldsen K, Chung I, Kerboua I, Kardos M, Mathur A, Stap D,
 Gala J, Siblini W, Krzemi ´nski D, Winata G I, others . Mmteb:

@@ -96,7 +96,7 @@ Semi-structured 30-minute conversations with interviewers
 J.Sun et al.: Preprint submitted to Elsevier Page 1 of 13
 arXiv:2304.05292v4 [cs.CV] 5 Jan 2024
 MC-ViViT: Multi-branch Classifier-ViViT to Detect Mild Cognitive Impairment in Older Adults Using Facial Videos
-Figure 1:The structure of the proposed MC-ViViT. D is the model depth. It represents the layer number of MC-ViViT, which is
+Figure 1: The structure of the proposed MC-ViViT. D is the model depth. It represents the layer number of MC-ViViT, which is
 the total number of Spatial Transformers and Temporal Transformers. Layer Norm is Layer Normalization.
 MC-ViViT takes tubelet embedding to divide the video clips into cubes and loads these cubes into Transformer Encoder
 sequentially. Then, Transformer Encoder takes Factorised Encoder to extract spatio-temporal features. Finally, the output
@@ -305,7 +305,7 @@ poral Encoding layer from TimeConvNets (Hou Lee &
 Wong, 2020) and Temporal Shift Module (TSM) from
 TimeSformer (Mohan & Popa, 2021) and ViViT-B/16×2
 FE (Arnab et al., 2021) (A ViT-Base backbone with a tubelet
-size of ℎ ×𝑤 ×𝑡 = 16 × 16 × 2, FE represents factor-
+size of ℎ × 𝑤 × 𝑡 = 16 × 16 × 2 , FE represents factor-
 ized encoder). Other works utilized spatial-only attention
 and temporal-only attention consecutively to extract spatio-
 temporal features in one branch (Mohan & Popa, 2021;
@@ -370,7 +370,7 @@ lized Soft Hard Example Mining (SHEM) to re-balance
 the error density distribution. To achieve intra-class bal-
 ancing, they assigned instance-wise sampling probabilities
 according to the prediction of the current ensemble model
-𝐹𝑡−1(⋅)(Liu et al., 2021c). Other works focus on upgrading
+𝐹𝑡−1(⋅) (Liu et al., 2021c). Other works focus on upgrading
 loss function. They proposed Discriminant Distribution-
 Agnostic loss (DDA loss) (Farzaneh & Qi, 2020), Weighted
 Center Loss (WCL) (Ngo & Yoon, 2020), Deep Attentive
@@ -431,17 +431,17 @@ model computes the prediction score of each class using
 multi-branch classifiers. The rest of this section explains the
 model components in detail.
 3.1. Tubelet Embedding Review
-Figure 2:The structure of Tubelet Embedding.
+Figure 2: The structure of Tubelet Embedding.
 Following the pattern of ViViT (Arnab et al., 2021), the
 cubic patch is non-overlapping too. Suppose that the tensor
-shape of one video clip is [𝑇,𝐻,𝑊, 3], where 𝑇 is the
+shape of one video clip is [𝑇 , 𝐻, 𝑊 , 3], where 𝑇 is the
 frame numbers, 𝐻 and 𝑊 are the height and the width of
-each frame, and 3represents the RGB channels. Then, the
-tensor size of each cubic patch is [𝑡,ℎ,𝑤, 3]. 𝑡, ℎ, and 𝑤are
+each frame, and 3 represents the RGB channels. Then, the
+tensor size of each cubic patch is [𝑡, ℎ, 𝑤, 3]. 𝑡, ℎ, and 𝑤 are
 the size of the corresponding temporal, height, and width
-dimensions. 𝑛𝑡 =⌊𝑇
-𝑡 ⌋2, 𝑛ℎ =⌊𝐻
-ℎ ⌋, and 𝑛𝑤 =⌊𝑊
+dimensions. 𝑛𝑡 = ⌊ 𝑇
+𝑡 ⌋2, 𝑛ℎ = ⌊ 𝐻
+ℎ ⌋, and 𝑛𝑤 = ⌊ 𝑊
 𝑤 ⌋ denote
 the token number of respective temporal, height, and width
 dimensions. The Tubelet Embedding changes the input unit
@@ -458,10 +458,10 @@ Transformer Encoder takes the combined positional and
 embedded cubic tokens as input, and it contains the Self-
 Attention module followed by the FeedForward module.
 Eq. (1) presents the details of the input tokens.
-𝐳 =[𝑧𝑐𝑙𝑠,𝐄𝑥1,𝐄𝑥2,⋯,𝐄𝑥𝑛ℎ𝑛𝑤𝑛𝑡]+ 𝐩, (1)
-where 𝑧𝑐𝑙𝑠 is a learnable class token, [𝑥1,𝑥2,⋯,𝑥𝑛𝑡𝑛ℎ𝑛𝑤]
+𝐳 = [𝑧𝑐𝑙𝑠 , 𝐄𝑥1, 𝐄𝑥2, ⋯ , 𝐄𝑥𝑛ℎ𝑛𝑤𝑛𝑡] + 𝐩, (1)
+where 𝑧𝑐𝑙𝑠 is a learnable class token, [𝑥1, 𝑥2, ⋯ , 𝑥𝑛𝑡𝑛ℎ𝑛𝑤 ]
 is the tensor of cubic patches, 𝑥𝑖 ∈ ℝℎ×𝑤×𝑡 𝑛ℎ𝑛𝑤𝑛𝑡 is the
-number of cubic patches.𝐸is the linear projection to embed
+number of cubic patches.𝐸 is the linear projection to embed
 cubic patches. In addition, 𝐩 ∈ ℝ(𝑛ℎ𝑛𝑤𝑛𝑡+1)×𝑑 represents a
 learnable positional embedding. 𝑑 is the dimension of the
 embedded token.
@@ -490,25 +490,25 @@ and 𝑛𝑡𝑝 times, respectively. FF processes the output of FE
 and returns the Sequence-Level Spatio-Temporal feature.
 The above explanation can be summarized as Eqs. 2-5.
 𝐲𝑙
-𝑠 =𝐿𝑙
+𝑠 = 𝐿𝑙
 𝑠𝑛𝑠𝑝
-(⋯𝐿𝑙
+(⋯ 𝐿𝑙
 𝑠1
-(𝐿𝑁(𝐳𝑙))⋯) (2)
+(𝐿𝑁(𝐳𝑙)) ⋯) (2)
 𝐲𝑙
-𝑡 =𝐿𝑙
+𝑡 = 𝐿𝑙
 𝑡𝑛𝑡𝑝
-(⋯𝐿𝑙
+(⋯ 𝐿𝑙
 𝑡1
 (𝐲𝑙
-𝑠)⋯) (3)
+𝑠) ⋯) (3)
 𝐲𝑙
-𝐹𝐸 =𝐲𝑙
-𝑡 +𝐳𝑙 (4)
+𝐹 𝐸 = 𝐲𝑙
+𝑡 + 𝐳𝑙 (4)
 𝐲𝑙
-𝐹𝐹 =𝑀𝐿𝑃(𝐿𝑁(𝐲𝑙
-𝐹𝐸))+ 𝐲𝑙
-𝐹𝐸 (5)
+𝐹 𝐹 = 𝑀𝐿𝑃 (𝐿𝑁(𝐲𝑙
+𝐹 𝐸)) + 𝐲𝑙
+𝐹 𝐸 (5)
 3.3. Multi-branch Classifier (MC)
 Inspired by Inception Module (Szegedy et al., 2015)
 and multi-models (Zhang et al., 2019; Lee et al., 2019; Liu
@@ -518,7 +518,7 @@ representation as well. Different from Inception Module
 and multi-models, MC only does linear projection at each
 branch instead of convolutional operation or the neural
 network. In detail, MC consists of four FC layers. The
-dimension change is 64→ 16→ [8,8,8,8]→ concatenate
+dimension change is 64 → 16 → [8, 8, 8, 8] → concatenate
 to 32 → 𝑛𝑢𝑚_𝑐𝑙𝑎𝑠𝑠, where 𝑛𝑢𝑚_𝑐𝑙𝑎𝑠𝑠 represents the
 number of class. In our experiment, 𝑛𝑢𝑚_𝑐𝑙𝑎𝑠𝑠 is 2. When
 we convert the dimension from 16 to 32, Fig. 4 shows that
@@ -526,7 +526,7 @@ we apply a multi-branch structure to convert the dimension
 to 8 and repeat 4 times. Then, we concatenate them as a
 32-dimensional tensor. With this structure, MC can provide
 more features and view the object from different angles.
-Figure 4:The structure of MC. ⊕represents concatenation.
+Figure 4: The structure of MC. ⊕ represents concatenation.
 3.4. Loss function for Hard-Easy and
 Positive-Negative Samples (HP Loss)
 HP Loss has two components, Focal Loss (Lin et al.,
@@ -537,19 +537,19 @@ of AD-CORRE Loss.
 Focal Loss addresses the imbalance aspect of Hard-Easy
 samples by generating the weight based on sample numbers.
 It derives from𝛼-balanced Cross Entropy loss. Then, adding
-a modulating factor (1 −𝑝𝑚𝑐𝑖)𝛾 defined in Eq. (7) to the
-cross entropy loss, with tunable focusing parameter 𝛾 >0,
+a modulating factor (1 − 𝑝𝑚𝑐𝑖)𝛾 defined in Eq. (7) to the
+cross entropy loss, with tunable focusing parameter 𝛾 > 0,
 makes the final Focal Loss. The above can be summarized
 as Eq. (6).
-𝐹𝐿(𝑝𝑚𝑐𝑖)=− 𝛼𝑚𝑐𝑖(1− 𝑝𝑚𝑐𝑖)𝛾𝑙𝑜𝑔(𝑝𝑚𝑐𝑖) (6)
-where 𝛼is a weighting factor. 𝛼 ∈[0,1]for class MCI and
-1− 𝛼 for class NC. 𝑝𝑚𝑐𝑖 represents the probability of the
+𝐹 𝐿(𝑝𝑚𝑐𝑖) = − 𝛼𝑚𝑐𝑖(1 − 𝑝𝑚𝑐𝑖)𝛾 𝑙𝑜𝑔(𝑝𝑚𝑐𝑖) (6)
+where 𝛼 is a weighting factor. 𝛼 ∈ [0 , 1] for class MCI and
+1 − 𝛼 for class NC. 𝑝𝑚𝑐𝑖 represents the probability of the
 frame sequence attributing to MCI.
 𝑝𝑚𝑐𝑖 =
 {
-𝑝 𝑖𝑓 𝑦 =𝑀𝐶𝐼
-1− 𝑝 𝑜𝑡ℎ𝑒𝑟𝑤𝑖𝑠𝑒 (7)
-where 𝑝is the model's predict score,𝑦is the predicted label.
+𝑝 𝑖𝑓 𝑦 = 𝑀𝐶𝐼
+1 − 𝑝 𝑜𝑡ℎ𝑒𝑟𝑤𝑖𝑠𝑒 (7)
+where 𝑝 is the model's predict score,𝑦 is the predicted label.
 3.4.2. AD-CORRE(FD) Review
 AD-CORRE(FD) focuses on the correlation between
 the samples within a mini-batch. This prevents the im-
@@ -560,7 +560,7 @@ AD-CORRE(FD), Variance Eraser (Beta Matrix 𝛽𝑛×𝑛), At-
 tention Map Matrix ( Ω𝑛×𝑛), Harmony Matrix ( Φ𝑛×𝑛), and
 Correlation Matrix (CORM). In short, AD-CORRE(FD) is
 a weighted mean absolute error and is shown in Eq. (8).
-𝐹𝐷 = 1
+𝐹 𝐷 = 1
 𝑘𝑛2
 𝑘∑
 𝑙=0
@@ -568,11 +568,11 @@ a weighted mean absolute error and is shown in Eq. (8).
 𝑖=0
 𝑛∑
 𝑗=0
-𝛽[𝑖,𝑗]Ω[𝑖,𝑗]
-|Φ[𝑖,𝑗]− 𝐶𝑂𝑅𝑀𝑙[𝑖,𝑗]|,
+𝛽[𝑖, 𝑗]Ω[𝑖, 𝑗]
+|Φ[𝑖, 𝑗] − 𝐶𝑂𝑅𝑀 𝑙[𝑖, 𝑗]|,
 (8)
-where 𝑘is the class number, 𝑛is the size of mini-batch. The
-difference between Φ𝑛×𝑛 and CORM𝑛×𝑛 is the core of the
+where 𝑘 is the class number, 𝑛 is the size of mini-batch. The
+difference between Φ𝑛×𝑛 and CORM 𝑛×𝑛 is the core of the
 AD-CORRE(FD) loss.
 In general, AD-CORRE(FD) focuses on the correlation
 between samples within the mini-batch. This prevents the
@@ -619,8 +619,8 @@ Frame Number 691872 859872 770656 797968
 3.4.3. Combine Two Loss Functions
 Finally, Eq. (9) shows the HP Loss is the sum of Focal
 Loss and AD-CORRE (FD). We follow the pattern of AD-
-CORRE Loss and set 𝜆as 0.5as well.
-𝐻𝑃 𝐿𝑜𝑠𝑠=𝐹𝐿(𝑝𝑚𝑐𝑖)+𝜆∗𝐴𝐷−𝐶𝑂𝑅𝑅𝐸(𝐹𝐷) (9)
+CORRE Loss and set 𝜆 as 0.5 as well.
+𝐻𝑃 𝐿𝑜𝑠𝑠 = 𝐹 𝐿(𝑝𝑚𝑐𝑖) + 𝜆 ∗ 𝐴𝐷 − 𝐶𝑂𝑅𝑅𝐸 (𝐹 𝐷) (9)
 4. Experiments
 In this section, we first introduce the I-CONECT dataset,
 evaluation metrics, and implementation details. Then, we
@@ -661,7 +661,7 @@ features via a dynamic approach.
 4.2. Data Processing
 (a)
 (b)
-Figure 5:Two sample frames from the video dataset. In (a),
+Figure 5: Two sample frames from the video dataset. In (a),
 the window of the interviewee is bigger than that of the inter-
 viewer because the interviewer was speaking. Conversely, in
 (b), the interviewer was talking so that her window is bigger
@@ -690,9 +690,9 @@ themes that are studied in this paper may have videos from
 videos thoroughly and predicting better, we select K-fold
 Cross Validation and use Eq. (10) to calculate 𝐾 for each
 theme.
-𝐾 =⌊𝑁𝑉𝑖𝑑𝑒𝑜 ∕𝐿𝐹𝑜𝑙𝑑⌋ (10)
-where 𝑁𝑉𝑖𝑑𝑒𝑜 and 𝐿𝐹𝑜𝑙𝑑 are the video number of the
-selected theme and that of each fold. We set 𝐿𝐹𝑜𝑙𝑑 = 3in
+𝐾 = ⌊𝑁𝑉 𝑖𝑑𝑒𝑜 ∕𝐿𝐹 𝑜𝑙𝑑⌋ (10)
+where 𝑁𝑉 𝑖𝑑𝑒𝑜 and 𝐿𝐹 𝑜𝑙𝑑 are the video number of the
+selected theme and that of each fold. We set 𝐿𝐹 𝑜𝑙𝑑 = 3 in
 our study. Moreover, videos in each fold belong to different
 participants.
 K-fold Cross Validation sets one fold as the test set
@@ -759,7 +759,7 @@ which contains the random horizontal and vertical flip,
 random rotation, and center crop. All frames within one
 set do exactly same augmentation. The batch size is 80.
 Following the pattern of (Hou Lee & Wong, 2020; Liu et al.,
-2021a; Mohan & Popa, 2021; Kim et al., 2022),𝐿is 16. The
+2021a; Mohan & Popa, 2021; Kim et al., 2022),𝐿 is 16. The
 initialized learning rate is 1e-6. We used Adam optimizer
 and Cyclic scheduler with the mode of triangular2. The loss
 function is HP loss. The epoch number is 30. We coded the
@@ -771,7 +771,7 @@ we designed three experiments (See Sections 4.5 - 4.7).
 This experiment is to test the capability of MC-ViViT
 on predicting MCI in each theme. The inputs are all the
 corresponding videos.
-3𝐿and 𝑇 from Section 3.1 are identical.
+3𝐿 and 𝑇 from Section 3.1 are identical.
 Table 3
 The prediction accuracy of cross-theme fashion. Three
 themes are used for training a model and the left theme is
@@ -846,7 +846,7 @@ MC-ViViT: Multi-branch Classifier-ViViT to Detect Mild Cognitive Impairment in O
 (d)
 Figure 6: (a): The prediction accuracy of MC-ViViT on four themes. The blue line represents the result of Section 4.5.
 Experiment: K-fold Validation, while the yellow one is that of Section 4.6. Experiment: cross themes evaluation. (b): The
-visualization of tuning temporal dimension 𝑡. 𝑡=4, MC-ViViT performs the best. (c): The visualization of tuning classifier MC.
+visualization of tuning temporal dimension 𝑡. 𝑡 = 4, MC-ViViT performs the best. (c): The visualization of tuning classifier MC.
 With MC, the model performs better. (d): The visualization of tuning loss function. With HP Loss, MC-ViViT performs better.
 Table 4
 The prediction accuracy on 4 themes with different t size.
@@ -875,16 +875,16 @@ fore, Specificity in this experiment is lower than Section 4.5.
 This section discusses the effect of temporal dimension
 𝑡, MC, and HP Loss on the performance of MC-ViViT
 (Sections 4.7.1-4.7.3).
-4.7.1. Study the most proper temporal dimension𝑡
-In MC-ViViT, the frame number, 𝑇, is 16, which can
-be divided by [1,2,4,8,16]. To keep Tubelet Embedding
+4.7.1. Study the most proper temporal dimension 𝑡
+In MC-ViViT, the frame number, 𝑇 , is 16, which can
+be divided by [1, 2, 4, 8, 16]. To keep Tubelet Embedding
 and reduce the burden of computation, we set the temporal
-dimension 𝑡as [2,4,8]alternatively to study the best value
+dimension 𝑡 as [2, 4, 8] alternatively to study the best value
 for this research.
 Table 4 and Fig. 6b show that setting 𝑡 = 4 gives
 the best performance under the current configuration on
-four themes. When 𝑡 = 2, the tubelet lacks adequate
-temporal features for making good predictions. When𝑡=8,
+four themes. When 𝑡 = 2 , the tubelet lacks adequate
+temporal features for making good predictions. When𝑡 = 8,
 the tubelet, as a long sequence or long memory, includes
 many useful temporal representations for sure. But it also
 requires tubelet embedding to have a larger fixed dimension
@@ -892,8 +892,8 @@ length. However, increasing this fixed length will boost
 the model's total parameters, which makes the MC-ViViT
 computationally expensive.
 In addition, other Transformer-based models also set
-𝑡 = 4while analyzing facial videos such as MTV (Yan
-et al., 2022) and MSVT (Yu et al., 2023). Using 𝑡=4 helps
+𝑡 = 4 while analyzing facial videos such as MTV (Yan
+et al., 2022) and MSVT (Yu et al., 2023). Using 𝑡 = 4 helps
 Transformer-based models capture local-consecutive incon-
 sistency efficiently and reach sufficient performance (Yu
 Table 5
@@ -928,7 +928,7 @@ Focal Loss 68.75% 68.29% 68.57% 66.67%
 AD-CORRE(FD) 53.13% 60.98% 60.00% 56.41%
 et al., 2023). It is also to get the best trade-off between
 performance and efficiency (Yan et al., 2022). Thereby, we
-choose 𝑡=4.
+choose 𝑡 = 4.
 4.7.2. Study the effect of MC
 This study is to evaluate the effect of MC structure.
 In the experiment, we dropped the multi-branch structure
@@ -1019,9 +1019,9 @@ Figure 7: The extracted spatio-temporal feature maps on
 16 consecutive frames from two subjects. MC-ViViT focuses
 more on the bright areas and pays less attention on the
 dark ones. Given that there are 𝑛𝑡 tubelets, where 𝑛𝑡 =
-⌊𝑇
-𝑡 ⌋ = ⌊16
-4 ⌋ = 4, there are four feature maps. To simplify
+⌊ 𝑇
+𝑡 ⌋ = ⌊ 16
+4 ⌋ = 4 , there are four feature maps. To simplify
 the visualization, we pick the first frame of each tubelet to
 represent it.
 In general, there are two key findings. The first one is
@@ -1216,7 +1216,7 @@ conference on computer vision (pp. 2980-2988).
 Ling, X., Liang, J., Wang, D., & Yang, J. (2021). A facial expres-
 sion recognition system for smart learning based on yolo and vision
 transformer. In 2021 7th International Conference on Computing and
-Artificial Intelligence ICCAI 2021 (pp. 178-182). New York, NY , USA:
+Artificial IntelligenceICCAI 2021 (pp. 178-182). New York, NY , USA:
 Association for Computing Machinery.
 Liu, D., Zhang, H., & Zhou, P. (2021a). Video-based facial expression
 recognition using graph convolutional networks. In 2020 25th Interna-
@@ -1282,7 +1282,7 @@ inspired by activity recognition models. In 2021 9th International Con-
 ference on Affective Computing and Intelligent Interaction Workshops
 and Demos (ACIIW) (pp. 01-08).
 Nam, U., Lee, K., Ko, H., Lee, J.-Y ., & Lee, E. C. (2020). Analyzing facial
-and eye movements to screen for alzheimer's disease. Sensors, 20.
+and eye movements to screen for alzheimer's disease.Sensors, 20.
 National_Institute_on_Aging (2021). What is mild cognitive impairment?
 Naz, S., Ashraf, A., & Zaib, A. (2022). Transfer learning using freeze fea-
 tures for alzheimer neurological disorder detection using adni dataset.

@@ -1,8 +1,8 @@
 Published as a conference paper at ICLR 2020
 BERTS CORE : E VALUATING TEXT GENERATION WITH
 BERT
-Tianyi Zhang∗†‡⋄, Varsha Kishore∗‡, Felix Wu∗‡, Kilian Q. Weinberger†‡⋄, and Yoav Artzi‡§
-‡Department of Computer Science and §Cornell Tech, Cornell University
+Tianyi Zhang∗†‡⋄, Varsha Kishore∗‡, Felix Wu∗‡, Kilian Q. Weinberger†‡⋄, and Y oav Artzi‡§
+‡Department of Computer Science and§Cornell Tech, Cornell University
 {vk352, fw245, kilian}@cornell.edu {yoav}@cs.cornell.edu
 ⋄ASAPP Inc.
 tzhang@asapp.com
@@ -28,15 +28,15 @@ trained BERT contextual embeddings (Devlin et al., 2019). BERTS CORE computes th
 of two sentences as a sum of cosine similarities between their tokens' embeddings.
 BERTS CORE addresses two common pitfalls in n-gram-based metrics (Banerjee & Lavie, 2005).
 First, such methods often fail to robustly match paraphrases. For example, given the reference peo-
-ple like foreign cars, BLEU and METEOR (Banerjee & Lavie, 2005) incorrectly give a higher score
-to people like visiting places abroadcompared to consumers prefer imported cars. This leads to
+ple like foreign cars , BLEU and METEOR (Banerjee & Lavie, 2005) incorrectly give a higher score
+to people like visiting places abroad compared to consumers prefer imported cars . This leads to
 performance underestimation when semantically-correct phrases are penalized because they differ
-from the surface form of the reference. In contrast to string matching (e.g., in B LEU ) or matching
+from the surface form of the reference. In contrast to string matching (e.g., in B LEU) or matching
 heuristics (e.g., in METEOR ), we compute similarity using contextualized token embeddings, which
 have been shown to be effective for paraphrase detection (Devlin et al., 2019). Second,n-gram mod-
 els fail to capture distant dependencies and penalize semantically-critical ordering changes (Isozaki
 et al., 2010). For example, given a small window of size two, B LEU will only mildly penalize
-swapping of cause and effect clauses (e.g. A because Binstead of B because A), especially when
+swapping of cause and effect clauses (e.g. A because B instead of B because A ), especially when
 the arguments A and B are long phrases. In contrast, contextualized embeddings are trained to
 effectively capture distant dependencies and ordering.
 We experiment with BERTS CORE on machine translation and image captioning tasks using the
@@ -44,10 +44,10 @@ outputs of 363 systems by correlating BERTS CORE and related metrics to availabl
 ments. Our experiments demonstrate that BERTS CORE correlates highly with human evaluations.
 In machine translation, BERTS CORE shows stronger system-level and segment-level correlations
 with human judgments than existing metrics on multiple common benchmarks and demonstrates
-∗Equal contribution. †Work done at Cornell.
+∗Equal contribution.† Work done at Cornell.
 arXiv:1904.09675v3 [cs.CL] 24 Feb 2020
 Published as a conference paper at ICLR 2020
-strong model selection performance compared to B LEU . We also show that BERTS CORE is
+strong model selection performance compared to B LEU. We also show that BERTS CORE is
 well-correlated with human annotators for image captioning, surpassing S PICE , a popular task-
 speciﬁc metric (Anderson et al., 2016). Finally, we test the robustness of BERTS CORE on
 the adversarial paraphrase dataset PAWS (Zhang et al., 2019), and show that it is more ro-
@@ -55,17 +55,17 @@ bust to adversarial examples than other metrics. The code for BERTS CORE is avai
 https://github.com/Tiiiger/bert_score.
 2 P ROBLEM STATEMENT AND PRIOR METRICS
 Natural language text generation is commonly evaluated using annotated reference sentences. Given
-a reference sentence xtokenized to k tokens ⟨x1,...,x k⟩and a candidate ˆxtokenized to ltokens
-⟨ˆx1,..., ˆxl⟩, a generation evaluation metric is a function f(x,ˆx) ∈R. Better metrics have a higher
+a reference sentence x tokenized to k tokens⟨x1,...,x k⟩ and a candidate ˆx tokenized to l tokens
+⟨ˆx1,..., ˆxl⟩, a generation evaluation metric is a functionf(x, ˆx)∈ R. Better metrics have a higher
 correlation with human judgments. Existing metrics can be broadly categorized into using n-gram
 matching, edit distance, embedding matching, or learned functions.
 2.1 n-GRAM MATCHING APPROACHES
 The most commonly used metrics for generation count the number of n-grams that occur in the
-reference xand candidate ˆx. The higher the nis, the more the metric is able to capture word order,
+referencex and candidate ˆx. The higher the n is, the more the metric is able to capture word order,
 but it also becomes more restrictive and constrained to the exact form of the reference.
-Formally, let Sn
-x and Sn
-ˆx be the lists of token n-grams (n ∈Z+) in the reference xand candidate
+Formally, letSn
+x andSn
+ˆx be the lists of token n-grams (n∈ Z+) in the reference x and candidate
 ˆx sentences. The number of matched n-grams is ∑
 w∈Sn
 ˆx
@@ -79,20 +79,20 @@ w∈Sn
 I[w∈Sn
 x ]
 |Sn
-ˆx | and Exact-R n =
+ˆx| and Exact-R n =
 ∑
 w∈Snx
 I[w∈Sn
 ˆx ]
-|Snx | .
+|Snx| .
 Several popular metrics build upon one or both of these exact matching scores.
 BLEU The most widely used metric in machine translation is BLEU (Papineni et al., 2002), which
 includes three modiﬁcations to Exact-P n. First, each n-gram in the reference can be matched at
 most once. Second, the number of exact matches is accumulated for all reference-candidate pairs in
 the corpus and divided by the total number ofn-grams in all candidate sentences. Finally, very short
 candidates are discouraged using a brevity penalty. Typically, BLEU is computed for multiple values
-of n (e.g. n = 1 ,2,3,4) and the scores are averaged geometrically. A smoothed variant, S ENT-
-BLEU (Koehn et al., 2007) is computed at the sentence level. In contrast to B LEU , BERTS CORE is
+of n (e.g. n = 1, 2, 3, 4) and the scores are averaged geometrically. A smoothed variant, S ENT-
+BLEU (Koehn et al., 2007) is computed at the sentence level. In contrast to B LEU, BERTS CORE is
 not restricted to maximum n-gram length, but instead relies on contextualized embeddings that are
 able to capture dependencies of potentially unbounded length.
 METEOR METEOR (Banerjee & Lavie, 2005) computes Exact-P 1 and Exact-R1 while allowing
@@ -111,11 +111,11 @@ n-gram differently and uses an alternative brevity penalty. ∆BLEU (Galley et a
 multi-reference BLEU by including human annotated negative reference sentences. CHR F (Popovi´c,
 2015) compares character n-grams in the reference and candidate sentences. CHR F++ (Popovi ´c,
 2017) extends CHR F to include word bigram matching. R OUGE (Lin, 2004) is a commonly used
-metric for summarization evaluation. ROUGE -n(Lin, 2004) computes Exact-Rn (usually n= 1,2),
-while ROUGE -Lis a variant of Exact-R 1 with the numerator replaced by the length of the longest
+metric for summarization evaluation. ROUGE -n (Lin, 2004) computes Exact-Rn (usuallyn = 1, 2),
+while ROUGE -L is a variant of Exact-R 1 with the numerator replaced by the length of the longest
 common subsequence. CIDE R (Vedantam et al., 2015) is an image captioning metric that computes
 Published as a conference paper at ICLR 2020
-cosine similarity between tf-idf weighted n-grams. We adopt a similar approach to weigh tokens
+cosine similarity between tf-idf weightedn-grams. We adopt a similar approach to weigh tokens
 differently. Finally, Chaganty et al. (2018) and Hashimoto et al. (2019) combine automatic metrics
 with human judgments for text generation evaluation.
 2.2 E DIT-DISTANCE -BASED METRICS
@@ -124,7 +124,7 @@ similarity using the number of edit operations required to get from the candidat
 ence. TER (Snover et al., 2006) normalizes edit distance by the number of reference words, and
 ITER (Panja & Naskar, 2018) adds stem matching and better normalization. PER (Tillmann et al.,
 1997) computes position independent error rate, CDER (Leusch et al., 2006) models block reorder-
-ing as an edit operation. CHARAC TER (Wang et al., 2016) and EED (Stanchev et al., 2019) operate
+ing as an edit operation. C HARAC TER (Wang et al., 2016) and EED (Stanchev et al., 2019) operate
 on the character level and achieve higher correlation with human judgements on some languages.
 2.3 E MBEDDING -BASED METRICS
 Word embeddings (Mikolov et al., 2013; Pennington et al., 2014; Grave et al., 2018; Nguyen et al.,
@@ -152,7 +152,7 @@ neural model to predict if the input text is human-generated. This approach also
 optimized to existing data and generalizing poorly to new data. In contrast, the model underlying
 BERTS CORE is not optimized for any speciﬁc evaluation task.
 3 BERTS CORE
-Given a reference sentence x = ⟨x1,...,x k⟩and a candidate sentence ˆx = ⟨ˆx1,..., ˆxl⟩, we use
+Given a reference sentence x =⟨x1,...,x k⟩ and a candidate sentence ˆx =⟨ˆx1,..., ˆxl⟩, we use
 contextual embeddings to represent the tokens, and compute matching using cosine similarity, op-
 tionally weighted with inverse document frequency scores. Figure 1 illustrates the computation.
 Token Representation We use contextual embeddings to represent the tokens in the input sen-
@@ -175,8 +175,8 @@ Embedding
 Pairwise Cosine
 Similarity
 R BERT =
-(0 . 713 ⇥ 1 . 27)+(0 . 515 ⇥ 7 . 94)+ ...
-1 . 27+7 . 94+1 . 82+7 . 90+8 . 88
+(0 .713 ⇥ 1.27)+(0 .515 ⇥ 7.94)+ ...
+1.27+7 .94+1 .82+7 .90+8 .88
 <latexit sha1_base64="OJyoKlmBAgUA0KDtUcsH/di5BlI=">AAACSHicbZDLattAFIaPnLRJ3JvTLrsZYgoJAqFxGqwsCqal0FVJQ5wELCNG41EyZHRh5ijECL1EnqAv002X2eUZsumipXRR6Mj2Ipf+MPDznXM4Z/64UNKg7187raXlR49XVtfaT54+e/6is/7y0OSl5mLIc5Xr45gZoWQmhihRieNCC5bGShzFZx+a+tG50Ebm2QFOCzFO2UkmE8kZWhR1ov2oClFcYPX+4/5BXZN3JEw049Wm7/XpdogyFYZQr9ffci3aoTsL1Pd23265oZrkaOqqaXAb5FIv6DXOdwMvCOqo0/U9fyby0NCF6Q52/15+BYC9qHMVTnJepiJDrpgxI+oXOK6YRsmVqNthaUTB+Bk7ESNrM2aPGVezIGryxpIJSXJtX4ZkRm9PVCw1ZprGtjNleGru1xr4v9qoxCQYVzIrShQZny9KSkUwJ02qZCK14Kim1jCupb2V8FNmc0SbfduGQO9/+aE57HnU9+gX2h18hrlW4TVswCZQ6MMAPsEeDIHDN7iBn/DL+e78cH47f+atLWcx8wruqNX6B8dUrVw=</latexit><latexit sha1_base64="RInTcZkWiVBnf/ncBstCvatCtG4=">AAACSHicbZDPShxBEMZ7Nproxugaj14al4AyMEyvyoyHwGIQPImKq8LOMvT09mhjzx+6a0KWYV4iL5EnySXH3HwGLx4U8SDYs7sHo/mg4eNXVVT1F+VSaHDda6vxbmb2/Ye5+ebHhU+LS63lz6c6KxTjPZbJTJ1HVHMpUt4DAZKf54rTJJL8LLr6VtfPvnOlRZaewCjng4RepCIWjIJBYSs8DssA+A8od/eOT6oKf8VBrCgr113HI5sBiIRrTJyOt2EbtE22p8hzdrY27EAOM9BVWTfYNbKJ43dq59q+4/tV2Gq7jjsWfmvI1LS7O08/f3nLi4dh628wzFiR8BSYpFr3iZvDoKQKBJO8agaF5jllV/SC941NqTlmUI6DqPAXQ4Y4zpR5KeAxfTlR0kTrURKZzoTCpX5dq+H/av0CYn9QijQvgKdssiguJIYM16nioVCcgRwZQ5kS5lbMLqnJEUz2TRMCef3lt+a04xDXIUek3T1AE82hVbSG1hFBHuqifXSIeoih3+gG3aF76491az1Yj5PWhjWdWUH/qNF4BkPYrbk=</latexit><latexit sha1_base64="RInTcZkWiVBnf/ncBstCvatCtG4=">AAACSHicbZDPShxBEMZ7Nproxugaj14al4AyMEyvyoyHwGIQPImKq8LOMvT09mhjzx+6a0KWYV4iL5EnySXH3HwGLx4U8SDYs7sHo/mg4eNXVVT1F+VSaHDda6vxbmb2/Ye5+ebHhU+LS63lz6c6KxTjPZbJTJ1HVHMpUt4DAZKf54rTJJL8LLr6VtfPvnOlRZaewCjng4RepCIWjIJBYSs8DssA+A8od/eOT6oKf8VBrCgr113HI5sBiIRrTJyOt2EbtE22p8hzdrY27EAOM9BVWTfYNbKJ43dq59q+4/tV2Gq7jjsWfmvI1LS7O08/f3nLi4dh628wzFiR8BSYpFr3iZvDoKQKBJO8agaF5jllV/SC941NqTlmUI6DqPAXQ4Y4zpR5KeAxfTlR0kTrURKZzoTCpX5dq+H/av0CYn9QijQvgKdssiguJIYM16nioVCcgRwZQ5kS5lbMLqnJEUz2TRMCef3lt+a04xDXIUek3T1AE82hVbSG1hFBHuqifXSIeoih3+gG3aF76491az1Yj5PWhjWdWUH/qNF4BkPYrbk=</latexit><latexit sha1_base64="fGWl4NCvlvtMu17rjLtk25oWpdc=">AAACSHicbZBLS+RAFIUrPT7bVzsu3RQ2ghIIqVbpuBgQRZiVqNgqdJpQqa5oYeVB1Y1ME/Lz3Lic3fwGNy6UwZ2VNgtfBwoO372Xe+uEmRQaXPef1fgxMTk1PTPbnJtfWFxqLf8812muGO+xVKbqMqSaS5HwHgiQ/DJTnMah5BfhzUFVv7jlSos0OYNRxgcxvUpEJBgFg4JWcBoUPvA/UOwfnp6VJf6F/UhRVmy4Tpds+SBirjFxOt1N26AdslOjrrO7vWn7cpiCLouqwa6QTRyvUznX9hzPK4NW23XcsfBXQ2rTRrWOg9Zff5iyPOYJMEm17hM3g0FBFQgmedn0c80zym7oFe8bm1BzzKAYB1HidUOGOEqVeQngMX0/UdBY61Ecms6YwrX+XKvgd7V+DpE3KESS5cAT9rYoyiWGFFep4qFQnIEcGUOZEuZWzK6pyRFM9k0TAvn85a/mvOMQ1yEnpL13VMcxg1bRGtpABHXRHvqNjlEPMXSHHtATerburUfrv/Xy1tqw6pkV9EGNxisxMKq0</latexit>
 1.27
 7.94
@@ -198,8 +198,8 @@ candidate ˆx, we compute BERT embeddings and pairwise cosine similarity. We hig
 matching in red, and include the optional idf importance weighting.
 We experiment with different models (Section 4), using the tokenizer provided with each model.
 Given a tokenized reference sentence x = ⟨x1,...,x k⟩, the embedding model generates a se-
-quence of vectors ⟨x1,..., xk⟩. Similarly, the tokenized candidate ˆx = ⟨ˆx1,..., ˆxm⟩is mapped
-to ⟨ˆ x1,..., ˆ xl⟩. The main model we use is BERT, which tokenizes the input text into a sequence
+quence of vectors⟨x1,..., xk⟩. Similarly, the tokenized candidate ˆx =⟨ˆx1,..., ˆxm⟩ is mapped
+to⟨ˆ x1,..., ˆ xl⟩. The main model we use is BERT, which tokenizes the input text into a sequence
 of word pieces (Wu et al., 2016), where unknown words are split into several commonly observed
 sequences of characters. The representation for each word piece is computed with a Transformer
 encoder (Vaswani et al., 2017) by repeatedly applying self-attention and nonlinear transformations
@@ -232,16 +232,16 @@ i ˆ xj , P BERT = 1
 max
 xi∈x
 x⊤
-i ˆ xj , F BERT = 2 PBERT ·RBERT
-PBERT + RBERT
+i ˆ xj , F BERT = 2 PBERT·RBERT
+PBERT +RBERT
 .
 Importance Weighting Previous work on similarity measures demonstrated that rare words can
 be more indicative for sentence similarity than common words (Banerjee & Lavie, 2005; Vedantam
 et al., 2015). BERTS CORE enables us to easily incorporate importance weighting. We experiment
 with inverse document frequency ( idf) scores computed from the test corpus. Given M reference
-sentences {x(i)}M
-i=1, the idf score of a word-piece token wis
-idf(w) = −log 1
+sentences{x(i)}M
+i=1, the idf score of a word-piece tokenw is
+idf(w) =− log 1
 M
 M∑
 i=1
@@ -261,16 +261,16 @@ Published as a conference paper at ICLR 2020
 Baseline Rescaling Because we use pre-normalized vectors, our computed scores have the same
 numerical range of cosine similarity (between −1 and 1). However, in practice we observe scores
 in a more limited range, potentially because of the learned geometry of contextual embeddings.
-While this characteristic does not impact BERTSCORE 's capability to rank text generation systems,
+While this characteristic does not impact BERTS CORE 's capability to rank text generation systems,
 it makes the actual score less readable. We address this by rescaling BERTS CORE with respect
 to its empirical lower bound b as a baseline. We compute b using Common Crawl monolingual
 datasets.3 For each language and contextual embedding model, we create 1M candidate-reference
 pairs by grouping two random sentences. Because of the random pairing and the corpus diversity,
-each pair has very low lexical and semantic overlapping.4 We computebby averaging BERTSCORE
-computed on these sentence pairs. Equipped with baseline b, we rescale BERTS CORE linearly. For
-example, the rescaled value ˆRBERT of RBERT is:
-ˆRBERT = RBERT −b
-1 −b .
+each pair has very low lexical and semantic overlapping.4 We computeb by averaging BERTSCORE
+computed on these sentence pairs. Equipped with baselineb, we rescale BERTS CORE linearly. For
+example, the rescaled value ˆRBERT ofRBERT is:
+ˆRBERT = RBERT−b
+1−b .
 After this operation ˆRBERT is typically between 0 and 1. We apply the same rescaling procedure
 for PBERT and FBERT . This method does not affect the ranking ability and human correlation of
 BERTS CORE , and is intended solely to increase the score readability.
@@ -291,8 +291,8 @@ references, and two types of human judgment scores. Segment-level human judgment
 to each reference-candidate pair. System-level human judgments associate each system with a single
 score based on all pairs in the test set. WMT18 includes translations from English to Czech, German,
 Estonian, Finnish, Russian, and Turkish, and from the same set of languages to English. We follow
-the WMT18 standard practice and use absolute Pearson correlation |ρ|and Kendall rank correlation
-τto evaluate metric quality, and compute signiﬁcance with the Williams test (Williams, 1959) for|ρ|
+the WMT18 standard practice and use absolute Pearson correlation|ρ| and Kendall rank correlation
+τ to evaluate metric quality, and compute signiﬁcance with the Williams test (Williams, 1959) for|ρ|
 and bootstrap re-sampling for τ as suggested by Graham & Baldwin (2014). We compute system-
 level scores by averaging BERTSCORE for every reference-candidate pair. We also experiment with
 hybrid systems by randomly sampling one candidate sentence from one of the available systems for
@@ -395,31 +395,31 @@ performance. However, RUSE is a supervised method trained on WMT16 and WMT15 hum
 judgment data. In cases where RUSE models were not made available, such as for our from-English
 experiments, it is not possible to use RUSE without additional data and training. Table 4 shows
 segment-level correlations. We see that BERTS CORE exhibits signiﬁcantly higher performance
-compared to the other metrics. The large improvement over BLEU stands out, making BERTSCORE
+compared to the other metrics. The large improvement over BLEU stands out, making BERTS CORE
 particularly suitable to analyze speciﬁc examples, where SENT BLEU is less reliable. In Appendix A,
 we provide qualitative examples to illustrate the segment-level performance difference between
 SENT BLEU and BERTS CORE . At the segment-level, BERTS CORE even signiﬁcantly outperforms
-RUSE. Overall, we ﬁnd that applying importance weighting using idf at times provides small bene-
+RUSE. Overall, we ﬁnd that applying importance weighting usingidf at times provides small bene-
 ﬁt, but in other cases does not help. Understanding better when such importance weighting is likely
 to help is an important direction for future work, and likely depends on the domain of the text and
 the available test data. We continue without idf weighting for the rest of our experiments. While
-recall RBERT , precision PBERT , and F1 FBERT alternate as the best measure in different setting, F1
+recallRBERT , precision PBERT , and F1 FBERT alternate as the best measure in different setting, F1
 FBERT performs reliably well across all the different settings. Our overall recommendation is there-
 fore to use F1. We present additional results using the full set of 351 systems and evaluation metrics
 in Tables 12-28 in the appendix, including for experiments withidf importance weighting, different
 contextual embedding models, and model selection.
 Image Captioning Table 5 shows correlation results for the COCO Captioning Challenge.
 BERTS CORE outperforms all task-agnostic baselines by large margins. Image captioning presents a
-challenging evaluation scenario, and metrics based on strict n-gram matching, including BLEU and
+challenging evaluation scenario, and metrics based on strictn-gram matching, including B LEU and
 ROUGE , show weak correlations with human judgments. idf importance weighting shows signiﬁ-
 Published as a conference paper at ICLR 2020
 Metric M1 M2
-BLEU -0.019 ∗ -0.005 ∗
-METEOR 0.606 ∗ 0.594 ∗
-ROUGE -L 0.090 ∗ 0.096 ∗
-CIDE R 0.438 ∗ 0.440 ∗
-SPICE 0.759 ∗ 0.750 ∗
-LEIC 0.939 ∗ 0.949 ∗
+BLEU -0.019∗ -0.005∗
+M ETEOR 0.606∗ 0.594∗
+ROUGE -L 0.090 ∗ 0.096∗
+CIDE R 0.438∗ 0.440∗
+SPICE 0.759∗ 0.750∗
+LEIC 0.939∗ 0.949∗
 BEER 0.491 0.562
 EED 0.545 0.599
 CHR F++ 0.702 0.729
@@ -432,7 +432,7 @@ Table 5: Pearson correlation on the
 2015 COCO Captioning Challenge.
 The M1 and M2 measures are described
 in Section 4. L EIC uses images as addi-
-tional inputs. Numbers with ∗are cited
+tional inputs. Numbers with ∗ are cited
 from Cui et al. (2018). We bold the
 highest correlations of task-speciﬁc and
 task-agnostic metrics.
@@ -467,7 +467,7 @@ Table 6: Area under ROC curve (AUC) on QQP
 and PAWSQQP datasets. The scores of trained De-
 cATT (Parikh et al., 2016), DIIN (Gong et al., 2018),
 and ﬁne-tuned BERT are reported by Zhang et al.
-(2019). Numbers with ∗are scores on the held-out test
+(2019). Numbers with∗ are scores on the held-out test
 set of QQP. We bold the highest correlations of task-
 speciﬁc and task-agnostic metrics.
 cant beneﬁt for this task, suggesting people attribute higher importance to content words. Finally,
@@ -487,7 +487,7 @@ phrase Adversaries from Word Scrambling dataset (PAWS; Zhang et al., 2019). Both
 tain pairs of sentences labeled to indicate whether they are paraphrases or not. Positive examples
 in QQP are real duplicate questions, while negative examples are related, but different questions.
 Sentence pairs in PAWS are generated through word swapping. For example, in PAWS,Flights from
-New York to Floridamay be changed to Flights from Florida to New Yorkand a good classiﬁer
+New York to Florida may be changed to Flights from Florida to New York and a good classiﬁer
 should identify that these two sentences are not paraphrases. PAWS includes two parts: PAWSQQP,
 which is based on the QQP data, and PAWS Wiki. We use the PAWS QQP development set which
 contains 667 sentences. For the automatic metrics, we use no paraphrase detection training data.
@@ -516,10 +516,10 @@ BERTS CORE achieves better correlation than common metrics, and is effective for
 tion. However, there is no one conﬁguration of BERTS CORE that clearly outperforms all others.
 While the differences between the top conﬁgurations are often small, it is important for the user to
 be aware of the different trade-offs, and consider the domain and languages when selecting the exact
-conﬁguration to use. In general, for machine translation evaluation, we suggest using FBERT , which
+conﬁguration to use. In general, for machine translation evaluation, we suggest usingFBERT , which
 we ﬁnd the most reliable. For evaluating text generation in English, we recommend using the 24-
 layer RoBERTalarge model to compute BERTS CORE . For non-English language, the multilingual
-BERTmulti is a suitable choice although BERTS CORE computed with this model has less stable
+BERT multi is a suitable choice although BERTS CORE computed with this model has less stable
 performance on low-resource languages. We report the optimal hyperparameter for all models we
 experimented with in Appendix B
 Brieﬂy following our initial preprint publication, Zhao et al. (2019) published a concurrently devel-
@@ -627,7 +627,7 @@ Tsung-Yi Lin, Michael Maire, Serge J. Belongie, Lubomir D. Bourdev, Ross B. Girs
 Hays, Pietro Perona, Deva Ramanan, Piotr Dollár, and C. Lawrence Zitnick. Microsoft COCO:
 Common objects in context. In ECCV, 2014.
 Nelson F. Liu, Matt Gardner, Yonatan Belinkov, Matthew E. Peters, and Noah A. Smith. Linguistic
-knowledge and transferability of contextual representations. arXiv preprint arXiv:1903.08855,
+knowledge and transferability of contextual representations. arXiv preprint arXiv:1903.08855 ,
 2019a.
 Yang Liu. Fine-tune BERT for extractive summarization. arXiv preprint arXiv:1903.10318, 2019.
 Yinhan Liu, Myle Ott, Naman Goyal, Jingfei Du, Mandar Joshi, Danqi Chen, Omer Levy, Mike
@@ -678,7 +678,7 @@ Yossi Rubner, Carlo Tomasi, and Leonidas J Guibas. A metric for distributions wi
 image databases. In ICCV. IEEE, 1998.
 Vasile Rus and Mihai Lintean. A comparison of greedy and optimal assessment of natural language
 student input using word-to-word similarity metrics. In Proceedings of the Seventh Workshop on
-Building Educational Applications Using NLP. ACL, 2012.
+Building Educational Applications Using NLP . ACL, 2012.
 Published as a conference paper at ICLR 2020
 Andreas Rücklé, Steffen Eger, Maxime Peyrard, and Iryna Gurevych. Concatenated power mean
 word embeddings as universal cross-lingual sentence representations. arXiv, 2018.
@@ -730,12 +730,12 @@ Wei Zhao, Maxime Peyrard, Fei Liu, Yang Gao, Christian M. Meyer, and Steffen Ege
 Text generation evaluating with contextualized embeddings and earth mover distance. InEMNLP,
 2019.
 Published as a conference paper at ICLR 2020
-Case No. Reference and Candidate Pairs Human FBERT BLEU
+Case No. Reference and Candidate Pairs HumanFBERT BLEU
 FBERT>BLEU
 1. x: At the same time Kingﬁsher is closing 60 B&Q outlets across the country 38 125 530ˆx: At the same time, Kingﬁsher will close 60 B & Q stores nationwide
 2. x: Hewlett-Packard to cut up to 30,000 jobs 119 39 441ˆx: Hewlett-Packard will reduce jobs up to 30.000
 3. x: According to opinion in Hungary, Serbia is "a safe third country". 23 96 465ˆx: According to Hungarian view, Serbia is a "safe third country."
-4. x: Experts believe November's Black Friday could be holding back spending.73 147 492ˆx: Experts believe that the Black Friday in November has put the brakes on spending
+4. x: Experts believe November's Black Friday could be holding back spending. 73 147 492ˆx: Experts believe that the Black Friday in November has put the brakes on spending
 5. x: And it's from this perspective that I will watch him die. 37 111 414ˆx: And from this perspective, I will see him die.
 BLEU>FBERT
 6. x: In their view the human dignity of the man had been violated. 500 470 115ˆx: Look at the human dignity of the man injured.
@@ -768,15 +768,15 @@ similar to the ranking assigned by the human score.
 Table 7 ﬁrst shows examples where BERTSCORE and SENT BLEU scores disagree about the ranking
 for a candidate-reference pair by a large number. We observe that BERTS CORE is effectively able
 to capture synonyms and changes in word order. For example, the reference and candidate sentences
-in pair 3 are almost identical except that the candidate replaces opinion in Hungarywith Hungarian
+in pair 3 are almost identical except that the candidate replaces opinion in Hungary with Hungarian
 view and switches the order of the quotation mark ( ") and a. While BERTS CORE ranks the pair
 relatively high, SENT BLEU judges the pair as dissimilar, because it cannot match synonyms and is
 sensitive to the small word order changes. Pair 5 shows a set of changes that preserve the semantic
-meaning: replacing to cutwith will reduceand swapping the order of30,000 and jobs. BERTS CORE
+meaning: replacing to cut with will reduce and swapping the order of30,000 and jobs. BERTS CORE
 ranks the candidate translation similar to the human judgment, whereas S ENT BLEU ranks it much
-lower. We also see that S ENT BLEU potentially over-rewards n-gram overlap, even when phrases
+lower. We also see that S ENT BLEU potentially over-rewardsn-gram overlap, even when phrases
 are used very differently. In pair 6, both the candidate and the reference contain the human dignity
-of the man. Yet the two sentences convey very different meaning. BERTS CORE agrees with the
+of the man . Yet the two sentences convey very different meaning. BERTS CORE agrees with the
 human judgment and ranks the pair low. In contrast, S ENT BLEU considers the pair as relatively
 similar because of the signiﬁcant word overlap.
 Published as a conference paper at ICLR 2020
@@ -786,11 +786,11 @@ The bottom half of Table 7 shows examples where BERTS CORE and human judgments d
 about the ranking. We observe that BERTS CORE ﬁnds it difﬁcult to detect factual errors. For
 example, BERTS CORE assigns high similarity to pair 11 when the translation replaces German
 language with English and pair 12 where the translation incorrectly outputs Tuesday when it is
-supposed to generate Monday. BERTS CORE also fails to identify that 5ft 11inis equivalent with
-1.80 metresin pair 18. As a result, BERTS CORE assigns low similarity to the eighth pair in Table 7.
+supposed to generate Monday. BERTS CORE also fails to identify that 5ft 11in is equivalent with
+1.80 metres in pair 18. As a result, BERTS CORE assigns low similarity to the eighth pair in Table 7.
 SENT BLEU also suffers from these limitations.
 Figure 2 visualizes the BERTS CORE matching of two pairs of candidate and reference sentences.
-The ﬁgure illustrates how FBERT matches synonymous phrases, such as imported carsand foreign
+The ﬁgure illustrates howFBERT matches synonymous phrases, such as imported cars and foreign
 cars. We also see that FBERT effectively matches words even given a high ordering distortion, for
 example the token people in the ﬁgure.
 Published as a conference paper at ICLR 2020
@@ -821,7 +821,7 @@ Table 8: Recommended layer of representation to use for BERTS CORE . The layers 
 based on a held-out validation set (WMT16).
 8https://huggingface.co/pytorch-transformers/pretrained_models.html
 Published as a conference paper at ICLR 2020
-Figure 3: Pearson correlation of FBERT computed with different models, across different layers, with
+Figure 3: Pearson correlation ofFBERT computed with different models, across different layers, with
 segment-level human judgments on the WMT16 to-English machine translation task. The WMT17
 English-Chinese data is used for the BERT Chinese model. Layer 0 corresponds to using BPE
 embeddings. Consistently, correlation drops signiﬁcantly in the ﬁnal layers.
@@ -941,14 +941,14 @@ a compressed text is; and (c) combined: the average of the meaning and the gramm
 follow the experimental setup of Toutanova et al. (2016) and report Pearson correlation between
 BERTS CORE and the three types of human scores. Table 10 shows that RBERT has the highest cor-
 relation with human meaning judgments, and PBERT correlates highly with human grammar judg-
-ments. FBERT provides a balance between the two aspects.
+ments.FBERT provides a balance between the two aspects.
 Published as a conference paper at ICLR 2020
 Task Model BLEU ˆPBERT ˆRBERT ˆFBERT PBERT RBERT FBERT
 WMT14
 En-De
 ConvS2S (Gehring et al., 2017) 0.266 0.6099 0.6055 0.6075 0.8499 0.8482 0.8488
-Transformer-big∗∗(Ott et al., 2018) 0.298 0.6587 0.6528 0.6558 0.8687 0.8664 0.8674
-DynamicConv∗∗∗(Wu et al., 2019) 0.297 0.6526 0.6464 0.6495 0.8664 0.8640 0.8650
+Transformer-big∗∗ (Ott et al., 2018) 0.298 0.6587 0.6528 0.6558 0.8687 0.8664 0.8674
+DynamicConv∗∗∗ (Wu et al., 2019) 0.297 0.6526 0.6464 0.6495 0.8664 0.8640 0.8650
 WMT14
 En-Fr
 ConvS2S (Gehring et al., 2017) 0.408 0.6998 0.6821 0.6908 0.8876 0.8810 0.8841
@@ -961,7 +961,7 @@ LightConv (Wu et al., 2019) 0.348 0.6737 0.6542 0.6642 0.9450 0.9417 0.9433
 DynamicConv (Wu et al., 2019) 0.352 0.6770 0.6586 0.6681 0.9456 0.9425 0.9440
 Table 11: B LEU scores and BERTS CORE s of publicly available pre-trained MT models in
 fairseq (Ott et al., 2019). We show both rescaled scores marked with ˆ and raw BERTS CORE s.
-∗: trained on unconﬁrmed WMT data version, ∗∗: trained on WMT16 + ParaCrawl, ∗∗∗: trained on
+∗: trained on unconﬁrmed WMT data version,∗∗: trained on WMT16 + ParaCrawl,∗∗∗: trained on
 WMT16, +: trained by us using fairseq.
 E BERTS CORE OF RECENT MT M ODELS
 Table 11 shows the BLEU scores and the BERTS CORE s of pre-trained machine translation models
@@ -971,8 +971,8 @@ trained Transformer model on IWSLT is not released, we trained our own using the
 We use multilingual cased BERT base12 for English-to-German and English-to-French pairs, and
 English uncased BERT base13 for German-to-English pairs. Interestingly, the gap between a Dy-
 namicConv (Wu et al., 2019) trained on only WMT16 and a Transformer (Ott et al., 2018) trained
-on WMT16 and ParaCrawl14 (about 30×more training data) becomes larger when evaluated with
-BERTS CORE rather than BLEU .
+on WMT16 and ParaCrawl 14 (about 30× more training data) becomes larger when evaluated with
+BERTS CORE rather than BLEU.
 11 Code and pre-trained model available at https://github.com/pytorch/fairseq.
 12Hash code: bert-base-multilingual-cased_L9_version=0.2.0
 13Hash code: roberta-large_L17_version=0.2.0
@@ -1010,7 +1010,7 @@ we are only able to experiment with to-English segment-level data, which contain
 eter tuning (Appendix B). Table 12 shows the Pearson correlations of all participating metrics and
 BERTS CORE s computed with different pre-trained models. Signiﬁcance testing for this dataset does
 not include the baseline metrics because the released dataset does not contain the original outputs
-from the baseline metrics. We conduct signiﬁcance testing between BERTS CORE results only.
+from the baseline metrics. We conduct signiﬁcance testing between BERTSCORE results only.
 The WMT17 dataset (Bojar et al., 2017) contains outputs of 152 different translations on 14 lan-
 guage pairs. We experiment on the segment-level and system-level data on both to-English and
 from-English language pairs. We exclude ﬁ-en data from the segment-level experiment due to an
@@ -1023,7 +1023,7 @@ BERTS CORE .
 Results Table 12-22 collectively showcase the effectiveness of BERTS CORE in correlating with
 human judgments. The improvement of BERTS CORE is more pronounced on the segment-level
 than on the system-level. We also see that more optimized or larger BERT models can produce better
-contextual representations (e.g., comparing FRoBERTa-Large and FBERT-Large). In contrast, the smaller
+contextual representations (e.g., comparing FRoBERTa-Large andFBERT-Large). In contrast, the smaller
 XLNet performs better than a large one. Based on the evidence in Figure 8 and Tables 12-22, we
 15Denoted by names speciﬁed at https://huggingface.co/pytorch-transformers/pretrained_models.html.
 Published as a conference paper at ICLR 2020
@@ -1057,7 +1057,7 @@ We follow the experimental setup described in Section 4. Table 29 shows the corr
 pre-trained contextual embeddings. We observe that precision-based methods such as B LEU and
 PBERT are weakly correlated with human judgments on image captioning tasks. We hypothesize
 that this is because human judges prefer captions that capture the main objects in a picture for
-image captioning. In general, RBERT has a high correlation, even surpassing the task-speciﬁc metric
+image captioning. In general,RBERT has a high correlation, even surpassing the task-speciﬁc metric
 SPICE Anderson et al. (2016). While the ﬁne-tuned RoBERTa-Large model does not result in the
 highest correlation, it is one of the best metrics.
 F.4 R OBUSTNESS ANALYSIS ON PAWS-QQP
@@ -1073,7 +1073,7 @@ Setting Metric cs-en de-en ﬁ-en ro-en ru-en tr-en
 Unsupervised
 DPMF COMB 0.713 0.584 0.598 0.627 0.615 0.663
 METRICS -F 0.696 0.601 0.557 0.662 0.618 0.649
-COBALT -F. 0.671 0.591 0.554 0.639 0.618 0.627
+COBALT-F. 0.671 0.591 0.554 0.639 0.618 0.627
 UPF -COBA . 0.652 0.550 0.490 0.616 0.556 0.626
 MPEDA 0.644 0.538 0.513 0.587 0.545 0.616
 CHR F2 0.658 0.457 0.469 0.581 0.534 0.556
@@ -1096,9 +1096,9 @@ FBERT-Base (no idf) 0.747 0.663 0.666 0.714 0.662 0.703
 PBERT-Base-MRPC 0.697 0.618 0.614 0.676 0.62 0.695
 RBERT-Base-MRPC 0.723 0.636 0.587 0.667 0.648 0.664
 FBERT-Base-MRPC 0.725 0.644 0.617 0.691 0.654 0.702
-PBERT-Base-MRPC (idf) 0.713 0.613 0.630 0.693 0.635 0.691
-RBERT-Base-MRPC (idf) 0.727 0.631 0.573 0.666 0.642 0.662
-FBERT-Base-MRPC (idf) 0.735 0.637 0.620 0.700 0.658 0.697
+PBERT-Base-MRPC(idf) 0.713 0.613 0.630 0.693 0.635 0.691
+RBERT-Base-MRPC(idf) 0.727 0.631 0.573 0.666 0.642 0.662
+FBERT-Base-MRPC(idf) 0.735 0.637 0.620 0.700 0.658 0.697
 PBERT-Large 0.756 0.671 0.701 0.723 0.678 0.706
 RBERT-Large 0.768 0.684 0.677 0.720 0.686 0.699
 FBERT-Large 0.774 0.693 0.705 0.736 0.701 0.717
@@ -1120,9 +1120,9 @@ FRoBERTa-Large (idf) 0.786 0.704 0.727 0.747 0.732 0.711
 PRoBERTa-Large-MNLI 0.777 0.718 0.733 0.744 0.729 0.747
 RRoBERTa-Large-MNLI 0.790 0.731 0.702 0.741 0.727 0.732
 FRoBERTa-Large-MNLI 0.795 0.736 0.733 0.757 0.744 0.756
-PRoBERTa-Large-MNLI (idf) 0.794 0.695 0.731 0.752 0.732 0.747
-RRoBERTa-Large-MNLI (idf) 0.792 0.706 0.694 0.737 0.724 0.733
-FRoBERTa-Large-MNLI (idf) 0.804 0.710 0.729 0.760 0.742 0.754
+PRoBERTa-Large-MNLI(idf) 0.794 0.695 0.731 0.752 0.732 0.747
+RRoBERTa-Large-MNLI(idf) 0.792 0.706 0.694 0.737 0.724 0.733
+FRoBERTa-Large-MNLI(idf) 0.804 0.710 0.729 0.760 0.742 0.754
 PXLNet-Base 0.708 0.612 0.639 0.650 0.606 0.690
 RXLNet-Base 0.728 0.630 0.617 0.645 0.621 0.675
 FXLNet-Base 0.727 0.631 0.640 0.659 0.626 0.695
@@ -1171,9 +1171,9 @@ FBERT-Base (idf) 0.657 0.680 0.823 0.712 0.725 0.718 0.711
 PBERT-Base-MRPC 0.599 0.630 0.788 0.657 0.659 0.710 0.681
 RBERT-Base-MRPC 0.613 0.620 0.754 0.616 0.650 0.685 0.705
 FBERT-Base-MRPC 0.627 0.647 0.792 0.656 0.676 0.717 0.712
-PBERT-Base-MRPC (idf) 0.609 0.630 0.801 0.680 0.676 0.712 0.682
-RBERT-Base-MRPC (idf) 0.611 0.628 0.759 0.633 0.665 0.687 0.703
-FBERT-Base-MRPC (idf) 0.633 0.649 0.803 0.678 0.690 0.719 0.713
+PBERT-Base-MRPC(idf) 0.609 0.630 0.801 0.680 0.676 0.712 0.682
+RBERT-Base-MRPC(idf) 0.611 0.628 0.759 0.633 0.665 0.687 0.703
+FBERT-Base-MRPC(idf) 0.633 0.649 0.803 0.678 0.690 0.719 0.713
 PBERT-Large 0.638 0.685 0.816 0.717 0.719 0.746 0.693
 RBERT-Large 0.661 0.676 0.782 0.693 0.705 0.744 0.730
 FBERT-Large 0.666 0.701 0.814 0.723 0.730 0.760 0.731
@@ -1195,9 +1195,9 @@ FRoBERTa-Large (idf) 0.703 0.737 0.838 0.761 0.752 0.764 0.767
 PRoBERTa-Large-MNLI 0.694 0.736 0.822 0.764 0.741 0.754 0.737
 RRoBERTa-Large-MNLI 0.706 0.725 0.785 0.732 0.741 0.750 0.760
 FRoBERTa-Large-MNLI 0.722 0.747 0.822 0.764 0.758 0.767 0.765
-PRoBERTa-Large-MNLI (idf) 0.686 0.733 0.836 0.772 0.760 0.767 0.738
-RRoBERTa-Large-MNLI (idf) 0.697 0.717 0.796 0.741 0.753 0.757 0.762
-FRoBERTa-Large-MNLI (idf) 0.714 0.740 0.835 0.774 0.773 0.776 0.767
+PRoBERTa-Large-MNLI(idf) 0.686 0.733 0.836 0.772 0.760 0.767 0.738
+RRoBERTa-Large-MNLI(idf) 0.697 0.717 0.796 0.741 0.753 0.757 0.762
+FRoBERTa-Large-MNLI(idf) 0.714 0.740 0.835 0.774 0.773 0.776 0.767
 PXLNET-Base 0.595 0.579 0.779 0.632 0.626 0.688 0.646
 RXLNET-Base 0.603 0.560 0.746 0.617 0.624 0.689 0.677
 FXLNET-Base 0.610 0.580 0.775 0.636 0.639 0.700 0.675
@@ -1288,9 +1288,9 @@ FBERT-Base (idf) 0.992 0.967 0.995 0.992 0.960 0.996 0.951
 PBERT-Base-MRPC 0.982 0.926 0.990 0.987 0.916 0.970 0.899
 RBERT-Base-MRPC 0.999 0.979 0.950 0.982 0.957 0.977 0.985
 FBERT-Base-MRPC 0.994 0.957 0.986 0.994 0.938 0.980 0.960
-PBERT-Base-MRPC (idf) 0.989 0.936 0.992 0.979 0.931 0.976 0.892
-RBERT-Base-MRPC (idf) 0.999 0.987 0.962 0.980 0.975 0.979 0.973
-FBERT-Base-MRPC (idf) 0.997 0.968 0.995 0.997 0.956 0.989 0.963
+PBERT-Base-MRPC(idf) 0.989 0.936 0.992 0.979 0.931 0.976 0.892
+RBERT-Base-MRPC(idf) 0.999 0.987 0.962 0.980 0.975 0.979 0.973
+FBERT-Base-MRPC(idf) 0.997 0.968 0.995 0.997 0.956 0.989 0.963
 PBERT-Large 0.981 0.937 0.991 0.996 0.921 0.987 0.905
 RBERT-Large 0.996 0.975 0.953 0.985 0.954 0.992 0.977
 FBERT-Large 0.990 0.960 0.981 0.995 0.938 0.992 0.957
@@ -1312,9 +1312,9 @@ FRoBERTa-Large (idf) 0.996 0.982 0.998 0.991 0.965 0.991 0.984
 PRoBERTa-Large-MNLI 0.994 0.963 0.995 0.990 0.944 0.981 0.974
 RRoBERTa-Large-MNLI 0.995 0.991 0.962 0.981 0.973 0.985 0.984
 FRoBERTa-Large-MNLI 0.999 0.982 0.992 0.996 0.961 0.988 0.989
-PRoBERTa-Large-MNLI (idf) 0.995 0.970 0.997 0.985 0.955 0.988 0.979
-RRoBERTa-Large-MNLI (idf) 0.994 0.992 0.967 0.977 0.983 0.988 0.972
-FRoBERTa-Large-MNLI (idf) 0.999 0.989 0.996 0.997 0.972 0.994 0.987
+PRoBERTa-Large-MNLI(idf) 0.995 0.970 0.997 0.985 0.955 0.988 0.979
+RRoBERTa-Large-MNLI(idf) 0.994 0.992 0.967 0.977 0.983 0.988 0.972
+FRoBERTa-Large-MNLI(idf) 0.999 0.989 0.996 0.997 0.972 0.994 0.987
 PXLNET-Base 0.988 0.938 0.993 0.993 0.914 0.974 0.960
 RXLNET-Base 0.999 0.978 0.956 0.977 0.946 0.981 0.980
 FXLNET-Base 0.996 0.963 0.986 0.991 0.932 0.981 0.978
@@ -1401,9 +1401,9 @@ FBERT-Base (idf) 0.375 0.535 0.393 0.294 0.339 0.289 0.243
 PBERT-Base-MRPC 0.343 0.520 0.365 0.247 0.333 0.25 0.227
 RBERT-Base-MRPC 0.370 0.524 0.373 0.277 0.34 0.261 0.244
 FBERT-Base-MRPC 0.366 0.529 0.377 0.271 0.342 0.263 0.242
-PBERT-Base-MRPC (idf) 0.348 0.522 0.371 0.25 0.318 0.256 0.224
-RBERT-Base-MRPC (idf) 0.379 0.531 0.383 0.285 0.339 0.266 0.242
-FBERT-Base-MRPC (idf) 0.373 0.534 0.383 0.274 0.342 0.275 0.242
+PBERT-Base-MRPC(idf) 0.348 0.522 0.371 0.25 0.318 0.256 0.224
+RBERT-Base-MRPC(idf) 0.379 0.531 0.383 0.285 0.339 0.266 0.242
+FBERT-Base-MRPC(idf) 0.373 0.534 0.383 0.274 0.342 0.275 0.242
 PBERT-LARGE 0.361 0.529 0.380 0.276 0.340 0.266 0.241
 RBERT-LARGE 0.386 0.532 0.386 0.297 0.347 0.268 0.247
 FBERT-LARGE 0.402 0.537 0.390 0.296 0.344 0.274 0.252
@@ -1425,9 +1425,9 @@ FRoBERTa-LARGE (idf) 0.408 0.550 0.395 0.293 0.346 0.296 0.260
 PRoBERTa-Large-MNLI 0.397 0.549 0.396 0.299 0.351 0.295 0.253
 RRoBERTa-Large-MNLI 0.404 0.553 0.393 0.313 0.351 0.279 0.253
 FRoBERTa-Large-MNLI 0.418 0.557 0.402 0.312 0.362 0.290 0.258
-PRoBERTa-Large-MNLI (idf) 0.414 0.552 0.399 0.301 0.349 0.306 0.249
-RRoBERTa-Large-MNLI (idf) 0.412 0.555 0.400 0.316 0.357 0.289 0.258
-FRoBERTa-Large-MNLI (idf) 0.417 0.559 0.403 0.309 0.357 0.307 0.258
+PRoBERTa-Large-MNLI(idf) 0.414 0.552 0.399 0.301 0.349 0.306 0.249
+RRoBERTa-Large-MNLI(idf) 0.412 0.555 0.400 0.316 0.357 0.289 0.258
+FRoBERTa-Large-MNLI(idf) 0.417 0.559 0.403 0.309 0.357 0.307 0.258
 PXLNet-Base 0.335 0.514 0.359 0.243 0.308 0.247 0.232
 RXLNet-Base 0.351 0.515 0.362 0.261 0.311 0.227 0.232
 FXLNet-Base 0.351 0.517 0.365 0.257 0.315 0.25 0.237
@@ -1508,9 +1508,9 @@ FBERT-Base (idf) 0.981 0.995 0.984 0.995 0.988 0.994 0.981
 PBERT-Base-MRPC 0.957 0.994 0.989 0.953 0.976 0.798 0.977
 RBERT-Base-MRPC 0.992 0.994 0.983 0.988 0.993 0.707 0.990
 FBERT-Base-MRPC 0.975 0.995 0.987 0.975 0.986 0.526 0.986
-PBERT-Base-MRPC (idf) 0.957 0.997 0.989 0.967 0.975 0.894 0.980
-RBERT-Base-MRPC (idf) 0.991 0.997 0.981 0.994 0.993 0.052 0.987
-FBERT-Base-MRPC (idf) 0.975 0.998 0.987 0.985 0.987 0.784 0.987
+PBERT-Base-MRPC(idf) 0.957 0.997 0.989 0.967 0.975 0.894 0.980
+RBERT-Base-MRPC(idf) 0.991 0.997 0.981 0.994 0.993 0.052 0.987
+FBERT-Base-MRPC(idf) 0.975 0.998 0.987 0.985 0.987 0.784 0.987
 PBERT-Large 0.978 0.992 0.987 0.971 0.977 0.920 0.978
 RBERT-Large 0.997 0.990 0.985 0.990 0.992 0.098 0.990
 FBERT-Large 0.989 0.992 0.987 0.983 0.985 0.784 0.986
@@ -1532,9 +1532,9 @@ FRoBERTa-Large (idf) 0.985 0.999 0.992 0.992 0.991 0.826 0.989
 PRoBERTa-Large-MNLI 0.989 0.998 0.994 0.998 0.985 0.908 0.982
 RRoBERTa-Large-MNLI 1.000 0.996 0.988 0.996 0.995 0.097 0.991
 FRoBERTa-Large-MNLI 0.996 0.998 0.992 0.998 0.992 0.665 0.989
-PRoBERTa-Large-MNLI (idf) 0.986 0.998 0.994 0.993 0.986 0.989 0.985
-RRoBERTa-Large-MNLI (idf) 0.999 0.997 0.986 0.997 0.993 0.633 0.990
-FRoBERTa-Large-MNLI (idf) 0.995 0.998 0.991 0.996 0.993 0.963 0.990
+PRoBERTa-Large-MNLI(idf) 0.986 0.998 0.994 0.993 0.986 0.989 0.985
+RRoBERTa-Large-MNLI(idf) 0.999 0.997 0.986 0.997 0.993 0.633 0.990
+FRoBERTa-Large-MNLI(idf) 0.995 0.998 0.991 0.996 0.993 0.963 0.990
 PXLNET-Base 0.970 0.996 0.986 0.990 0.979 0.739 0.982
 RXLNET-Base 0.994 0.997 0.979 0.995 0.994 0.795 0.990
 FXLNET-Base 0.983 0.997 0.983 0.993 0.987 0.505 0.988
@@ -1624,9 +1624,9 @@ FBERT-Base (idf) 0.974 0.993 0.980 0.978 0.978 0.853 0.976
 PBERT-Base-MRPC 0.949 0.995 0.986 0.960 0.969 0.832 0.972
 RBERT-Base-MRPC 0.983 0.997 0.979 0.986 0.986 0.099 0.980
 FBERT-Base-MRPC 0.967 0.997 0.984 0.978 0.981 0.722 0.979
-PBERT-Base-MRPC (idf) 0.949 0.994 0.986 0.946 0.969 0.743 0.969
-RBERT-Base-MRPC (idf) 0.984 0.994 0.980 0.980 0.986 0.541 0.982
-FBERT-Base-MRPC (idf) 0.967 0.995 0.984 0.968 0.979 0.464 0.978
+PBERT-Base-MRPC(idf) 0.949 0.994 0.986 0.946 0.969 0.743 0.969
+RBERT-Base-MRPC(idf) 0.984 0.994 0.980 0.980 0.986 0.541 0.982
+FBERT-Base-MRPC(idf) 0.967 0.995 0.984 0.968 0.979 0.464 0.978
 PBERT-Large 0.969 0.991 0.985 0.979 0.970 0.915 0.969
 RBERT-Large 0.990 0.993 0.980 0.988 0.988 0.745 0.978
 FBERT-Large 0.982 0.993 0.984 0.986 0.981 0.909 0.976
@@ -1648,9 +1648,9 @@ FRoBERTa-Large (idf) 0.982 0.998 0.988 0.989 0.983 0.453 0.980
 PRoBERTa-Large-MNLI 0.978 0.997 0.991 0.984 0.980 0.914 0.977
 RRoBERTa-Large-MNLI 0.991 0.996 0.984 0.989 0.987 0.566 0.982
 FRoBERTa-Large-MNLI 0.987 0.998 0.989 0.988 0.986 0.873 0.982
-PRoBERTa-Large-MNLI (idf) 0.982 0.998 0.992 0.990 0.978 0.822 0.974
-RRoBERTa-Large-MNLI (idf) 0.992 0.996 0.985 0.988 0.988 0.022 0.983
-FRoBERTa-Large-MNLI (idf) 0.989 0.998 0.990 0.990 0.985 0.583 0.980
+PRoBERTa-Large-MNLI(idf) 0.982 0.998 0.992 0.990 0.978 0.822 0.974
+RRoBERTa-Large-MNLI(idf) 0.992 0.996 0.985 0.988 0.988 0.022 0.983
+FRoBERTa-Large-MNLI(idf) 0.989 0.998 0.990 0.990 0.985 0.583 0.980
 PXLNET-Base 0.960 0.997 0.984 0.982 0.972 0.849 0.974
 RXLNET-Base 0.985 0.997 0.975 0.988 0.988 0.303 0.980
 FXLNET-Base 0.974 0.998 0.981 0.986 0.982 0.628 0.980
@@ -1741,9 +1741,9 @@ FBERT-Base (idf) 0.193 0.817 0.774 0.483 0.262 0.081 0.669
 PBERT-Base-MRPC 0.190 0.701 0.766 0.487 0.254 0.126 0.653
 RBERT-Base-MRPC 0.199 0.826 0.765 0.493 0.258 0.000 0.671
 FBERT-Base-MRPC 0.197 0.824 0.767 0.491 0.260 0.147 0.668
-PBERT-Base-MRPC (idf) 0.186 0.806 0.765 0.492 0.247 0.125 0.661
-RBERT-Base-MRPC (idf) 0.200 0.823 0.760 0.495 0.258 0.000 0.680
-FBERT-Base-MRPC (idf) 0.196 0.821 0.763 0.497 0.254 0.031 0.676
+PBERT-Base-MRPC(idf) 0.186 0.806 0.765 0.492 0.247 0.125 0.661
+RBERT-Base-MRPC(idf) 0.200 0.823 0.760 0.495 0.258 0.000 0.680
+FBERT-Base-MRPC(idf) 0.196 0.821 0.763 0.497 0.254 0.031 0.676
 PBERT-Large 0.200 0.815 0.778 0.474 0.261 0.137 0.661
 RBERT-Large 0.194 0.809 0.779 0.493 0.270 0.006 0.672
 FBERT-Large 0.199 0.810 0.782 0.484 0.266 0.142 0.672
@@ -1765,9 +1765,9 @@ FRoBERTa-Large (idf) 0.179 0.824 0.761 0.502 0.265 0.004 0.679
 PRoBERTa-Large-MNLI 0.185 0.828 0.780 0.504 0.263 0.133 0.654
 RRoBERTa-Large-MNLI 0.179 0.779 0.775 0.494 0.266 0.004 0.670
 FRoBERTa-Large-MNLI 0.186 0.827 0.778 0.502 0.267 0.113 0.669
-PRoBERTa-Large-MNLI (idf) 0.190 0.820 0.771 0.504 0.261 0.102 0.661
-RRoBERTa-Large-MNLI (idf) 0.181 0.769 0.766 0.494 0.266 0.004 0.674
-FRoBERTa-Large-MNLI (idf) 0.188 0.822 0.768 0.501 0.265 0.004 0.671
+PRoBERTa-Large-MNLI(idf) 0.190 0.820 0.771 0.504 0.261 0.102 0.661
+RRoBERTa-Large-MNLI(idf) 0.181 0.769 0.766 0.494 0.266 0.004 0.674
+FRoBERTa-Large-MNLI(idf) 0.188 0.822 0.768 0.501 0.265 0.004 0.671
 PXLNET-Base 0.186 0.771 0.762 0.496 0.247 0.153 0.658
 RXLNET-Base 0.182 0.823 0.764 0.496 0.256 0.000 0.671
 FXLNET-Base 0.186 0.824 0.765 0.499 0.253 0.049 0.673
@@ -1819,9 +1819,9 @@ FBERT-Base (idf) 0.393 0.902 0.876 0.685 0.483 0.225 0.806
 PBERT-Base-MRPC 0.392 0.832 0.872 0.686 0.475 0.319 0.791
 RBERT-Base-MRPC 0.397 0.908 0.870 0.691 0.478 0.025 0.811
 FBERT-Base-MRPC 0.398 0.907 0.872 0.690 0.481 0.335 0.806
-PBERT-Base-MRPC (idf) 0.392 0.896 0.870 0.689 0.467 0.316 0.797
-RBERT-Base-MRPC (idf) 0.400 0.906 0.867 0.691 0.479 0.018 0.817
-FBERT-Base-MRPC (idf) 0.400 0.905 0.869 0.693 0.475 0.097 0.812
+PBERT-Base-MRPC(idf) 0.392 0.896 0.870 0.689 0.467 0.316 0.797
+RBERT-Base-MRPC(idf) 0.400 0.906 0.867 0.691 0.479 0.018 0.817
+FBERT-Base-MRPC(idf) 0.400 0.905 0.869 0.693 0.475 0.097 0.812
 PBERT-Large 0.398 0.901 0.880 0.678 0.481 0.327 0.799
 RBERT-Large 0.391 0.897 0.879 0.690 0.490 0.085 0.810
 FBERT-Large 0.397 0.898 0.882 0.684 0.486 0.328 0.810
@@ -1843,9 +1843,9 @@ FRoBERTa-Large (idf) 0.382 0.907 0.868 0.696 0.484 0.048 0.815
 PRoBERTa-Large-MNLI 0.383 0.909 0.880 0.698 0.480 0.323 0.795
 RRoBERTa-Large-MNLI 0.378 0.880 0.877 0.692 0.481 0.078 0.811
 FRoBERTa-Large-MNLI 0.385 0.909 0.879 0.697 0.484 0.286 0.809
-PRoBERTa-Large-MNLI (idf) 0.389 0.905 0.874 0.698 0.478 0.268 0.803
-RRoBERTa-Large-MNLI (idf) 0.380 0.874 0.870 0.691 0.483 0.079 0.814
-FRoBERTa-Large-MNLI (idf) 0.387 0.906 0.872 0.696 0.482 0.082 0.811
+PRoBERTa-Large-MNLI(idf) 0.389 0.905 0.874 0.698 0.478 0.268 0.803
+RRoBERTa-Large-MNLI(idf) 0.380 0.874 0.870 0.691 0.483 0.079 0.814
+FRoBERTa-Large-MNLI(idf) 0.387 0.906 0.872 0.696 0.482 0.082 0.811
 PXLNET-Base 0.385 0.875 0.869 0.692 0.469 0.342 0.796
 RXLNET-Base 0.381 0.907 0.869 0.693 0.477 0.026 0.809
 FXLNET-Base 0.385 0.907 0.871 0.694 0.476 0.128 0.810
@@ -1897,9 +1897,9 @@ FBERT-Base (idf) 2.75 0.39 0.60 1.10 1.38 1.26 3.51
 PBERT-Base-MRPC 4.02 0.35 0.74 1.15 1.09 3.33 3.06
 RBERT-Base-MRPC 2.66 0.43 0.62 1.75 1.10 5.64 3.34
 FBERT-Base-MRPC 3.89 0.36 0.60 1.09 1.08 3.82 3.23
-PBERT-Base-MRPC (idf) 4.02 0.35 0.67 1.18 1.48 3.30 3.49
-RBERT-Base-MRPC (idf) 1.63 0.43 0.65 1.93 1.13 7.26 3.13
-FBERT-Base-MRPC (idf) 3.86 0.38 0.61 1.11 1.14 4.24 3.28
+PBERT-Base-MRPC(idf) 4.02 0.35 0.67 1.18 1.48 3.30 3.49
+RBERT-Base-MRPC(idf) 1.63 0.43 0.65 1.93 1.13 7.26 3.13
+FBERT-Base-MRPC(idf) 3.86 0.38 0.61 1.11 1.14 4.24 3.28
 PBERT-Large 3.82 0.34 0.66 1.12 2.10 1.31 3.60
 RBERT-Large 1.49 0.40 0.59 1.56 1.17 1.35 3.61
 FBERT-Large 1.71 0.35 0.58 1.08 1.65 1.29 3.60
@@ -1921,9 +1921,9 @@ FRoBERTa-Large (idf) 1.68 0.37 0.59 1.08 1.08 5.58 2.91
 PRoBERTa-Large-MNLI 2.14 0.35 0.61 1.07 1.09 1.21 3.35
 RRoBERTa-Large-MNLI 1.45 0.37 0.64 1.49 1.10 4.42 3.55
 FRoBERTa-Large-MNLI 1.42 0.35 0.59 1.07 1.07 1.27 3.41
-PRoBERTa-Large-MNLI (idf) 1.55 0.35 0.60 1.08 1.12 1.54 3.87
-RRoBERTa-Large-MNLI (idf) 1.45 0.39 0.64 1.65 1.09 5.89 3.32
-FRoBERTa-Large-MNLI (idf) 1.42 0.36 0.60 1.10 1.08 3.80 3.45
+PRoBERTa-Large-MNLI(idf) 1.55 0.35 0.60 1.08 1.12 1.54 3.87
+RRoBERTa-Large-MNLI(idf) 1.45 0.39 0.64 1.65 1.09 5.89 3.32
+FRoBERTa-Large-MNLI(idf) 1.42 0.36 0.60 1.10 1.08 3.80 3.45
 PXLNET-Base 3.90 0.37 0.68 1.07 1.16 2.47 2.91
 RXLNET-Base 1.71 0.45 0.72 1.58 1.07 6.29 3.36
 FXLNET-Base 3.78 0.39 0.62 1.05 1.07 3.60 3.20
@@ -1944,7 +1944,7 @@ RXLM-En (idf) 1.70 0.42 0.63 1.55 1.11 5.87 3.36
 FXLM-En (idf) 3.72 0.40 0.62 1.14 1.32 4.15 3.43
 Table 25: Absolute Difference (×100) of the top metric-rated and the top human-rated system on to-
 English WMT18 hybrid systems. Smaller difference signify higher agreement with human scores.
-We report the average of 100K samples and the 0.95 conﬁdence intervals are below 10−3. We bold
+We report the average of 100K samples and the 0.95 conﬁdence intervals are below10−3. We bold
 the lowest numbers for each language pair and direction.
 Published as a conference paper at ICLR 2020
 Setting Metric en-cs en-de en-et en-ﬁ en-ru en-tr en-zh
@@ -2053,14 +2053,14 @@ RXLM-100 (idf) 1.19 7.07 0.77 0.77 0.66 3.33 1.60
 FXLM-100 (idf) 1.20 6.57 0.86 0.76 0.68 3.28 1.56
 Table 28: Absolute Difference (×100) of the top metric-rated and the top human-rated system on to-
 English WMT18 hybrid systems. Smaller difference indicate higher agreement with human scores.
-We report the average of 100K samples and the 0.95 conﬁdence intervals are below 10−3. We bold
+We report the average of 100K samples and the 0.95 conﬁdence intervals are below10−3. We bold
 the lowest numbers for each language pair and direction.
 Published as a conference paper at ICLR 2020
 Metric M1 M2
-BLEU -1 0.124 ∗ 0.135∗
-BLEU -2 0.037 ∗ 0.048∗
-BLEU -3 0.004 ∗ 0.016∗
-BLEU -4 -0.019 ∗ -0.005∗
+BLEU-1 0.124 ∗ 0.135∗
+BLEU-2 0.037 ∗ 0.048∗
+BLEU-3 0.004 ∗ 0.016∗
+BLEU-4 -0.019 ∗ -0.005∗
 METEOR 0.606∗ 0.594∗
 ROUGE -L 0.090 ∗ 0.096∗
 CIDE R 0.438∗ 0.440∗
@@ -2079,9 +2079,9 @@ FBERT-Base (idf) 0.579 0.581
 PBERT-Base-MRPC 0.252 0.331
 RBERT-Base-MRPC 0.644 0.641
 FBERT-Base-MRPC 0.470 0.512
-PBERT-Base-MRPC (idf) 0.264 0.300
-RBERT-Base-MRPC (idf) 0.794 0.767
-FBERT-Base-MRPC (idf) 0.575 0.583
+PBERT-Base-MRPC(idf) 0.264 0.300
+RBERT-Base-MRPC(idf) 0.794 0.767
+FBERT-Base-MRPC(idf) 0.575 0.583
 PBERT-Large 0.454 0.486
 RBERT-Large 0.756 0.697
 FBERT-Large 0.649 0.634
@@ -2103,9 +2103,9 @@ FRoBERTa-Large (idf) 0.519 0.453
 PRoBERTa-Large-MNLI 0.129 0.208
 RRoBERTa-Large-MNLI 0.820 0.823
 FRoBERTa-Large-MNLI 0.546 0.592
-PRoBERTa-Large-MNLI (idf) 0.081 0.099
-RRoBERTa-Large-MNLI (idf) 0.906 0.875
-FRoBERTa-Large-MNLI (idf) 0.605 0.596
+PRoBERTa-Large-MNLI(idf) 0.081 0.099
+RRoBERTa-Large-MNLI(idf) 0.906 0.875
+FRoBERTa-Large-MNLI(idf) 0.605 0.596
 PXLNet-Base -0.046 0.080
 RXLNet-Base 0.409 0.506
 FXLNet-Base 0.146 0.265
@@ -2126,7 +2126,7 @@ RXLM-En (idf) 0.700 0.640
 FXLM-En (idf) 0.499 0.470
 Table 29: Pearson correlation on the 2015 COCO Captioning Challenge. The M1 and M2 measures
 are described in Section 4. We bold the best correlating task-speciﬁc and task-agnostic metrics in
-each setting LEIC uses images as additional inputs. Numbers with ∗are cited from Cui et al. (2018).
+each setting LEIC uses images as additional inputs. Numbers with∗ are cited from Cui et al. (2018).
 Published as a conference paper at ICLR 2020
 Type Method QQP PAWS QQP
 Trained on QQP (supervised)
@@ -2138,10 +2138,10 @@ DecAtt - 0.511
 DIIN - 0.778
 BERT - 0.831
 Metric (Not trained on QQP or PAWSQQP)
-BLEU -1 0.737 0.402
-BLEU -2 0.720 0.548
-BLEU -3 0.712 0.527
-BLEU -4 0.707 0.527
+BLEU-1 0.737 0.402
+BLEU-2 0.720 0.548
+BLEU-3 0.712 0.527
+BLEU-4 0.707 0.527
 METEOR 0.755 0.532
 ROUGE -L 0.740 0.536
 CHR F++ 0.577 0.608
@@ -2157,9 +2157,9 @@ FBERT-Base (idf) 0.770 0.664
 PBERT-Base-MRPC 0.742 0.615
 RBERT-Base-MRPC 0.729 0.617
 FBERT-Base-MRPC 0.746 0.614
-PBERT-Base-MRPC (idf) 0.752 0.618
-RBERT-Base-MRPC (idf) 0.737 0.619
-FBERT-Base-MRPC (idf) 0.756 0.617
+PBERT-Base-MRPC(idf) 0.752 0.618
+RBERT-Base-MRPC(idf) 0.737 0.619
+FBERT-Base-MRPC(idf) 0.756 0.617
 PBERT-Large 0.752 0.706
 RBERT-Large 0.740 0.710
 FBERT-Large 0.756 0.707
@@ -2181,9 +2181,9 @@ FRoBERTa-Large (idf) 0.777 0.693
 PRoBERTa-Large-MNLI 0.763 0.767
 RRoBERTa-Large-MNLI 0.750 0.772
 FRoBERTa-Large-MNLI 0.766 0.770
-PRoBERTa-Large-MNLI (idf) 0.783 0.756
-RRoBERTa-Large-MNLI (idf) 0.767 0.764
-FRoBERTa-Large-MNLI (idf) 0.784 0.759
+PRoBERTa-Large-MNLI(idf) 0.783 0.756
+RRoBERTa-Large-MNLI(idf) 0.767 0.764
+FRoBERTa-Large-MNLI(idf) 0.784 0.759
 PXLNet-Base 0.737 0.603
 RXLNet-Base 0.731 0.607
 FXLNet-Base 0.739 0.605
@@ -2204,6 +2204,6 @@ RXLM-En (idf) 0.745 0.603
 FXLM-En (idf) 0.759 0.600
 Table 30: Area under ROC curve (AUC) on QQP and PAWS QQP datasets. The scores of trained
 DecATT (Parikh et al., 2016), DIIN (Gong et al., 2018), and ﬁne-tuned BERT are reported by Zhang
-et al. (2019). We bold the best task-speciﬁc and task-agnostic metrics. Numbers with ∗are scores
+et al. (2019). We bold the best task-speciﬁc and task-agnostic metrics. Numbers with ∗ are scores
 on the held-out test set of QQP.
 43

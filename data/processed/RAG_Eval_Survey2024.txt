@@ -76,7 +76,7 @@ surveys [74,16,24] that predominantly collected specific RAG methods or data. We
 compiled 12 distinct evaluation frameworks, encompassing a range of aspects of the
 RAG system. Following the procedure of making benchmarks, we analyze through tar-
 gets, datasets and metrics mentioned in these benchmarks and summarize them into A
-Unified Evaluation Process of RAG (Auepora) as three corresponding phases.
+Unified Evaluation Process of RAG(Auepora) as three corresponding phases.
 For this paper, we contribute in the following aspects:
 1. Challenge of Evaluation : This is the first work that summarizes and classifies
 the challenges in evaluating RAG systems through the structure of RAG systems,
@@ -116,7 +116,7 @@ relevance to the original query and the coherence of the generated text [75,49].
 subjective nature of certain tasks, such as creative content generation or open-ended
 question answering, further complicates the evaluation, as it introduces variability in
 what constitutes a "correct" or "high-quality" response [48].
-RAG System as a WholeEvaluating the whole RAG system introduces additional com-
+RAG System as a Whole Evaluating the whole RAG system introduces additional com-
 plexities. The interplay between the retrieval and generation components means that
 the entire system's performance cannot be fully understood by evaluating each com-
 ponent in isolation [49,14]. The system needs to be assessed on its ability to leverage
@@ -142,7 +142,7 @@ Dataset, and Metric respectively. We aim to provide a clear and accessible way f
 readers to comprehend the complexities and nuances of RAG benchmarking.
 The Target module is intended to determine the evaluation direction. The Dataset
 module facilitates the comparison of various data constructions in RAG benchmarks.
-The final module, Metrics, introduces the metrics that correspond to specific targets and
+The final module,Metrics, introduces the metrics that correspond to specific targets and
 datasets used during evaluation. Overall, it is designed to provide a systematic method-
 ology for assessing the effectiveness of RAG systems across various aspects by covering
 all possible pairs at the beginning between the "Evaluable Outputs" (EOs) and "Ground
@@ -380,20 +380,20 @@ vary by the different evaluating tasks.
 - Accuracy is the proportion of true results (both true positives and true negatives)
 among the total number of cases examined.
 - Precision is the fraction of relevant instances among the retrieved instances,
-Precision = TP
-TP + FP
-where TP represents true positives and FP represents false positives.
+Precision = T P
+T P + F P
+where T P represents true positives and F P represents false positives.
 10 Hao Yu, Aoran Gan, Kai Zhang, Shiwei Tong †, Qi Liu, and Zhaofeng Liu
 - Recall at k (Recall@k) is the fraction of relevant instances that have been retrieved
 over the total amount of relevant cases, considering only the top k results.
-Recall@k = |RD ∩ Topkd|
+Recall@k = |RD ∩ T opkd|
 |RD|
-where RD is the relevant documents, and Topkd is the top-k retrieved documents.
+where RD is the relevant documents, and T opkd is the top-k retrieved documents.
 Rank-Based Metrics evaluate the order in which relevant items are presented, with
 higher importance placed on the positioning of relevant items at the ranking list.
 - Mean Reciprocal Rank (MRR) is the average of the reciprocal ranks of the first
 correct answer for a set of queries.
-MRR = 1
+M RR = 1
 |Q|
 |Q|X
 i=1
@@ -402,14 +402,14 @@ where |Q| is the number of queries and ranki is the rank position of the first r
 vant document for the i-th query.
 - Mean Average Precision (MAP) is the mean of the average precision scores for
 each query.
-MAP = 1
+M AP = 1
 |Q|
 |Q|X
 q=1
 Pn
-k=1(P(k) × rel(k))
+k=1(P (k) × rel(k))
 |relevant documentsq|
-where P(k) is the precision at cutoff k in the list, rel(k) is an indicator function
+where P (k) is the precision at cutoff k in the list, rel(k) is an indicator function
 equaling 1 if the item at rank k is a relevant document, 0 otherwise, and n is the
 number of retrieved documents.
 Generation Metrics In the realm of generation, evaluation transcends the mere accu-

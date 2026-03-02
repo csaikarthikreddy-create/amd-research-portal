@@ -295,7 +295,7 @@ the new context with the original context, each supporting a different answer.
 Auto validation and human annotation. We validate the quality of the new context by using a
 separate LLM judge to verify whether the new answer is valid given the context ("if" condition) and
 whether the context does not support alternative answers ("only-if" condition). For example, the new
-context in Figure 2 (Right) should not mention wood is buoyant. Samples that fail to meet both
+context in Figure 2 (Right) should not mention wood is buoyant . Samples that fail to meet both
 conditions are filtered out. Next, we perform meticulous human annotation. Depending on the task's
 validation difficulty, we employ different strategies. As the Inconsistent Context task is challenging
 to validate, we rely on full human annotation. Three Mechanical Turk (Crowston, 2012) workers

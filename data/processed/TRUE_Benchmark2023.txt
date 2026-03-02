@@ -1,6 +1,6 @@
 Stochastic thermodynamics of multiple co-evolving systems - beyond multipartite
 processes
-Farita Tasnim∗
+Farita Tasnim ∗
 Massachusetts Institute of Technology, Cambridge, MA, USA
 David H. Wolpert †
 Santa Fe Institute, Santa Fe, NM, USA
@@ -96,21 +96,21 @@ OF COMPOSITE PROCESSES
 A. Background on composite processes
 A composite process is a generalization of MPPs, de-
 scribing the co-evolution of a ﬁnite set of subsystems,
-N= {1,2,...,N }. Each subsystem i has a discrete state
-space Xi. xindicates a state vector in X =×i∈NXi, the
+N ={1,2,...,N }. Each subsystem i has a discrete state
+spaceXi. x indicates a state vector in X =×i∈NXi, the
 joint state space of the full system. xA indicates a state
-vector in X=×i∈AXi, the joint state space of the subset
+vector inX =×i∈AXi, the joint state space of the subset
 A. The probability that the entire system is in a state x
-at time tevolves according to a master equation:
+at timet evolves according to a master equation:
 d
-dtpx(t) = Kx′
+dtpx(t) =Kx′
 x (t)px′(t) (1)
 This stochastic dynamics arises due to couplings of the
-system with a set of mechanisms V= {v1,v2,...,v M}. In
-general, each such mechanismvcouples to only a subset
+system with a set of mechanisms V ={v1,v 2,...,v M}. In
+general, each such mechanismv couples to only a subset
 of the subsystems. We refer to the set of subsystems to
-which a mechanism vcouples as its puppet set, and write
-it as P(v) ⊆N.
+which a mechanismv couples as its puppet set, and write
+it asP (v)⊆N .
 As an example, an MPP is a composite process where
 each mechanism couples to only one subsystem (al-
 though a single subsystem might be coupled to multiple
@@ -126,12 +126,12 @@ x (t) =
 v∈V
 δ
 x′
-N\P(v)
-xN\P(v) K
+N\P (v)
+xN\P (v)K
 x′
-P(v),x′
-N\P(v)
-xP(v),xN\P(v) (t) (2)
+P (v),x′
+N\P (v)
+xP (v),xN\P (v) (t) (2)
 :=
 ∑
 v∈V
@@ -140,27 +140,27 @@ x (v;t) (3)
 (Here and throughout, for any two variables, z,z′ con-
 tained in the same space,δz′
 z is the Kronecker delta func-
-tion that equals 1 when z′= z, and equals 0 otherwise).
+tion that equals 1 whenz′ =z, and equals 0 otherwise).
 We can illustrate composite processes using a toy
 stochastic chemical reaction network (Fig. 1a) [5-
 7]. This network involves four co-evolving species
-{X1,X2,X3,X4} that change state according to three
+{X1,X 2,X 3,X 4} that change state according to three
 FIG. 1. Examples of systems whose dynamics can be modeled
 as composite processes. Each system consists of multiple sub-
-systems (blue circles). Mechanisms are denoted as r, and their
-puppet sets P(r) are indicated by translucent white bubbles.
+systems (blue circles). Mechanisms are denoted asr, and their
+puppet setsP (r) are indicated by translucent white bubbles.
 (a) An example stochastic chemical reaction network consists
-of four co-evolving species {X1,X2,X3,X4}that change state
+of four co-evolving species {X1,X 2,X 3,X 4} that change state
 according to three chemical reactions{A,B,C}. (b) An example
-toy circuit consists of four conductors {1,2,3,4}that change
-state via interactions with three devices {A,B,C}.
-chemical reactions {A,B,C}(left). The system state is
+toy circuit consists of four conductors {1,2,3,4} that change
+state via interactions with three devices{A,B,C}.
+chemical reactions {A,B,C} (left). The system state is
 a vector consisting of the number of molecules of each
 species in the system. Only one reaction can occur at a
 time, but when a reaction does occur, multiple subsys-
 tems all change their state. For example, in the forward
 reaction A, species X1, X2, and X3 must change state
-at the same time, by counts of {−2,−1,+1}, respectively.
+at the same time, by counts of{−2,−1,+1}, respectively.
 Accordingly, this reaction network is not an MPP . How-
 ever, it is a composite process.
 We can illustrate this composite process in terms of
@@ -169,8 +169,8 @@ There are a total of three such puppet sets, one for each
 of the possible chemical reactions. These three puppet
 sets are indicated by translucent bubbles in the right-
 hand part of the ﬁgure. The mechanisms of the three
-puppet sets are denoted as rA, rB, and rC, and the pup-
-pet set of mechanism ris denoted as P(r).
+puppet sets are denoted as rA,rB, and rC, and the pup-
+pet set of mechanismr is denoted asP (r).
 As another example, consider a toy electronic circuit
 (Fig. 1b) [8] consisting of four conductors (the four cir-
 cles in the left-hand side of the ﬁgure) and three devices
@@ -179,41 +179,41 @@ is a vector consisting of the voltage on each conductor.
 Two of the conductors (1 and 4) are "regulated", since
 they are tied directly to ﬁxed voltage sources ( V1 and
 V4). The other two conductors (2 and 3) are "free" to
-stochastically change state via the eﬀect of devices A, B,
-and C.
+stochastically change state via the eﬀect of devicesA,B,
+andC.
 The composite process capturing the dynamics of the
 state of this circuit is illustrated in the right-hand side of
 the ﬁgure. There are three puppet sets (each a translu-
 cent bubble), each corresponding to a mechanism asso-
 ciated with one of the devices in the system. The mech-
-anisms are denoted as rA, rB, and rC, and the puppet set
-of mechanism ris denoted as P(r).
+anisms are denoted asrA,rB, andrC, and the puppet set
+of mechanismr is denoted asP (r).
 In an MPP, even though the mechanisms that a ﬀect
 the dynamics of any subsystem i do not a ﬀect the dy-
 namics of any other subsystem, in general the dynamics
-of i will depend on the states of some set of other sub-
+ofi will depend on the states of some set of other sub-
 systems. For example, in a bipartite process [9], both of
 the subsystems can be modeled as having their own set
 of mechanisms, but each subsystem's dynamics is gov-
 erned by the state of the other subsystem as well as its
 own state.
 Similarly, in a composite process, the dynamics of
-each subsystem i can depend on the state of other sub-
+each subsystemi can depend on the state of other sub-
 systems in addition to its own state. Each such de-
 pendency can be represented as an edge in a directed
 graph. In the resulting dependency network each edge
-j→imeans that the state of subsystem jaﬀects the rate
-of state transitions in subsystem i. We refer to the set of
-subsystems whose state aﬀects the dynamics of i as the
-leaders of i. So j →i means that j is a leader of i. In
+j→i means that the state of subsystemj aﬀects the rate
+of state transitions in subsystemi. We refer to the set of
+subsystems whose state a ﬀects the dynamics of i as the
+leaders of i. So j→i means that j is a leader of i. In
 any dependency network, the leaders of each subsystem
-iare its parents, pa(i).
-The leader setfor a mechanism v is deﬁned to be the
+i are its parents, pa(i).
+The leader set for a mechanism v is deﬁned to be the
 union of the leaders of each subsystem in the puppet set
-of v: L(v) = ⋃
-i∈P(v) pa(i). As an example, even though
-the puppet set of mechanism v2 in Fig. 2 is {A,C,D }, the
-leader set of v2 is {A,B,C,D }.
+ofv:L(v) = ⋃
+i∈P (v) pa(i). As an example, even though
+the puppet set of mechanismv2 in Fig. 2 is{A,C,D}, the
+leader set ofv2 is{A,B,C,D}.
 FIG. 2. The dependency network speciﬁes how the dynam-
 ics of each subsystem is governed by the state of other sub-
 systems. This network deﬁnes the leader sets in a composite
@@ -221,33 +221,33 @@ process.
 The leader set of any mechanism is a (perhaps proper)
 superset of its puppet set. Accordingly, we can write
 Kx′
-x (v;t) = K
+x (v;t) =K
 x′
 L(v),x′
-N\L(v)
+N\L (v)
 x′
-L(v)\P(v),xP(v),x′
-N\L(v)
+L(v)\P (v),xP (v),x′
+N\L (v)
 (v;t) (4)
 With abuse of notation, we can rewrite this in a way that
 explicitly embodies the fact that the instantaneous dy-
-namics of the puppet set P(v) depends at most on the
+namics of the puppet set P (v) depends at most on the
 state of the leader set L(v), and not on the state of any
-of the subsystems in N\L(v):
+of the subsystems inN\L (v):
 K
 x′
 L(v)
 x′
-L(v)\P(v),xP(v)
-(v;t) := Kx′
+L(v)\P (v),xP (v)
+(v;t) :=Kx′
 x (v;t) (5)
-A unit ω⊆N is a collection of subsystems such that as
+A unitω⊆N is a collection of subsystems such that as
 the full system's state evolves via a master equation ac-
-cording to K(t), the marginal distribution over the states
+cording toK(t), the marginal distribution over the states
 of the unit also evolves according to its own CTMC:
 d
-dtpxω(t) = Kx′ω
-xω(ω;t)px′ω(t) (6)
+dtpxω(t) =Kx′ω
+xω (ω;t)px′ω(t) (6)
 for some associated rate matrix K(ω;t). Intuitively, a
 unit is any set of subsystems whose evolution is inde-
 pendent of the states of the subsystems outside the unit.
@@ -261,7 +261,7 @@ outgoing edges, even though it cannot have any incom-
 ing edges.
 Any union of units is a unit, and any non-empty inter-
 section of units is a unit [4]. Note that the entire system
-Nitself is a unit. We denote the set of all units as N†.
+N itself is a unit. We denote the set of all units asN†.
 Since each separate unit evolves according to its own
 CTMC, all the usual theorems of stochastic thermody-
 namics apply to each unit separately. In particular, the
@@ -269,20 +269,20 @@ Second Law [4] applies, as do the thermodynamic uncer-
 tainty relations [10-12], the speed limit theorems [13-
 15], the ﬂuctuation theorems [16], ﬁrst-passage time
 bounds and bounds on stopping times [17-19], etc.
-We highlight that for any pair of nested units ωand
+We highlight that for any pair of nested units ω and
 α⊆ω, it is true that [3, 4]:
-˙σω(t) ≥˙σα(t) (7)
-A set of units N∗is called a unit structureif it obeys
+˙σω(t)≥ ˙σα(t) (7)
+A set of units N∗ is called a unit structure if it obeys
 the following properties [4]:
-• The union of the units in the set equals N.
-N∗= {ω1,ω2,...}:
+• The union of the units in the set equals N .
+N∗ ={ω1,ω 2,...} :
 ⋃
 ω∈N†
-ω= N
+ω =N
 • The set is closed under intersections of its units.
-∀(ω1,ω2) ∈(N∗)2 = ω1 ∩ω2 ∈N∗
+∀(ω1,ω 2)∈ (N∗)2 =ω1∩ω2∈N ∗
 We deﬁne an inclusion-exclusion sum of a function
-fω evaluated on every unit ωin a unit structure N∗as
+fω evaluated on every unitω in a unit structureN∗ as
 ˆ∑
 ω∈N∗fω =
 ∑
@@ -309,14 +309,14 @@ IN∗
 (t) (9)
 Using the fact that the heat ﬂow into the unit struc-
 ture also decomposes into an in-ex sum, we can decom-
-pose the global EP incurred during a time period [0 ,τ]
+pose the global EP incurred during a time period [0 ,τ ]
 according to
 σN = ˆ∑
-ω∈N∗σω−∆IN∗
+ω∈N∗σω− ∆IN∗
 (10)
 where ∆IN∗
 is the change in the in-ex information dur-
-ing the time period [0 ,τ]. For a detailed proof of the
+ing the time period [0 ,τ ]. For a detailed proof of the
 in-ex decomposition of the global EP, see [2, 3].
 One can use the in-ex sum decomposition of the EP
 in various ways depending on what degrees of freedom
@@ -325,32 +325,32 @@ if one can calculate the mismatch cost [20, 21] λω for
 each unit in the unit structure, then the in-ex sum can
 be rewritten:
 σN = ˆ∑
-ω∈N∗λω+ ˆ∑
-ω∈N∗ξω−∆IN∗
+ω∈N∗λω + ˆ∑
+ω∈N∗ξω− ∆IN∗
 (11)
-where ξω = σω −λω is the "residual EP" due to every-
+whereξω =σω−λω is the "residual EP" due to every-
 thing aside from the mismatch cost.
 Additionally, a very large number of lower bounds
 can be obtained on the global EP by replacing any posi-
-tive σω (or any such set of them) in the in-ex sum with
+tiveσω (or any such set of them) in the in-ex sum with
 any lower bound (e.g., TUR, SLT, etc.) on the value of
 that unit's EP . (See [2] for examples in the special case of
 MPPs.)
 B. Decomposition of thermodynamic and dynamical
 quantities in composite processes
-Since the entire systemNis itself a unit, we will write
+Since the entire systemN is itself a unit, we will write
 all our results in terms of units for the rest of the paper.
 The rate matrix of each unit ω in a composite pro-
 cess decomposes into rate matrices from each mecha-
-nism whose leader set is a subset of ω:
+nism whose leader set is a subset ofω:
 Kx′ω
-xω(ω;t) =
+xω (ω;t) =
 ∑
 v:L(v)⊆ω
 δ
 x′
 ω\L(v)
-xω\L(v) K
+xω\L(v)K
 x′
 L(v),x′
 ω\L(v)
@@ -359,18 +359,18 @@ xL(v),xω\L(v) (t) (12)
 ∑
 v:L(v)⊆ω
 Kx′ω
-xω(v;t) (13)
+xω (v;t) (13)
 Similarly, we can decompose the EP rate of any unitω:
 ˙σω(t) =
 ∑
 v:L(v)⊆ω,
 x′ω,xω̸=x′ω
 Kx′ω
-xω(v;t)px′ω(t)ln
+xω (v;t)px′ω(t)ln
 
 
 Kx′ω
-xω(v;t)px′ω(t)
+xω (v;t)px′ω(t)
 Kxω
 x′ω
 (v;t)pxω(t)
@@ -383,49 +383,49 @@ v:L(v)⊆ω
 ω(t) (15)
 into contributions ˙ζv
 ω(t) from each mechanism whose
-leader set is a subset of ω. In particular, since the entire
+leader set is a subset ofω. In particular, since the entire
 system is a unit whose state transitions are mediated by
-every mechanism v∈V, the global EP rate decomposes
-as ˙σN(t) = ∑
+every mechanismv∈V , the global EP rate decomposes
+as ˙σN (t) = ∑
 v ˙ζv
-N(t).
+N (t).
 A unit's dynamical activity also decomposes:
 Aω(t) =
 ∑
 v:L(v)⊆ω,
 x′ω,xω̸=x′ω
 Kx′ω
-xω(v;t)px′ω(t) =
+xω (v;t)px′ω(t) =
 ∑
 v:L(v)⊆ω
 A(v;t) (16)
 Similarly, the entire system's dynamical activity can be
-decomposed as AN(t) = ∑
+decomposed as AN (t) = ∑
 vA(v;t). Note that the dy-
-namics of every pair of nested units ω,α ⊆ω must
+namics of every pair of nested units ω,α ⊆ ω must
 be consistent with one another [4], which means that
-Aα(v;t) = Aω(v;t) = A(v;t) for all αand ω.
+Aα(v;t) =Aω(v;t) =A(v;t) for allα andω.
 We denote the probability ﬂow from x′
-ω →xω due to
-mechanism vas Ax′ω
-xω(v;t) = Kx′ω
-xω(v;t)px′ω(t). We write the
-net probability current from x′
-ω →xω due to mechanism
-vas Jx′ω
-xω(v;t) = Ax′ω
-xω(v;t) −Axω
+ω→xω due to
+mechanismv asAx′ω
+xω(v;t) =Kx′ω
+xω (v;t)px′ω(t). We write the
+net probability current fromx′
+ω→xω due to mechanism
+v asJx′ω
+xω (v;t) =Ax′ω
+xω(v;t)−Axω
 x′ω
 (v;t). The total net proba-
-bility current from x′ω →xω equals the sum of the prob-
+bility current fromx′ω→xω equals the sum of the prob-
 ability currents due to each mechanism whose leader set
-is a subset of the unit ω:
+is a subset of the unitω:
 Jx′ω
-xω(t) =
+xω (t) =
 ∑
 v:L(v)⊆ω
 Jx′ω
-xω(v;t) (17)
+xω (v;t) (17)
 Accordingly, we can decompose the master equation for
 the unit ω into probability currents induced by each
 mechanism:
@@ -435,17 +435,17 @@ dtpxω(t) =
 v:L(v)⊆ω,
 x′ω̸=xω
 Kx′ω
-xω(v;t)px′ω(t) =
+xω (v;t)px′ω(t) =
 ∑
 v:L(v)⊆ω,
 x′ω
 Jx′ω
-xω(v;t)
+xω (v;t)
 (18)
 II. THERMODYNAMIC UNCERTAINTY RELATIONS
 FOR COMPOSITE PROCESSES
-For any unit ωthat is in an NESS, any linear function
-of probability currents Cω is a current. It can be divided
+For any unitω that is in an NESS, any linear function
+of probability currentsCω is a current. It can be divided
 into contributions from each mechanism:
 ˙Cω =
 ∑
@@ -458,14 +458,14 @@ xω (19)
 v:L(v)⊆ω,
 x′ω,xω>x′ω
 Jx′ω
-xω(v)Cx′ω
+xω (v)Cx′ω
 xω (20)
 =
 ∑
 v:L(v)⊆ω
 ˙Cω(v) (21)
 where Cx′ω
-xω = −Cxω
+xω =−Cxω
 x′ω
 is some anti-symmetric function of
 state transitions, and we have dropped the time depen-
@@ -476,30 +476,30 @@ modynamic uncertainty relations (TURs) hold for the
 time-integrated version of any such mechanism-speciﬁc
 current. In an NESS running for a time period of length
 τ, this mechanism-speciﬁc time-integrated current is
-Cω(v) = τ˙Cω(v). Additionally, since every unit evolves
+Cω(v) = τ ˙Cω(v). Additionally, since every unit evolves
 according to its own CTMC, the TURs hold for each
 unit.
 For example, the ﬁnite-time TUR bounds the preci-
 sion of any current in a CTMC with respect to its EP
 rate [10, 22]. For a composite process, this holds for any
 unit and any arbitrary time-integrated current:
-σω ≥2⟨Cω⟩2
+σω≥ 2⟨Cω⟩2
 Var(Cω
 (22)
-Additionally, for any mechanism v : L(v) ⊆ω and any
-associated current Cω(v),
-σω ≥ 2⟨Cω(v)⟩2
+Additionally, for any mechanism v :L(v)⊆ω and any
+associated currentCω(v),
+σω≥ 2⟨Cω(v)⟩2
 Var(Cω(v)) (23)
 The vector-valued TUR following [11] holds for a vec-
 tor ˙Cω of any set of (potentially mechanism-speciﬁc)
-currents {˙Cω}that are not linearly dependent:
+currents{ ˙Cω} that are not linearly dependent:
 ˙CT
-ωΞ−1
-ω ˙Cω ≤ ˙σω
+ω Ξ−1
+ω ˙Cω≤ ˙σω
 2τ (24)
 where Ξ−1
 ω is the inverse of the covariance matrix of the
-associated time-integrated currents {Cω}.
+associated time-integrated currents{Cω}.
 Any of these TURs can be useful to bound the entropy
 production when one has limited access to the system in
 the sense that one can measure state transitions i) due
@@ -510,10 +510,10 @@ A. Information Flow TURs
 One important quantity in an MPP is information
 ﬂow [1, 9, 23]. Here, we extend the concept of infor-
 mation ﬂow to composite processes. For any unit ω in
-an NESS, a set of subsystems A⊂ω, and a set of subsys-
-tems B⊂ω(for which A∩B= ∅), the information ﬂow
+an NESS, a set of subsystemsA⊂ω, and a set of subsys-
+temsB⊂ω (for whichA∩B = ∅), the information ﬂow
 is the rate of decrease in the conditional entropy of the
-state of Bgiven the state of A, due to state transitions in
+state ofB given the state ofA, due to state transitions in
 A:
 ˙IA→B =
 ∑
@@ -522,17 +522,17 @@ Jx′ω
 xωδ
 x′
 ω\A
-xω\A ln pxB|xA
+xω\A lnpxB|xA
 pxB|x′
 A
 (25)
-So, when ωis in an NESS, the information ﬂow is a cur-
+So, whenω is in an NESS, the information ﬂow is a cur-
 rent for which Cx′ω
-xω = C
+xω =C
 x′
 ω\A,x′
 A
-xω\A,xA = δ
+xω\A,xA =δ
 x′
 ω\A
 xω\A ln
@@ -541,16 +541,16 @@ pxB|x′
 A
 . The con-
 tribution to that information ﬂow that is due to interac-
-tions of the unit with reservoir v : L(v) ⊆ω is itself an
+tions of the unit with reservoir v :L(v)⊆ω is itself an
 information ﬂow
 ˙IA→B(v) =
 ∑
 x′ω,xω>x′ω
 Jx′ω
-xω(v)δ
+xω (v)δ
 x′
 ω\A
-xω\A ln pxB|xA
+xω\A lnpxB|xA
 pxB|x′
 A
 (26)
@@ -565,9 +565,9 @@ LIMITS FOR COMPOSITE PROCESSES
 Here we derive a speed limit similar to the one in [15],
 but for composite processes. This speed limit is tighter
 than the one presented in that paper. Our analysis will
-hold for an arbitrary unit ω(which could be the entire
-system Nitself):
-lω ≤
+hold for an arbitrary unit ω (which could be the entire
+systemN itself):
+lω≤
 ∑
 v:L(v)⊆ω
 Atot
@@ -577,20 +577,20 @@ Atot
 Atotω (v;τ)
 )
 (27)
-where the dynamics occurs during the time period [0,τ].
-Additionally, lω is the total variation distance between
-the initial (time-0) and ﬁnal (time- τ) probability distri-
+where the dynamics occurs during the time period [0,τ ].
+Additionally,lω is the total variation distance between
+the initial (time-0) and ﬁnal (time-τ) probability distri-
 butions over states of the unit ω. Atotω (v;τ) is the total
 time-integrated dynamical activity due to mechanismv.
 ζvω(τ) is the total contribution to the entropy production
-of unit ωdue to interactions of ωwith mechanism v.
+of unitω due to interactions ofω with mechanismv.
 We start by bounding the total variation distance be-
 tween the initial and ﬁnal (time-τ) probability distribu-
-tions over states of the unit ω:
+tions over states of the unitω:
 lω := L(pxω(0),pxω(τ)) = 1
 ∑
 xω
-⏐⏐⏐pxω(τ) −pxω(0)
+⏐⏐⏐pxω(τ)−pxω(0)
 ⏐⏐⏐ (28)
 = 1
 ∑
@@ -600,7 +600,7 @@ xω
 dt d
 dtpxω(t)
 ⏐⏐⏐⏐⏐ (29)
-≤1
+≤ 1
 ∫ τ
 dt
 ∑
@@ -625,7 +625,7 @@ v:L(v)⊆ω
 ∑
 x′ω̸=xω
 Jx′ω
-xω(v;t)
+xω (v;t)
 ⏐⏐⏐⏐⏐⏐⏐⏐
 (31)
 ≤
@@ -634,32 +634,32 @@ v:L(v)⊆ω
 ∑
 xω,x′ω̸=xω
 ⏐⏐⏐⏐Jx′ω
-xω(v;t)
+xω (v;t)
 ⏐⏐⏐⏐ (32)
-We write the time- t "conditional probability distribu-
+We write the time-t "conditional probability distribu-
 tion" of the forward process, under the counterfactual
 scenario that the process evolves with coupling only to
-mechanism v: L(v) ⊆ωas
+mechanismv :L(v)⊆ω as
 Wx′ω
-xω (v;t) = (1 −δx′ω
-xω)Kx′ω
-xω(v;t)px′ω(t)
+xω (v;t) = (1−δx′ω
+xω )Kx′ω
+xω (v;t)px′ω(t)
 Aω(v;t) (33)
 Intuitively, this can be interpreted as a conditional prob-
-ability that if a jump occurs at tdue reservoir v: L(v) ⊆
+ability that if a jump occurs at t due reservoirv :L(v)⊆
 ω, that the state before the jump was x′ω and the state
 afterwards was xω We write the same quantity for the
 reverse process as
 ˜Wx′ω
 xω (t) =
-(1 −δxω
+(1−δxω
 x′ω
 )Kxω
 x′ω
 (v;t)pxω(t)
 Aω(v;t) (34)
 The total variation distance between these matrices
-dTV(Wω(v;t),˜Wω(v;t)) represents how irreversible this
+dTV(Wω(v;t), ˜Wω(v;t)) represents how irreversible this
 counterfactual process (the one driven only by mech-
 anism v) is at time t. Using these deﬁnitions, we can
 rewrite Eq. (32) as
@@ -668,32 +668,32 @@ xω
 ⏐⏐⏐⏐⏐
 d
 dtpxω(t)
-⏐⏐⏐⏐⏐ ≤2
+⏐⏐⏐⏐⏐ ≤ 2
 ∑
 v:L(v)⊆ω
-Aω(v;t)dTV(Wω(v;t),˜Wω(v;t))
+Aω(v;t)dTV(Wω(v;t), ˜Wω(v;t))
 (35)
 Plugging into Eq. (30), we obtain
-lω ≤
+lω≤
 ∫ τ
 dt
 ∑
 v:L(v)⊆ω
-Aω(v;t)dTV(Wω(v;t),˜Wω(v;t)) (36)
+Aω(v;t)dTV(Wω(v;t), ˜Wω(v;t)) (36)
 We next make use of the fact that mechanismv's con-
-tribution to the EP rate of unit ω(Eq. (15)) can be writ-
+tribution to the EP rate of unit ω (Eq. (15)) can be writ-
 ten in terms of the Kullback-Leibler (KL) divergence be-
 tween the conditional distributions of the forward and
 backward processes as
 ˙ζv
-ω(t) = Aω(v;t)DKL(Wω(v;t),˜Wω(v;t)) (37)
+ω(t) =Aω(v;t)DKL(Wω(v;t), ˜Wω(v;t)) (37)
 Any positive monotonic concave function f relates the
 total variation distance to the KL divergence [15] ac-
 cording to:
-dTV(p;q) ≤f(DKL(p;q)) (38)
+dTV(p; q)≤f (DKL(p; q)) (38)
 We can use this relationship to relate Eq. (37) to lω.
 Combining Eqs. (36) to (38),
-lω ≤
+lω≤
 ∫ τ
 dt
 ∑
@@ -706,20 +706,20 @@ Aω(v;t)
 Next deﬁne ζv
 ω =
 ∫τ
-0 dt˙ζv
+0 dt ˙ζv
 ω(t) as the total (ensemble-
-average) contribution to the EP of unit ωcaused by an
+average) contribution to the EP of unit ω caused by an
 interaction of the system with mechanism v during the
-time period [0 ,τ]. Also deﬁne Atotω (v;τ) =
+time period [0,τ ]. Also deﬁne Atotω (v;τ) =
 ∫τ
 0 dtAω(v;t)
 as the total (ensemble-average) number of state transi-
-tions in the unit ωthat are caused by an interaction of
-the system with mechanism v. Then using the positivity
+tions in the unit ω that are caused by an interaction of
+the system with mechanismv. Then using the positivity
 of the dynamical activity and of the EP, together with
-the concavity of f, we can further bound the right hand
+the concavity off , we can further bound the right hand
 side to obtain a general limit for composite processes:
-lω ≤
+lω≤
 ∑
 v:L(v)⊆ω
 Atot
@@ -728,22 +728,22 @@ Atot
 Atotω (v;τ)
 )
 (40)
-This result provides an upper bound on how much lω
-can change during the time interval [0 ,τ], in terms of
-the associated activity of ωand the contribution of ωto
+This result provides an upper bound on how muchlω
+can change during the time interval [0 ,τ ], in terms of
+the associated activity ofω and the contribution ofω to
 EP . So Eq. (40) is a thermodynamic speed limit theorem,
 involving
 By comparison, the speed limit in [15] applied to a
-unit ωreads
-lω ≤Atot
+unitω reads
+lω≤A tot
 ω (τ)f
-( σω(τ)
+(σω(τ)
 Atotω (τ)
 )
 (41)
 For a composite process, the right hand side of this
 "global" bound expands to
-lω ≤
+lω≤
 
 
 ∑
@@ -751,7 +751,7 @@ v:L(v)⊆ω
 Atot
 ω (v;τ)
 
- f
+f
 
 
 ∑
@@ -764,8 +764,8 @@ v:L(v)⊆ωAtotω (v;τ)
 By Jensen's inequality, the speed limit for compos-
 ite processes (Eq. (40)) is always tighter than the speed
 limit provided by [15] (Eq. (41)). For a concave func-
-tion f, a set of numbers a xv in its domain, and positive
-weights av, Jensen's inequality states that
+tionf , a set of numbers axv in its domain, and positive
+weightsav, Jensen's inequality states that
 
 
 ∑
@@ -780,31 +780,31 @@ vav
 ≥
 ∑
 v
-avf(xv) (43)
-Setting av = Atotω (v;τ) and xv = ζvω(τ)
+avf (xv) (43)
+Setting av =Atotω (v;τ) and xv = ζvω(τ)
 Atotω (v;τ) proves that
 Eq. (40)) is always tighter than Eq. (41). Intuitively,
 this occurs because we're able to deﬁne the mechanism-
 speciﬁc contributions to the EP and activity in a com-
 posite process.
 [15] provides some examples of acceptable functions
-f. For example, if we follow Pinsker's inequality and
+f . For example, if we follow Pinsker's inequality and
 choose f =
 √x
-2 , then the speed limit provided by [15]
+2, then the speed limit provided by [15]
 collapses to the speed limit derived in [13]. If we plug
 in this choice of f to Eq. (40), extract the parameter
 τ by using the average frequency of state transitions
-⟨Aω(v)⟩τ = Atotω (v;τ)
+⟨Aω(v)⟩τ =Atotω (v;τ)
 τ , and rearrange terms, we obtain
-∀ω∈N†: τ≥ (L(pxω(0),pxω(τ)))2
+∀ω∈N † : τ≥ (L(pxω(0),pxω(τ)))2
 (∑
 v:L(v)⊆ω
 √
 ζvω(τ)⟨Avω⟩τ
 )2 (44)
 the tightest of which is given by:
-τ≥max
+τ≥ max
 ω∈N†
 (L(pxω(0),pxω(τ)))2
 (∑

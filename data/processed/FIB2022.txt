@@ -65,7 +65,7 @@ Distractor
 A middle-aged woman
 was hospitalized after
 falling from a cliff.
-✓ 𐄂
+✓𐄂
 Figure 1: A schematic diagram of FIB, where we mea-
 sure whether an LLM assigns a higher score to a fac-
 tually consistent document summary than a factually
@@ -258,7 +258,7 @@ et al., 2018a) for abstractive summaries. CNN/DM
 consists of English documents about the news
 from CNN/Daily Mail and summaries that are
 several sentences long with 287K/13K/11K ex-
-amples for train/val/test.2 XSum consists of En-
+amples for train/val/test. 2 XSum consists of En-
 glish documents about the news from BBC and
 short summaries with 204K/11K/11K examples for
 train/val/test.3 The CNN/DM dataset is distributed
@@ -329,7 +329,7 @@ across 500 unique documents for XSum and 457
 pairs across 96 unique documents for CNN/DM (4
 CNN/DM documents were dropped since all the
 models generated factually consistent summaries
-for them). A model's accuracy on FIB is then sim-
+for them). A model's accuracy onFIB is then sim-
 ply the proportion of summary pairs where the
 model assigns a higher score to the Gold summary
 than to the factually inconsistent summary.
@@ -375,13 +375,13 @@ T log
 T
 ∑
 t=1
-P(st∣d, s1, ..., st−1) (1)
+P (st∣d, s1, ..., st−1) (1)
 − 1
 T log
 T
 ∑
 t=1
-P(st∣, s1, ..., st−1)
+P (st∣, s1, ..., st−1)
 We ablate the impact of using different scoring
 functions in section 4.4.
 4 Experiments
@@ -627,7 +627,7 @@ FactCC and factually inconsistent reference sum-
 maries. This suggests that FactCC generates
 somewhat plausible factually inconsistent sum-
 maries for zero-shot decoder-only LLMs.
-• FactCC's Effectiveness for other models: How-
+• FactCC's Effectiveness for other models:How-
 ever, T0, FLAN-T5, and T5-LM-Adapt (see ap-
 pendix H for FLAN-T5 and T5-LM-Adapt ac-
 curacies) all perform better when using FactCC-

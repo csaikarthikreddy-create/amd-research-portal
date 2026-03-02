@@ -63,7 +63,7 @@ ful and/or factual given the document. The exam-
 ple in Figure 1 illustrates that the faithfulness and
 factuality are yet to be conquered by conditional
 text generators. The article describes an event
-of "Conservative MP Zac Smith winning the pri-
+of " Conservative MP Zac Smith winning the pri-
 mary for 2016 London mayoral election", but sum-
 maries often forge entities (e.g., "Nigel Goldsmith"
 or "Zac Goldwin") or information (e.g., "UKIP
@@ -88,32 +88,32 @@ marizers hallucinate content?; (ii) Do models hal-
 arXiv:2005.00661v1 [cs.CL] 2 May 2020
 GOLD Zac Goldsmith will contest the 2016 London mayoral election for the Conservatives, it has been
 announced.
-DOCUMENT : The Richmond Park and North Kingston MP said he was "honoured" after winning70% of the 9,227
+DOCUMENT : The Richmond Park and North Kingston MP said he was "honoured" after winning 70% of the 9,227
 votes cast using an online primary system.
 He beat London Assembly Member Andrew Boff, MEP Syed Kamall and London's deputy mayor for crime and policing
 Stephen Greenhalgh.
-Mr Goldsmith's main rival is likely to beLabour's Sadiq Khan. (2 sentences with 59 words are abbreviated here.)
-Mr Goldsmith, who was the favourite for the Tory nomination, balloted his constituents earlier this year to seek
+Mr Goldsmith's main rival is likely to be Labour's Sadiq Khan. (2 sentences with 59 words are abbreviated here.)
+Mr Goldsmith , who was the favourite for the Tory nomination , balloted his constituents earlier this year to seek
 permission to stand.
-At the very point of his entry into the race for London mayor, Zac Goldsmith's decision revealed two big characteristics.
+At the very point of his entry into the race for London mayor , Zac Goldsmith's decision revealed two big characteristics.
 (5 sentences with 108 words are abbreviated here.)
-Mr Goldsmith- who ﬁrst entered Parliament in 2010 - told the BBC's Daily Politics that he hoped his environmental record
+Mr Goldsmith - who ﬁrst entered Parliament in 2010 - told the BBC's Daily Politics that he hoped his environmental record
 would appeal to Green and Lib Dem voters and he also hoped to "reach out" to UKIP supporters frustrated with politics as
 usual and the UK's relationship with the EU.
-Zac GoldsmithBorn in 1975, educated at Eton and the Cambridge Centre for Sixth-form Studies (5 sentences with 76
+Zac Goldsmith Born in 1975, educated at Eton and the Cambridge Centre for Sixth-form Studies (5 sentences with 76
 words are abbreviated here.)
 Mr Goldsmith, who has conﬁrmed he would stand down from Parliament if he became mayor, triggering a by-election, said
-he wanted to build on current mayor Boris Johnson's achievements.(3 sentences with 117 words are abbreviated here.)
-Both Mr Khan and Mr Goldsmithoppose a new runway at Heathrow airport, a fact described by the British Chambers of
+he wanted to build on current mayor Boris Johnson's achievements. (3 sentences with 117 words are abbreviated here.)
+Both Mr Khan and Mr Goldsmith oppose a new runway at Heathrow airport, a fact described by the British Chambers of
 Commerce as "depressing". (1 sentences with 31 words is abbreviated here.)
-Current mayor Boris Johnsonwill step down next year after two terms in ofﬁce. He is also currently the MP for Uxbridge
+Current mayor Boris Johnson will step down next year after two terms in ofﬁce. He is also currently the MP for Uxbridge
 and South Ruislip, having been returned to Parliament in May.
-Some Conservatives have called for an inquiry into the mayoral election processafter only 9,227 people voted - compared
+Some Conservatives have called for an inquiry into the mayoral election process after only 9,227 people voted - compared
 with a 87,884 turnout for the Labour contest. (4 sentences with 121 words are abbreviated here.)
 PTGEN UKIP leader Nigel Goldsmith has been elected as the new mayor of London to elect
 a new Conservative MP.
 [45.7, 6.1, 28.6]
-TCONV S2S Former London mayoral candidate Zac Goldsmith has been chosen to stand in the
+TC ONV S2S Former London mayoral candidate Zac Goldsmith has been chosen to stand in the
 London mayoral election.
 [50.0, 26.7, 37.5]
 TRAN S2S Former London mayor Sadiq Khan has been chosen as the candidate to be the next
@@ -125,7 +125,7 @@ London mayoral election.
 BERT S2S Zac Goldsmith has been chosen to contest the London mayoral election. [66.7, 40.0, 51.9]
 Figure 1: Hallucinations in extreme document summarization: the abbreviated article, its gold summary and the
 abstractive model generated summaries (P TGEN, See et al. 2017; TC ONV S2S, Narayan et al. 2018a; and, GPT-
-TUNED , TRAN S2S and B ERTS2S, Rothe et al. 2020) for a news article from the extreme summarization dataset
+TUNED , T RAN S2S and B ERTS2S, Rothe et al. 2020) for a news article from the extreme summarization dataset
 (Narayan et al., 2018a). The dataset and the abstractive models are described in Section 3 and 4. We also present
 the [ROUGE -1, ROUGE -2, ROUGE -L] F1 scores relative to the reference gold summary. Words in red correspond
 to hallucinated information whilst words in blue correspond to faithful information.
@@ -197,7 +197,7 @@ S, we try to identify all hallucinations in S with re-
 spect to the content of D, regardless of the quality
 of the summary. In this work, we deﬁne a summary
 as being hallucinated if it has a span(s) wi . . . wi+j,
-j ≥i, that is not supported by the input document.
+j≥ i, that is not supported by the input document.
 To distinguish hallucinations further in the context
 of a document and a summary, we categorize hallu-
 cinations by the information source as intrinsic and
@@ -220,7 +220,7 @@ may suspect that a model with poor input docu-
 ment representation will fail to do document level
 inference, often required for abstraction, and will
 be vulnerable to such errors.
-Extrinsic hallucinationsare model generations
+Extrinsic hallucinations are model generations
 that ignore the source material altogether. For ex-
 ample, in Figure 1, "Nigel" in the PTGEN abstract
 and "2016" in both GOLD and GPT-T UNED are
@@ -347,7 +347,7 @@ the target vocabulary but can copy words from the
 source text.
 Topic-aware Convolutional Seq2Seq. The
 Topic-aware Convolutional Sequence to Sequence
-model ( TCONV S2S) introduced by Narayan
+model ( TC ONV S2S) introduced by Narayan
 et al. (2018a) is an abstractive system which
 is conditioned on the article's topics and based
 entirely on Convolutional Neural Networks
@@ -376,11 +376,11 @@ available GPT checkpoint (Radford et al., 2019),
 but ﬁne-tuned with supervised training on the ex-
 treme summarization dataset.
 TRAN S2S and BERT S2S: TRAN S2S and
-BERT S2S are sequence to sequence models
+BERTS2S are sequence to sequence models
 Models Human Eval Test Set
 R1 R2 RL BERTScore
 PTGEN 30.01 9.38 23.76 74.30
-TCONV S2S 30.89 11.47 25.80 75.23
+TC ONV S2S 30.89 11.47 25.80 75.23
 TRAN S2S 32.28 11.66 24.65 75.69
 GPT-T UNED 21.82 4.72 16.28 70.35
 BERTS2S 38.42 16.96 31.27 78.85
@@ -392,13 +392,13 @@ dataset. The best results are boldfaced.
 where both encoder and decoder are composed
 of Transformer layers (Vaswani et al., 2017;
 Rothe et al., 2020). All weights in TRAN S2S
-are randomly initialized, but in BERT S2S , both
+are randomly initialized, but in BERTS2S , both
 encoder and decoder are initialized with the
 BERT-Base checkpoints (Devlin et al., 2019),
 with parameter sharing between the encoder and
 decoder, following Rothe et al. (2020). The only
 variable that is initialized randomly is the encoder-
-decoder attention in BERT S2S . Both models are
+decoder attention in BERTS2S . Both models are
 then trained on the extreme summarization dataset.
 5 Experiments and Results
 The main focus of this work is not to propose a so-
@@ -437,7 +437,7 @@ However, instead of exact matches, it computes
 token similarity using contextual embeddings. Re-
 sults are presented in Table 1.
 For both cases, the pretrained encoder-decoder
-architecture BERT S2S performed far superior to
+architecture BERTS2S performed far superior to
 any other randomly initialized models, such as PT-
 GEN, TCONV S2S and TRAN S2S, and the decoder-
 only architecture GPT-T UNED . The differences be-
@@ -449,7 +449,7 @@ metrics to assess the overall quality of summaries.
 This becomes evident from our human assessments
 in the following sections where we employ human
 annotators to evaluate summaries generated with
-PTGEN, TCONV S2S , TRAN S2S and BERT S2S ,
+PTGEN, TC ONV S2S , TRAN S2S and BERTS2S ,
 and the human authored summaries. We excluded
 GPT-T UNED abstracts from our study after their
 poor performance on the automatic measures.
@@ -477,7 +477,7 @@ hallucinated span characteristics.
 Extrinsic Hallucination due to Divergence be-
 tween Source and Target. Our results con-
 4Pairwise comparisons between all models using a one-
-way ANOV A with post-hoc Tukey HSD tests;p <0.01.
+way ANOV A with post-hoc Tukey HSD tests;p < 0.01.
 Models Hallucinated Faith. +Fact.I E I ∪ E
 PTGEN 19.9 63.3 75.3 24.7 27.3
 TCONV S2S 17.7 71.5 78.5 21.5 26.9
@@ -523,7 +523,7 @@ the mechanism lacks the inference capability and is
 prone to generate a summary that is not supported
 by the document (19.9% intrinsic hallucination).
 TRAN S2S showed similar performance to PTGEN
-and ranked second worst. The BERT S2S showed
+and ranked second worst. The BERTS2S showed
 the least number of intrinsic hallucination (16.9%)
 among all four abstractive systems.
 Pretraining Improves Faithfulness. Hallucina-
@@ -531,7 +531,7 @@ tions do not result from the artifacts in the training
 data only, but also due to model shortcomings. The
 PTGEN model with the copy mechanism (Gu et al.,
 2016; See et al., 2017) had the lowest extrinsic
-hallucination (63.3%), but BERT S2S reported the
+hallucination (63.3%), but BERTS2S reported the
 highest number of faithful summaries. It appears
 that BERTS2S is overall most conservative among
 all four abstractive systems while getting closer to
@@ -583,32 +583,32 @@ of them. Results from this assessment are also pre-
 sented in Table 2 (see the column labelled "+Fact.")
 along with the hallucination assessment.
 Pretraining Helps Generating Factual Sum-
-maries. In total, 34.7% of the BERT S2S ab-
+maries. In total, 34.7% of the BERTS2S ab-
 stracts were faithful (26.9%) and/or factual
 (+7.8%). This is 7.4% absolute better than the
 next-best model (PTGEN). The number of unfaith-
 ful yet factual summaries for BERTS2S, 7.8%, was
 also the highest. In fact, for extrinsic hallucina-
 tions, even though PTGEN hallucinates less than
-BERT S2S (63.3% vs. 64.1%), 6.6% of BERT S2S
+BERTS2S (63.3% vs. 64.1%), 6.6% of BERTS2S
 hallucinations were factual, compared to 2.2% of
 PTGEN.5 Thus, if we consider factual hallucina-
 tions to be valid, this means that even for extrinsic
 cases, BERTS2S hallucinates the least.
-The superior performance of BERT S2S is most
+The superior performance of BERTS2S is most
 likely due to its exposure to vast amount of text
 through pretraining, allowing it to integrate back-
 ground knowledge with generation. Even so, over
 90% of BERTS2S hallucinations are erroneous.
 Finally, we carried out pairwise comparisons be-
 tween all models (using a one-way ANOV A with
-post-hoc Tukey HSD tests; p <0.01). For intrin-
+post-hoc Tukey HSD tests; p < 0.01). For intrin-
 sic hallucinations (the second column in Table 2),
 GOLD is signiﬁcantly different from all other sys-
 tems. For extrinsic hallucinations (the third col-
 umn in Table 2), there were signiﬁcant differences
 between PTGEN and TCONV S2S , PTGEN and
-GOLD , and, BERT S2S and GOLD . For factual-
+GOLD, and, BERTS2S and GOLD. For factual-
 ity, the differences between PTGEN, TCONV S2S ,
 and TRAN S2S were insigniﬁcant.
 5.4 Automatic Measures for Hallucinations
@@ -635,7 +635,7 @@ the BERTS2S abstracts showed the least number of
 5See Appendix for full results.
 Models Textual Entailment QAentail. neut. cont.
 PTGEN 38.4 34.4 27.2 20.2
-TCONV S2S 29.6 37.4 33.0 19.9
+TC ONV S2S 29.6 37.4 33.0 19.9
 TRAN S2S 34.6 39.8 25.6 22.4
 BERTS2S 41.8 37.8 20.4 23.0
 GOLD 32.8 47.2 20.0 19.3
@@ -654,7 +654,7 @@ Similar to the performance on extrinsic halluci-
 nation in Table 2, the TCONV S2S abstracts also
 displayed the highest number of contradictions. In-
 terestingly, the GOLD summaries are more neutral
-to their documents, whereas the BERT S2S sum-
+to their documents, whereas the BERTS2S sum-
 maries are more entailed by their documents. This
 is probably due to the nature of the data and that
 journalists tend to add color and have a high num-
@@ -676,7 +676,7 @@ answer extraction models to generate synthetic
 question-answer pairs. For the 500 document-
 summary pairs, we generated 731, 708, 720,
 725 and 820 question-answer pairs for PTGEN,
-TCONV S2S, TRAN S2S, BERTS2S and GOLD , re-
+TC ONV S2S, TRAN S2S, BERTS2S and GOLD, re-
 spectively. Finally, we used a machine reading
 comprehension model to answer these questions
 using the document as context. As in Alberti et al.
@@ -691,7 +691,7 @@ to beat Huddersﬁeld town in the ﬁrst round
 of the EFL cup. ( Q: What team did Leeds
 United beat in the ﬁrst round of the EFL cup?,
 A: Huddersﬁeld town)
-TCONV S2S A coal mine in South Yorkshire has collapsed
+TC ONV S2S A coal mine in South Yorkshire has collapsed
 as a result of the loss of a coal mine. ( Q:
 What type of mine has collapsed?, A: Coal)
 TRAN S2S Star Wars actor James Davis said he was
@@ -721,14 +721,14 @@ man's correlation coefﬁcients of different metrics
 with the faithful and factual human scores (see
 Table 4). We found that the textual entailment
 scores are best correlated with both faithful (mod-
-erate, 0.40 ≤ |rs| ≤0.59) and factual (weak,
-0.20 ≤|rs|≤ 0.39) human scores. Comparatively,
+erate, 0.40 ≤ |rs| ≤ 0.59) and factual (weak,
+0.20≤| rs|≤ 0.39) human scores. Comparatively,
 ROUGE -based metrics and BERTScore have very
 weak correlation, our ﬁndings are consistent with
 the recent studies (Goodrich et al., 2019; Kryscin-
 ski et al., 2019a; Wang et al., 2020). Surprisingly,
 the question answering scores showed a very weak
-correlation (0.0 ≤|rs|≤ 0.19) with faithful and
+correlation (0.0≤| rs|≤ 0.19) with faithful and
 factual human scores. We hypothesize that this
 is due to a compounding of errors where (i) the
 question generator is used to generate questions
@@ -770,13 +770,13 @@ the former. Speciﬁcally, we used the probability
 that a summary is entailed by a document as a selec-
 tion criteria to select a summary between four can-
 didates generated by systems evaluated: PTGEN,
-TCONV S2S , TRAN S2S , and BERT S2S . Results
+TC ONV S2S , TRAN S2S , and BERTS2S . Results
 are shown in the ENTAIL row of Table 5. We can
 see that indeed this is a strong metric to optimize
 towards if we want faithful summaries - almost 5%
 absolute better. There is a trade-off in terms of
 ROUGE , but this model must select amongst 4 sys-
-tems, 3 of which have signiﬁcantly lower ROUGE
+tems, 3 of which have signiﬁcantly lowerROUGE
 than the best model.
 A further experiment is to train a model explic-
 itly to predict faithfulness. In order to do this, we
@@ -788,12 +788,12 @@ otherwise we set it to 'neutral'. This allowed for us
 to also ﬁne-tune the last classiﬁcation layers taking
 advantage of the correlation between 'entailment'
 and 'faithfulness'. Results using 5-fold cross val-
-idation are shown in the ENTAIL →FAITH row of
+idation are shown in the ENTAIL→FAITH row of
 Table 5. We see here that indeed this does improve
 the ability to select faithful summaries from a set
 of candidates, though slightly. We would expect
 to see larger gains with more training data. How-
-ever, this model is signiﬁcantly better than ENTAIL
+ever, this model is signiﬁcantly better thanENTAIL
 on ROUGE -based metrics and seems like a good
 balance between ROUGE and better faithfulness.
 6 Related Work
@@ -1220,13 +1220,13 @@ Predictions
 PTGEN and TCONV S2S model predictions are pro-
 vided by Narayan et al. (2018a) and Transformer
 model predictions from GPT-T UNED , TRAN S2S
-and BERT S2S , by Rothe et al. (2020). Both PT-
+and BERTS2S , by Rothe et al. (2020). Both PT-
 GEN and TCONV S2S use a Stanford tokenized
-vocabulary size of 50k. TRAN S2S and BERT S2S
-use a vocabulary size of around ∼30k WordPieces
+vocabulary size of 50k. TRAN S2S and BERTS2S
+use a vocabulary size of around∼30k WordPieces
 (Wu et al., 2016) to match BERT pretrained vo-
 cabulary and, GPT-T UNED , a vocabulary size of
-around ∼50k SentencePieces (Kudo and Richard-
+around∼50k SentencePieces (Kudo and Richard-
 son, 2018) to match the GPT-2 pretrained vocab-
 ulary. All models use the same uncased vocabu-
 lary on both source and target sides. Both PTGEN
@@ -1238,7 +1238,7 @@ these models.
 Models Fleiss' Kappa
 Hall. Fact. Rept. Inco.
 PTGEN 0.70 0.91 0.89 0.84
-TCONV S2S 0.73 0.91 0.93 0.90
+TC ONV S2S 0.73 0.91 0.93 0.90
 TRAN S2S 0.67 0.91 0.92 0.90
 BERTS2S 0.67 0.88 0.94 0.93
 GOLD 0.71 - 1.00 0.98
@@ -1252,12 +1252,12 @@ ment among our raters when categorizing a word in
 the summary as one of faithful, intrinsically hallu-
 cinated and extrinsically hallucinated. The results
 are shown in Table 6. All models showed substan-
-tial agreement (0.61 ≤k ≤0.80; Landis and Koch,
+tial agreement (0.61≤ k≤ 0.80; Landis and Koch,
 1977) among their annotations.
 Table 6 also shows Fleiss's Kappa ( k) to as-
 sess the agreement among our raters for factuality.
 All models showed almost perfect agreement (0.81
-≤k ≤1.0; Landis and Koch, 1977) among their
+≤ k≤ 1.0; Landis and Koch, 1977) among their
 annotations.
 C Highlighted Span Characteristics
 Results in Table 7 shed some light on the charac-
@@ -1302,12 +1302,12 @@ ferent metrics with faithful and factual annotations.
 least number of extrinsically hallucinated spans
 (2.85 per document). Interestingly, the average
 span length for PTGEN summaries was 8.48 words,
-much higher than 6.12 words for BERT S2S sum-
+much higher than 6.12 words for BERTS2S sum-
 maries. Our result demonstrates that (i) the effect
-of hallucination in BERT S2S is more local than
+of hallucination in BERTS2S is more local than
 what we observe in PTGEN and (ii) despite a lower
 number of extrinsically hallucinated spans or doc-
-uments in PTGEN compared to that in BERT S2S
+uments in PTGEN compared to that in BERTS2S
 (2.85 vs 3.04 spans per document, 63.3% vs 64.1%
 documents), the total number of words that were an-
 notated as extrinsic hallucination is much higher in
@@ -1333,7 +1333,7 @@ the percentage of summaries out of 500 where at least one word was annotated by 
 (I) or extrinsic (E) hallucination. When a summary is not marked with any hallucination, it is "faithful" (1- I ∪E).
 The "factual" columns within the "Hallucinated" column show for each type (I, E and I ∪E), the percentage of
 summaries out of 500 annotated by all three annotators as factual. The ﬁnal "Factual" column shows the total
-percentage of factual summaries (Faithful + I ∪Efactual). The highest numbers for faithful and factual, and the
+percentage of factual summaries (Faithful + I∪Efactual). The highest numbers for faithful and factual, and the
 lowest numbers for hallucinations are boldfaced.
 spans of text in the summary that were either re-
 peated or made the summary incoherent. We again
@@ -1350,7 +1350,7 @@ els. Nonetheless, Table 9 shows that these metrics
 fail to correlate with faithful, hallucinated and fac-
 tual assessments of summaries. Fleiss's Kappa (k)
 values for repetition and incoherence assessments
-showed almost a perfect agreement (0.81 ≤k ≤
+showed almost a perfect agreement (0.81≤ k≤
 1.0; Landis and Koch, 1977) among our raters (see
 Table 6).
 E Full Hallucination Results

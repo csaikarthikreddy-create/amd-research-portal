@@ -1,4 +1,4 @@
-G-E VAL: NLG Evaluation using GPT-4 with Better Human Alignment
+G-E VAL: NLG Evaluation using G PT-4 with Better Human Alignment
 Yang Liu Dan Iter Yichong Xu
 Shuohang Wang Ruochen Xu Chenguang Zhu
 Microsoft Cognitive Services Research
@@ -264,7 +264,7 @@ ing GPT-3.5 (text-davinci-003) and GPT-4. For
 GPT-3.5, we set decoding temperature to 0 to in-
 crease the model's determinism. For GPT-4, as it
 does not support the output of token probabilities,
-we set 'n = 20, temperature= 1, topp = 1' to
+we set 'n = 20 , temperature = 1 , top p = 1' to
 sample 20 times to estimate the token probabilities.
 We use G-E VAL-4 to indicate G-E VAL with GPT-4
 Metrics Coherence Consistency Fluency Relevance A VG

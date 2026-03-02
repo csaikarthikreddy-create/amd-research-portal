@@ -388,7 +388,7 @@ nAI's gpt-3.5-turbo-16k, version 10/23, (Brown
 et al., 2020) in a zero/few-shot setting. For similar-
 ity search over in-domain passages, we use FAISS
 IndexFlatL2 for indexing (Johnson et al., 2019)
-and OpenAI's text-embedding-ada-002 for gener-
+and OpenAI'stext-embedding-ada-002 for gener-
 ating embeddings. We use simlarity search over
 in-domain passages to filter our synthetic queries
 that cannot retrieve the passage from which they
@@ -480,7 +480,7 @@ evaluation criteria.
 4.3 Metrics
 To calculate the correlation between the correct
 ranking and the ARES ranking, we use the Kendall
-rank correlation coefficient or Kendall's τ :
+rank correlation coefficient or Kendall'sτ:
 τ = (# of concordant pairs) − (# of discordant pairs)
 # of pairs total
 Concordant pairs are defined as two ordinal val-
@@ -489,7 +489,7 @@ sequence is lower than the later value in the se-
 quence. Discordant pairs are defined as two ordinal
 values in the ranking where the earlier value in the
 sequence is greater than or equal to the later value
-in the sequence. A Kendall's τ greater than 0.9 is
+in the sequence. A Kendall'sτ greater than 0.9 is
 considered successful but it ranges from 0.0 to 1.0.
 In development, researchers and engineers
 will be comparing different RAG configurations
@@ -498,7 +498,7 @@ choices, retriever selection, and document prepro-
 cessing. We want to make sure that ARES has satis-
 factory accuracy in pairwise comparisons across a
 variety of performance gaps between RAG systems.
-Kendall's τ is explicitly designed for measuring the
+Kendall'sτ is explicitly designed for measuring the
 accuracy of such pairwise comparisons, calculating
 the correlation between a perfectly accurate pair-
 wise ranking and an experimental pairwise ranking.
@@ -541,7 +541,7 @@ leveraging domain-adaptive techniques for prompt-
 ing and training as well as utilizing PPI to bolster
 model predictions.
 As an additional comparison, we also include
-the Kendall's τ for RAG ranking with the ARES
+the Kendall'sτ for RAG ranking with the ARES
 LLM judge without PPI; for all datasets tested, PPI
 improved the ranking prediction accuracy of the
 fine-tuned LLM judge. Furthermore, we included

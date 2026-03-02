@@ -1,8 +1,8 @@
-REPLUG : Retrieval-Augmented Black-Box Language Models
+REPLUG: Retrieval-Augmented Black-Box Language Models
 Weijia Shi,1 * Sewon Min,1 Michihiro Yasunaga,2 Minjoon Seo,3 Rich James,4 Mike Lewis,4
 Luke Zettlemoyer1 4 Wen-tau Yih4
 Abstract
-We introduce REPLUG , a retrieval-augmented lan-
+We introduce REPLUG, a retrieval-augmented lan-
 guage modeling framework that treats the lan-
 guage model (LM) as a black box and augments
 it with a tuneable retrieval model. Unlike prior
@@ -36,7 +36,7 @@ when needed, potentially reducing hallucination and increas-
 ing coverage. Previous approaches of retrieval-augmented
 language models require access to the internal LM repre-
 sentations (e.g., to train the model (Borgeaud et al., 2022;
-1University of Washington2Stanford University3KAIST 4Meta
+1University of Washington2Stanford University 3KAIST 4Meta
 AI.
 * Work done while the first author was interning at Meta AI.
 Correspondence to: Weijia Shi <swj0419@uw.edu>.
@@ -66,7 +66,7 @@ introduce a new ensemble scheme that encodes the retrieved
 documents in parallel with the same black-box LM, allow-
 ing us to easily trade compute for accuracy. As shown in
 arXiv:2301.12652v4 [cs.CL] 24 May 2023
-REPLUG : Retrieval-Augmented Black-Box Language Models
+REPLUG: Retrieval-Augmented Black-Box Language Models
 Figure 1, REPLUG is extremely flexible and can be used
 with any existing black-box LM and retrieval model.
 We also introduce REPLUG LSR (REPLUG with LM-
@@ -169,8 +169,8 @@ demonstrated that using a frozen retriever can improve GPT-
 approach the problem in a more general setting, including
 language modeling and understanding tasks. We also pro-
 pose an ensemble method to incorporate more documents
-REPLUG : Retrieval-Augmented Black-Box Language Models
-Figure 2.REPLUG at inference (§3). Given an input context, REPLUG first retrieves a small set of relevant documents from an external
+REPLUG: Retrieval-Augmented Black-Box Language Models
+Figure 2. REPLUG at inference (§3). Given an input context, REPLUG first retrieves a small set of relevant documents from an external
 corpus using a retriever (§3.1 Document Retrieval). Then it prepends each document separately to the input context and ensembles output
 probabilities from different passes (§3.2 Input Reformulation).
 and a training scheme to further adapt the retriever to large
@@ -200,7 +200,7 @@ time, the same encoder is applied to the input context x to
 obtain a query embedding E(x). The similarity between the
 query embedding and the document embedding is computed
 by their cosine similarity:
-s(d, x) = cos(E(d), E(x)) (1)
+s(d, x) = cos( E(d), E(x)) (1)
 The top-k documents that have the highest similarity scores
 when compared with the input x are retrieved in this step.
 For efficient retrieval, we precompute the embedding of
@@ -216,9 +216,9 @@ simple scheme is fundamentally restricted by the number
 of documents (i.e., k) we can include, given the language
 model's context window size. To address this limitation, we
 adopt an ensemble strategy described as follows. Assume
-D′ ⊂ Dconsists of k most relevant documents to x, ac-
+D′ ⊂ D consists of k most relevant documents to x, ac-
 cording to the scoring function in Eq. (1). We prepend each
-document d ∈ D′ to x, pass this concatenation to the LM
+document d ∈ D ′ to x, pass this concatenation to the LM
 separately, and then ensemble output probabilities from all
 k passes. Formally, given the input context x and its top-k
 relevant documents D′, the output probability of the next
@@ -237,7 +237,7 @@ Although our ensemble method requires running the LM
 k times, the cross attention is performed between each re-
 trieved document and the input context. Therefore, com-
 pared with the method of prepending all the retrieved docu-
-REPLUG : Retrieval-Augmented Black-Box Language Models
+REPLUG: Retrieval-Augmented Black-Box Language Models
 ments, our ensemble methods do not incur additional com-
 putational cost overhead.
 4. REPLUG LSR: Training the Dense
@@ -262,7 +262,7 @@ divergence between the retrieval likelihood and the LM's
 score distribution (§4.3), and (4) asynchronous update of
 the datastore index (§4.4).
 4.1. Computing Retrieval Likelihood
-We retrieve k documents D′ ⊂ Dwith the highest simi-
+We retrieve k documents D′ ⊂ D with the highest simi-
 larity scores from a corpus D given an input context x, as
 described in §3.1. We then compute the retrieval likelihood
 of each retrieved document d:
@@ -283,9 +283,9 @@ of the ground truth output y given the input context x and
 a document d. The higher the probability, the better the
 document di is at improving the LM's perplexity. We then
 compute the LM likelihood of each document d as follows:
-Q(d | x, y) = ePLM(y|d,x)/β
+Q(d | x, y) = ePLM (y|d,x)/β
 P
-d∈D′ ePLM(y|d,x)/β
+d∈D′ ePLM (y|d,x)/β
 where β is another hyperparameter.
 4.3. Loss Function
 Given the input context x and the corresponding ground
@@ -322,9 +322,9 @@ REPLUG LSR (§5.2).
 5.1. REPLUG
 In theory, any type of retriever, either dense (Karpukhin
 et al., 2020b; Ni et al., 2021) or sparse (Robertson et al.,
-2009), could be used for REPLUG . Following prior
+2009), could be used for REPLUG. Following prior
 work (Izacard et al., 2022b), we use the Contriever (Izacard
-et al., 2022a) as the retrieval model for REPLUG , as it has
+et al., 2022a) as the retrieval model for REPLUG, as it has
 demonstrated strong performance.
 5.2. REPLUG LSR
 For REPLUG LSR , we initialize the retriever with the
@@ -337,8 +337,8 @@ as our training queries. Each query is split into two parts:
 the first 128 tokens are used as the input context x, and the
 last 128 tokens are used as the ground truth continuation
 y. For the external corpus D, we sample 36M documents
-REPLUG : Retrieval-Augmented Black-Box Language Models
-Figure 3.REPLUG LSR training process (§4). The retriever is trained using the output of a frozen language model as supervision
+REPLUG: Retrieval-Augmented Black-Box Language Models
+Figure 3. REPLUG LSR training process (§4). The retriever is trained using the output of a frozen language model as supervision
 signals.
 of 128 tokens from the Pile training data. To avoid trivial
 retrieval, we ensure that the external corpus documents do
@@ -382,7 +382,7 @@ of 128-token context to do retrieval and adopt the ensem-
 ble method (Section 3.2) to incorporate top 10 retrieved
 documents during inference.
 Results Table 1 reports the results of the original base-
-lines, baselines augmented with the REPLUG , and baselines
+lines, baselines augmented with the REPLUG, and baselines
 augmented with the REPLUG LSR . We observe that both
 REPLUG and REPLUG LSR significantly outperform the
 baselines. This demonstrates that simply adding a retrieval
@@ -402,7 +402,7 @@ dataset that covers exam questions from 57 tasks includ-
 ing mathematics, computer science, law, US history and
 etc. The 57 tasks are grouped into 4 categories: humani-
 ties, STEM, social sciences and other. Following Chung
-REPLUG : Retrieval-Augmented Black-Box Language Models
+REPLUG: Retrieval-Augmented Black-Box Language Models
 Model # Parameters Original + REPLUG Gain % + REPLUG LSR Gain %
 GPT-2 Small 117M 1.33 1.26 5.3 1.21 9.0
 Medium 345M 1.20 1.14 5.0 1.11 7.5
@@ -412,7 +412,7 @@ GPT-3 Ada 350M 1.05 0.98 6.7 0.96 8.6
 (black-box) Babbage 1.3B 0.95 0.90 5.3 0.88 7.4
 Curie 6.7B 0.88 0.85 3.4 0.82 6.8
 Davinci 175B 0.80 0.77 3.8 0.75 6.3
-Table 1.Both REPLUG and REPLUG LSR consistently enhanced the performance of different language models. Bits per byte
+Table 1. Both REPLUG and REPLUG LSR consistently enhanced the performance of different language models. Bits per byte
 (BPB) of the Pile using GPT-3 and GPT-2 family models (Original) and their retrieval-augmented versions (+REPLUG and +REPLUG
 LSR. The gain % shows the relative improvement of our models compared to the original language model.
 Model # Parameters Humanities Social. STEM Other All
@@ -422,7 +422,7 @@ Flan-PaLM 540B - - - - 72.2
 Atlas 11B 46.1 54.6 38.8 52.8 47.9
 Codex + REPLUG 175B 76.0 79.7 58.8 72.1 71.4
 Codex + REPLUG LSR 175B 76.5 79.9 58.9 73.2 71.8
-Table 2.REPLUG and REPLUG LSR improves Codex by 4.5% and 5.1% respectively. Performance on MMLU broken down into 4
+Table 2. REPLUG and REPLUG LSR improves Codex by 4.5% and 5.1% respectively. Performance on MMLU broken down into 4
 categories. The last column averages the performance over these categories. All models are evaluated based on 5-shot in-context learning
 with direct prompting.
 et al. (2022a), we evaluate REPLUG in the 5-shot in-context
@@ -449,7 +449,7 @@ inputs are then separately fed into the language models, and
 the output probabilities are ensemble together.
 1Code-Davinci-002
 Results Table 2 presents the results from the baselines,
-REPLUG , and REPLUG LSR on the MMLU dataset. We
+REPLUG, and REPLUG LSR on the MMLU dataset. We
 observe that both the REPLUG and REPLUG LSR improve
 the original Codex model by 4.5% and 5.1%, respectively.
 In addition, REPLUG LSR largely outperforms the previous
@@ -472,7 +472,7 @@ Datasets NQ and TriviaQA are two open-domain QA
 datasets consisting of questions, answers collected from
 2Si et al. (2022) augment Codex with concatenation of 10
 documents retrieved by contriever.
-REPLUG : Retrieval-Augmented Black-Box Language Models
+REPLUG: Retrieval-Augmented Black-Box Language Models
 NQ TQA
 Model Few-shot Full Few-shot Full
 Chinchilla 35.5 - 64.6 -
@@ -485,7 +485,7 @@ Codex + Contrievercc
 2 44.2 - 76.0 -
 Codex + REPLUG 44.7 - 76.8 -
 Codex + REPLUG LSR 45.5 - 77.3 -
-Table 3.Performance on NQ and TQA. We report results for both
+Table 3. Performance on NQ and TQA. We report results for both
 few-shot (64 shots for Chinchilla, PaLM, and Atlas; 16 shots for
 Codex-based models) and full training data settings. REPLUG
 LSR improves Codex by 12.0% on NQ and 5.0% on TQA, making
@@ -548,17 +548,17 @@ nated each random document with the input, and ensemble
 the outputs of different runs (referred to as "random"). As
 shown in Figure 6, we evaluated the performance of GPT-3
 Curie on Pile when augmented with random documents,
-documents retrieved by REPLUG , and documents retrieved
+documents retrieved by REPLUG, and documents retrieved
 by REPLUG LSR . We observed that ensembling random
 documents leads to worse performance, indicating that the
 performance gains of REPLUG do not solely come from the
 ensembling effect. Instead, ensembling the relevant docu-
-ments is crucial for the success of REPLUG . Additionally,
+ments is crucial for the success of REPLUG. Additionally,
 as more documents were ensembled, the performance of
 REPLUG and REPLUG LSR improved monotonically. How-
 ever, a small number of documents (e.g., 10) was sufficient
 to achieve large performance gains.
-REPLUG : Retrieval-Augmented Black-Box Language Models
+REPLUG: Retrieval-Augmented Black-Box Language Models
 Perplexity
 14.00
 16.60
@@ -596,7 +596,7 @@ Parameters (Million)
 Original
 + RE-PLUG
 OPT (c)
-Figure 5. GPT-2, BLOOM and OPT models of varying sizes consistently benefit from REPLUG . The x-axis indicates the size of the
+Figure 5. GPT-2, BLOOM and OPT models of varying sizes consistently benefit fromREPLUG. The x-axis indicates the size of the
 language model and the y-axis is its perplexity on Wikitext-103.
 7.2. REPLUG is applicable to diverse language models
 Here we further study whether REPLUG could enhance di-
@@ -614,7 +614,7 @@ top 10 retrieved documents. Following prior work (Khan-
 delwal et al., 2020), we use Wikitext-103 training data as
 the retrieval corpus.
 Figure 5 shows the performance of different-sized language
-models with and without REPLUG . We observe that the
+models with and without REPLUG. We observe that the
 performance gain brought by REPLUG stays consistent with
 model size. For example, OPT with 125M parameters
 achieves 6.9% perplexity improvement, while OPT with
@@ -629,7 +629,7 @@ ing performance, we conducted manual analysis of exam-
 ples in which the REPLUG results in a decrease in perplexity.
 We find that REPLUG is more helpful when texts contain
 rare entities. Figure 6 shows a test context and its contin-
-uation from the Wikitext-103 test set. For REPLUG , we
+uation from the Wikitext-103 test set. For REPLUG, we
 use the test context as a query to retrieve a relevant docu-
 ment from Wikitext-103 training data. We then compute
 the perplexity of the continuation using the original GPT-2
@@ -642,18 +642,18 @@ have sufficient information about this rare entity name. How-
 ever, by incorporating the retrieved document,REPLUG was
 able to match the name with the relevant information in the
 retrieved document, resulting in better performance.
-Figure 6.Rare entities benefit from retrieval. After incorporat-
+Figure 6. Rare entities benefit from retrieval. After incorporat-
 ing the retrieved document during inference, the entity " Li Bai"
 and the token " greatest" in the continuation show the most im-
 provement in perplexity (15% for "Li Bai" and 5% for "greatest").
 Other tokens' perplexity changes are within 5%.
 8. Conclusion
-We introduce REPLUG , a retrieval-augmented language
+We introduce REPLUG, a retrieval-augmented language
 modeling paradigm that treats the language model as a
 black box and augments it with a tuneable retrieval model.
 Our evaluation shows that REPLUG can be integrated with
 any existing language model to improve their performance
-REPLUG : Retrieval-Augmented Black-Box Language Models
+REPLUG: Retrieval-Augmented Black-Box Language Models
 on language modeling or downstream tasks. This work
 opens up new possibilities for integrating retrieval into large-
 scale black-box language models and demonstrates even the
@@ -672,7 +672,7 @@ Borgeaud, S., Mensch, A., Hoffmann, J., Cai, T., Ruther-
 ford, E., Millican, K., Van Den Driessche, G. B., Lespiau,
 J.-B., Damoc, B., Clark, A., et al. Improving language
 models by retrieving from trillions of tokens. In Interna-
-tional Conference on Machine Learning, pp. 2206-2240.
+tional Conference on Machine Learning , pp. 2206-2240.
 PMLR, 2022.
 Brown, T., Mann, B., Ryder, N., Subbiah, M., Kaplan, J. D.,
 Dhariwal, P., Neelakantan, A., Shyam, P., Sastry, G.,
@@ -695,7 +695,7 @@ Ziegler, D., Wu, J., Winter, C., Hesse, C., Chen, M.,
 Sigler, E., Litwin, M., Gray, S., Chess, B., Clark, J.,
 Berner, C., McCandlish, S., Radford, A., Sutskever,
 I., and Amodei, D. Language models are few-shot
-learners. In Proc. of NeurIPS, 2020b. URL https:
+learners. In Proc. of NeurIPS , 2020b. URL https:
 //proceedings.neurips.cc/paper/2020/file/
 1457c0d6bfcb4967418bfb8ac142f64a-Paper.pdf.
 Chen, M., Tworek, J., Jun, H., Yuan, Q., de Oliveira Pinto,
@@ -745,7 +745,7 @@ arXiv preprint arXiv:2210.11416, 2022b.
 Fajcik, M., Docekal, M., Ondrej, K., and Smrz, P. R2-
 D2: A modular baseline for open-domain question an-
 swering. In Findings of the Association for Computa-
-tional Linguistics: EMNLP 2021, pp. 854-870, Punta
+tional Linguistics: EMNLP 2021 , pp. 854-870, Punta
 Cana, Dominican Republic, November 2021. Association
 for Computational Linguistics. doi: 10.18653/v1/2021.
 findings-emnlp.73. URL https://aclanthology.org/
@@ -755,7 +755,7 @@ Foster, C., Phang, J., He, H., Thite, A., Nabeshima, N.,
 Presser, S., and Leahy, C. The Pile: An 800gb dataset
 of diverse text for language modeling. arXiv preprint
 arXiv:2101.00027, 2020.
-REPLUG : Retrieval-Augmented Black-Box Language Models
+REPLUG: Retrieval-Augmented Black-Box Language Models
 Goyal, A., Friesen, A., Banino, A., Weber, T., Ke, N. R.,
 Badia, A. P., Guez, A., Mirza, M., Humphreys, P. C.,
 Konyushova, K., et al. Retrieval-augmented reinforce-
@@ -782,18 +782,18 @@ Izacard, G. and Grave, E. Leveraging passage retrieval
 with generative models for open domain question an-
 swering. In Proceedings of the 16th Conference of
 the European Chapter of the Association for Compu-
-tational Linguistics: Main Volume, pp. 874-880, On-
+tational Linguistics: Main V olume , pp. 874-880, On-
 line, April 2021a. Association for Computational Lin-
 guistics. doi: 10.18653/v1/2021.eacl-main.74. URL
 https://aclanthology.org/2021.eacl-main.74.
 Izacard, G. and Grave, E. Leveraging passage retrieval with
 generative models for open domain question answering.
-In Proc. of EACL, 2021b. URL https://arxiv.org/
+In Proc. of EACL , 2021b. URL https://arxiv.org/
 abs/2007.01282.
 Izacard, G., Caron, M., Hosseini, L., Riedel, S., Bojanowski,
 P., Joulin, A., and Grave, E. Unsupervised dense in-
 formation retrieval with contrastive learning. Trans-
-actions on Machine Learning Research, 2022a. URL
+actions on Machine Learning Research , 2022a. URL
 https://openreview.net/forum?id=jKN1pXi7b0.
 Izacard, G., Lewis, P., Lomeli, M., Hosseini, L., Petroni,
 F., Schick, T., Dwivedi-Yu, J., Joulin, A., Riedel, S., and
@@ -806,7 +806,7 @@ Joshi, M., Choi, E., Weld, D., and Zettlemoyer, L. Trivi-
 aQA: A large scale distantly supervised challenge dataset
 for reading comprehension. In Proceedings of the 55th
 Annual Meeting of the Association for Computational
-Linguistics (Volume 1: Long Papers), pp. 1601-1611,
+Linguistics (V olume 1: Long Papers) , pp. 1601-1611,
 Vancouver, Canada, July 2017. Association for Compu-
 tational Linguistics. doi: 10.18653/v1/P17-1147. URL
 https://aclanthology.org/P17-1147.
@@ -826,7 +826,7 @@ Language Processing (EMNLP), pp. 6769-6781, 2020b.
 Khandelwal, U., Levy, O., Jurafsky, D., Zettlemoyer, L.,
 and Lewis, M. Generalization through memorization:
 Nearest neighbor language models. In International
-Conference on Learning Representations, 2020. URL
+Conference on Learning Representations , 2020. URL
 https://openreview.net/forum?id=HklBjCEKvH.
 Khattab, O., Santhanam, K., Li, X. L., Hall, D., Liang, P.,
 Potts, C., and Zaharia, M. Demonstrate-search-predict:
@@ -851,8 +851,8 @@ Lewis, P., Stenetorp, P., and Riedel, S. Question and an-
 swer test-train overlap in open-domain question answer-
 ing datasets. In Proceedings of the 16th Conference of the
 European Chapter of the Association for Computational
-Linguistics: Main Volume, pp. 1000-1008, 2021.
-REPLUG : Retrieval-Augmented Black-Box Language Models
+Linguistics: Main V olume, pp. 1000-1008, 2021.
+REPLUG: Retrieval-Augmented Black-Box Language Models
 Mallen, A., Asai, A., Zhong, V ., Das, R., Hajishirzi, H., and
 Khashabi, D. When not to trust language models: Investi-
 gating effectiveness and limitations of parametric and non-
@@ -871,12 +871,12 @@ mized training approach to dense passage retrieval for
 open-domain question answering. In Proceedings of
 the 2021 Conference of the North American Chapter
 of the Association for Computational Linguistics: Hu-
-man Language Technologies, pp. 5835-5847, Online,
+man Language Technologies , pp. 5835-5847, Online,
 June 2021. Association for Computational Linguistics.
 doi: 10.18653/v1/2021.naacl-main.466. URL https:
 //aclanthology.org/2021.naacl-main.466.
 Robertson, S., Zaragoza, H., et al. The probabilistic rele-
-vance framework: Bm25 and beyond. Foundations and
+vance framework: Bm25 and beyond. F oundations and
 Trends® in Information Retrieval, 3(4):333-389, 2009.
 Rubin, O., Herzig, J., and Berant, J. Learning to retrieve
 prompts for in-context learning. In Proceedings of the
@@ -923,7 +923,7 @@ Yu, W. Retrieval-augmented generation across heteroge-
 neous knowledge. In Proceedings of the 2022 Confer-
 ence of the North American Chapter of the Association for
 Computational Linguistics: Human Language Technolo-
-gies: Student Research Workshop, pp. 52-58, Hybrid:
+gies: Student Research Workshop , pp. 52-58, Hybrid:
 Seattle, Washington + Online, July 2022. Association
 for Computational Linguistics. doi: 10.18653/v1/2022.
 naacl-srw.7. URL https://aclanthology.org/2022.
@@ -942,7 +942,7 @@ arXiv preprint arXiv:2205.01068, 2022b.
 Zhong, Z., Lei, T., and Chen, D. Training language models
 with memory augmentation. In Empirical Methods in
 Natural Language Processing (EMNLP), 2022.
-REPLUG : Retrieval-Augmented Black-Box Language Models
+REPLUG: Retrieval-Augmented Black-Box Language Models
 Knowledge: Arctic Ocean. Although over half of Europe's original forests disappeared through the centuries of deforestation, Europe
 still has over one quarter of its land area as forest, such as the broadleaf and mixed forests, taiga of Scandinavia and Russia, mixed
 rainforests of the Caucasus and the Cork oak forests in the western Mediterranean. During recent times, deforestation has been slowed
@@ -954,7 +954,7 @@ Answer: B
 Knowledge: Over the past decades, the political outlook of Americans has become more progressive, with those below the age of thirty
 being considerably more liberal than the overall population. According to recent polls, 56% of those age 18 to 29 favor gay marriage,
 68% state environmental protection to be as important as job creation, 52% "think immigrants ´strengthen the country with their hard
-work and talents,´" 62% favor a "tax financed, government-administrated universal health care" program and 74% "say ´people´s will´should
+work and talents,´" 62% favor a "tax financed, government-administrated universal health care" program and 74% "say´people´s will´should
 have more influence on U.S. laws than the Bible, compared to 37%, 49%, 38%, 47% and 58% among the
 Question: As of 2019, about what percentage of Americans agree that the state is run for the benefit of all the people?
 A. 31% B. 46% C. 61% D. 76%
@@ -967,7 +967,7 @@ installed PV capacity reached over 50 GW with nearly 8 GW installed in the year 
 panels and is in the top 4 ranking for countries
 Question: Which of the following countries generated the most total energy from solar sources in 2019?
 A. China B. United States C. Germany D. Japan
-Table 4.Prompt for MMLU
+Table 4. Prompt for MMLU
 Knowledge: received 122,000 buys (excluding WWE Network views), down from the previous year´s 199,000 buys. The event is named
 after the Money In The Bank ladder match, in which multiple wrestlers use ladders to retrieve a briefcase hanging above the ring. The
 winner is guaranteed a match for the WWE World Heavyweight Championship at a time of their choosing within the next year. On the
@@ -989,4 +989,4 @@ was written by Ed Sheeran, Benny Blanco and Bieber, and produced by Blanco. An a
 electric guitar and a brief flurry of trumpets as its main instrumentation. During the song, Bieber uses a husky tone in the lower registers.
 Lyrically, the song is a kiss-off to a narcissistic ex-lover who did
 Question: love yourself by justin bieber is about who
-Table 5.Prompt for open-domain QA
+Table 5. Prompt for open-domain QA

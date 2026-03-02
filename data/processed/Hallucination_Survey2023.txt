@@ -21,8 +21,8 @@ methodologies for mitigating LLM hallucinations. Additionally, we delve into the
 by retrieval-augmented LLMs in combating hallucinations, offering insights for developing more robust IR
 systems. Finally, we highlight the promising research directions on LLM hallucinations, including hallucination
 in large vision-language models and understanding of knowledge boundaries in LLM hallucinations.
-CCS Concepts: • Computing methodologies →Natural language generation ; • General and reference
-→Surveys and overviews .
+CCS Concepts: •Computing methodologies → Natural language generation; •General and reference
+→ Surveys and overviews.
 Additional Key Words and Phrases: Large Language Models, Hallucination, Factuality, Faithfulness
 ACM Reference Format:
 Lei Huang, Weijiang Yu, Weitao Ma, Weihong Zhong, Zhangyin Feng, Haotian Wang, Qianglong Chen, Weihua
@@ -68,7 +68,7 @@ the potential to spread false beliefs, or even cause harm.
 Notably, hallucinations in conventional natural language generation (NLG) tasks have been
 extensively studied [ 125, 136], with hallucinations defined as generated content that is either
 nonsensical or unfaithful to the provided source content. These hallucinations are categorized into
-two types: intrinsic hallucination , where the generated output contradicts the source content, and
+two types: intrinsic hallucination, where the generated output contradicts the source content, and
 extrinsic hallucination, where the generated output cannot be verified from the source. However,
 given their remarkable versatility across tasks [ 15, 30], understanding hallucinations in LLMs
 presents a unique challenge compared to models tailored for specific tasks. Besides, as LLMs
@@ -256,7 +256,7 @@ surface at factual levels, we introduce a more granular taxonomy building upon t
 work by Ji et al. [136]. This refined taxonomy seeks to encapsulate the distinct intricacies associ-
 ated with LLM hallucinations. To provide a more intuitive illustration of our definition of LLM
 hallucination, we present examples for each type of hallucination in Table 1, namely factuality
-hallucination and faithfulness hallucination .
+hallucination and faithfulness hallucination.
 2.3.1 Factuality Hallucination. The emergence of LLMs marks a significant shift from traditional
 task-specific toolkits to AI assistants that have a heightened focus on open-domain interactions.
 ACM Transactions on Information Systems, Vol. 1, No. 1, Article 1. Publication date: January 2024.
@@ -297,25 +297,25 @@ grounded in real-world information, but present contradictions. This type of hal
 most frequently and arises from diverse sources, encompassing the LLM's capture, storage, and
 expression of factual knowledge. Depending on the error type of contradictions, it can be further
 divided into two subcategories: entity-error hallucination and relation-error hallucination.
-•Entity-error hallucination refers to the situations where the generated text of LLMs
+• Entity-error hallucination refers to the situations where the generated text of LLMs
 contains erroneous entities. As shown in Table 1, when asked about "the inventor of the
 telephone", the model erroneously states "Thomas Edison", conflicting with the real fact that it
-was "Alexander Graham Bell" .
-•Relation-error hallucination refers to instances where the generated text of LLMs contains
+was "Alexander Graham Bell".
+• Relation-error hallucination refers to instances where the generated text of LLMs contains
 wrong relations between entities. As shown in Table 1, when inquired about "the inventor of
-the light bulb" , the model incorrectly claims"Thomas Edison", despite the fact thathe improved
+the light bulb", the model incorrectly claims "Thomas Edison", despite the fact thathe improved
 upon existing designs and did not invent it .
 Factual Fabrication refers to instances where the LLM's output contains facts that are unveri-
 fiable against established real-world knowledge. This can be further divided into unverifiability
 hallucination and overclaim hallucination.
 ACM Transactions on Information Systems, Vol. 1, No. 1, Article 1. Publication date: January 2024.
 A Survey on Hallucination in Large Language Models: Principles, Taxonomy, Challenges, and Open Questions 1:7
-•Unverifiability hallucination pertains to statements that are entirely non-existent or
+• Unverifiability hallucination pertains to statements that are entirely non-existent or
 cannot be verified using available sources. As shown in Table 1, when asked about"the major
 environmental impacts of the construction of the Eiffel Tower" , the model incorrectly states that
 "the construction led to the extinction of the Parisian tiger" , a species that does not exist and
 thus, this claim cannot be substantiated by any historical or biological record.
-•Overclaim hallucination involves claims that lack universal validity due to subjective biases.
+• Overclaim hallucination involves claims that lack universal validity due to subjective biases.
 As shown in Table 1, the model claims that"the Eiffel Tower's construction is widely recognized
 as the event that sparked the global green architecture movement. " This is an overclaim, as
 there is no broad consensus or substantial evidence to support the statement.
@@ -516,7 +516,7 @@ present detailed examples for clear illustration in Table 3.
 Long-tail Knowledge. The distribution of knowledge within the pre-training corpora is in-
 herently non-uniform, which results in LLMs demonstrating varying levels of proficiency across
 different types of knowledge. Recent studies have highlighted a strong correlation between the
-model's accuracy on general domain questions and the volume of relevant documents [ 145] or
+model's accuracy on general domain questions and the volume of relevant documents [145] or
 entity popularity [204] within the pre-training corpora. Furthermore, given that LLMs are pre-
 dominantly trained on extensive general domain corpora [93, 243, 254], they may exhibit deficits
 in domain-specific knowledge. This limitation becomes particularly evident when LLMs are con-
@@ -667,7 +667,7 @@ whether the output of LLMs aligns with real-world facts. Typical methods general
 two categories: fact-checking, which involves verifying the factuality of the generated response
 ACM Transactions on Information Systems, Vol. 1, No. 1, Article 1. Publication date: January 2024.
 A Survey on Hallucination in Large Language Models: Principles, Taxonomy, Challenges, and Open Questions 1:13
-against trusted knowledge sources, and uncertainty estimation , which focuses on detecting factual
+against trusted knowledge sources, and uncertainty estimation, which focuses on detecting factual
 inconsistency via internal uncertainty signals.
 Fact-checking. Given that the output of LLMs is typically comprehensive and consists of
 multiple factual statements, the fact-checking approach is generally divided into two primary steps:
@@ -675,8 +675,8 @@ multiple factual statements, the fact-checking approach is generally divided int
 outputs (2) fact verification, which aims at verifying the correctness of these factual statements
 against trusted knowledge sources. Depending on the type of knowledge sources employed for
 verification, fact-checking methodologies can be broadly categorized into two distinct parts:external
-retrieval and internal checking .
-•External retrieval: The most intuitive strategy for fact verification is external retrieval. Min et al.
+retrieval and internal checking.
+• External retrieval: The most intuitive strategy for fact verification is external retrieval. Min et al.
 [216] developed FACTSCORE, a fine-grained factual metric tailored for evaluating long-form
 text generation. It first decomposes the generation content into atomic facts and subsequently
 computes the percentage supported by reliable knowledge sources. Expanding on this concept,
@@ -686,12 +686,12 @@ In addition to retrieving supporting evidence solely based on decomposited claim
 [128] improved the retrieval process through query expansion. By combining the original
 question with the LLM-generated answer, they effectively addressed the issue of topic drift,
 ensuring that the retrieved evidence aligns with both the question and the LLM's response.
-•Internal checking : Given the extensive factual knowledge encoded in their parameters, LLMs
+• Internal checking: Given the extensive factual knowledge encoded in their parameters, LLMs
 have been explored as factual knowledge sources for fact-checking. Dhuliawala et al. [74]
 introduced the Chain-of-Verification (CoVe), where an LLM first generates verification ques-
 tions for a draft response and subsequently leverages its parametric knowledge to assess
 the consistency of the answer against the original response, thereby detecting potential
-inconsistencies.Kadavath et al. [143] and Zhang et al. [375] calculates the probability 𝑝(𝑇𝑟𝑢𝑒 )
+inconsistencies.Kadavath et al. [143] and Zhang et al. [375] calculates the probability 𝑝 (𝑇 𝑟𝑢𝑒)
 to assess the factuality of the response to a boolean question, relying exclusively on the
 model'sinternal knowledge. Additionally, Li et al. [168] observed that most atomic statements
 are interrelated, some may serve as contextual backgrounds for others, which potentially
@@ -706,7 +706,7 @@ these strategies is that the origin of LLM hallucinations is inherently tied to 
 Therefore, by estimating the uncertainty of the factual content generated by the model, it becomes
 feasible to detect hallucinations. The methodologies in uncertainty estimation can broadly be
 categorized into two approaches: based on LLM internal states and LLM behavior, as shown in Fig. 2.
-•LLM internal states : The internal states of LLMs can serve as informative indicators of their
+• LLM internal states: The internal states of LLMs can serve as informative indicators of their
 uncertainty, often manifested through metrics like token probability or entropy. Varshney et al.
 [306] determined the model's uncertainty towards key concepts quantified by considering
 the minimal token probability within those concepts. The underlying rationale is that a
@@ -717,26 +717,26 @@ that a language model's ability to adeptly reconstruct an original concept from 
 ACM Transactions on Information Systems, Vol. 1, No. 1, Article 1. Publication date: January 2024.
 1:14 Huang, et al.
 (1) Self-Consistency
-Mount Everest stands as the tallest
+M ount Everest stands as the tallest
 peak in the world.
 As far as I know, the highest peak
-in the world is Mount Fuji in Japan.
-The highest peak is Mount Everest
+in the world is M ount Fuji in Japan.
+The highest peak is M ount Everest
 located in the Himalayas.
 Consistency
 The highest peak in the world
-is Mount Fuji.
+is M ount Fuji.
 I stand corrected, you are right.
-I must correct you. Mount Fuji is the highest
+I must correct you. M ount Fuji is the highest
 peak in Japan. The highest peak in the world
-is Mount Everest in the Himalayas range.
+is M ount Everest in the Himalayas range.
 (2) Multi-Debate
-(a) LLM Internal States
-Question: What is the highest peak in the world?
-Large Language Model
-The highest peak in the world    is Mount Fuji.
+(a) L L M Internal States
+Question: W hat is the highest peak in the world?
+Large Language M odel
+The highest peak in the world  is M ount Fuji.
 low uncertainty high uncertainty
-(b) LLM Behavior
+(b) L L M Behavior
 Fig. 2. Taxonomy of Uncertainty Estimation Methods in Factual Hallucination Detection, featuringa) LLM In-
 ternal Statesand b) LLM Behavior, with LLM Behavior encompassing two main categories: Self-Consistency
 and Multi-Debate.
@@ -749,7 +749,7 @@ Utilizing gradient-based token replacement, they devised prompts to induce hallu
 Notably, they observed that the first token generated from a raw prompt typically exhibits
 low entropy, compared to those from adversarial attacks. Based on this observation, they
 proposed setting an entropy threshold to define such hallucination attacks.
-•LLM behavior : However, when systems are only accessible via API calls [ 100, 214, 231],
+• LLM behavior : However, when systems are only accessible via API calls [ 100, 214, 231],
 access to the output's token-level probability distribution might be unavailable. Given this
 constraint, several studies have shifted their focus to probing a model's uncertainty, either
 through natural language prompts [143, 335] or by examining its behavioral manifestations.
@@ -775,17 +775,17 @@ involves measuring the overlap of pivotal facts between the generated content an
 content. Given the diverse manifestations of facts, faithfulness can be measured based on n-gram,
 ACM Transactions on Information Systems, Vol. 1, No. 1, Article 1. Publication date: January 2024.
 A Survey on Hallucination in Large Language Models: Principles, Taxonomy, Challenges, and Open Questions 1:15
-LLM Generation
-User Query
+L L M Generation
+U ser Query
 Information
 Extraction
 Information
 Extraction Facts
-Fact Overlap
+Fact O verlap
 Question
 Answering
 Answer
-Overlap
+O verlap
 Question
 Generation
 Answers
@@ -795,23 +795,23 @@ Questions
 binary
 judgement
 k-point
-Likert scale
-LLM Generation
-User Query
+L ikert scale
+L L M Generation
+U ser Query
 Entailment
-NLI Model
-LLM Generation
-User Query
-User Query
-LLM Generation
+NL I M odel
+L L M Generation
+U ser Query
+U ser Query
+L L M Generation
 (a) Fact-based Metric
 (b) Classiﬁer-based Metric
 (e) Prompting-based Metric(c) QA-based Metric
 (d) Uncertainty Estimation
 Facts
-User Query
+U ser Query
 EOS
-Large Language Model
+Large Language M odel
 high uncertainty
 low uncertainty
 Fig. 3. The illustration of detection methods for faithfulness hallucinations: a) Fact-based Metrics, which
@@ -1031,7 +1031,7 @@ challenges inherent to their respective cause.
 As analyzed in §3.1, data-related hallucinations generally emerge as a byproduct of misinformation,
 biases, and knowledge gaps, which are fundamentally rooted in the pre-training data. Several
 methods are proposed to mitigate such hallucinations, primarily categorized into three distinct
-parts: (1)data filtering aiming at selecting high-quality data to avoid introducing misinformation and
+parts: (1) data filtering aiming at selecting high-quality data to avoid introducing misinformation and
 biases, (2) model editing focusing on injecting up-to-date knowledge by editing model's parameters,
 and (3) retrieval-augmented generation leveraging external non-parametric database for knowledge
 supplying.
@@ -1042,7 +1042,7 @@ early as the advent of GPT-2, Radford et al. [252]underscored the significance o
 web pages that had undergone rigorous curation and filtration by human experts. However, as
 pre-training datasets continue to scale, manual curation becomes a challenge. Given that academic
 or specialized domain data is typically factually accurate, gathering high-quality data emerges as a
-primary strategy. Notable examples includethe Pile [93] and "textbook-like" data sources [107, 177].
+primary strategy. Notable examples include the Pile [93] and "textbook-like" data sources [107, 177].
 Additionally, up-sampling factual data during the pre-training phase has been proven effective in
 enhancing the factual correctness of LLMs [300], thus alleviating hallucination.
 In addition to strictly controlling the source of data, deduplication serves as a crucial procedure.
@@ -1311,7 +1311,7 @@ tizes alignment with the provided context and also emphasizes enhancing the cons
 ACM Transactions on Information Systems, Vol. 1, No. 1, Article 1. Publication date: January 2024.
 A Survey on Hallucination in Large Language Models: Principles, Taxonomy, Challenges, and Open Questions 1:25
 the generated content. Thus, in this section, we summarize existing work into two categories,
-including Context Consistency and Logical Consistency .
+including Context Consistency and Logical Consistency.
 Context Consistency. In the era of LLMs, the issue of faithfulness hallucination typically lies in
 insufficient attention to the given context, which inspired numerous research to design inference-
 time strategies to enhance context consistency. Shi et al. [275] proposed context-aware decoding
@@ -1332,7 +1332,7 @@ distribution in place to enhance contextual attention, another line of work has 
 post-edit approach to enhance faithfulness. Gao et al. [94] adopted a research-and-revise workflow,
 where the research stage raises questions about various aspects of the model's initial response and
 gathers evidence for each query, while the revision stage detects and revises any disagreements
-between the model's response and the evidence. Similarly, Lei et al . [161] first detected contex-
+between the model's response and the evidence. Similarly, Lei et al. [161] first detected contex-
 tual hallucinations at both the sentence and entity levels and then incorporated the judgments
 to refine the generated response. Moreover, several studies have explored methods to overcome
 the softmax bottleneck, which constrains the expression of diversity and faithful representations.
@@ -1803,7 +1803,7 @@ Sygnowski, and et al. 2023. Gemini: A Family of Highly Capable Multimodal Models
 https://doi.org/10.48550/ARXIV.2312.11805 arXiv:2312.11805
 [8] Anthropic. 2023. Claude. https://claude.ai/
 [9] Antropic. 2024. Claude 3 haiku: our fastest model yet. 2024. https://www.anthropic.com/news/claude-3-haiku
-[10] ArXiv. 2023. arxiv dataset . https://www.kaggle.com/datasets/Cornell-University/arxiv/versions/134
+[10] ArXiv. 2023. arxiv dataset. https://www.kaggle.com/datasets/Cornell-University/arxiv/versions/134
 [11] Akari Asai, Zeqiu Wu, Yizhong Wang, Avirup Sil, and Hannaneh Hajishirzi. 2023. Self-RAG: Learning to Retrieve,
 Generate, and Critique through Self-Reflection. CoRR abs/2310.11511 (2023). https://doi.org/10.48550/ARXIV.2310.
 11511 arXiv:2310.11511
@@ -1825,7 +1825,7 @@ Failure Points When Engineering a Retrieval Augmented Generation System. CoRR ab
 sation models. ArXiv preprint abs/2005.11739 (2020). https://arxiv.org/abs/2005.11739
 [18] Pierre Basso. 1993. Conditional Causal Logic: A Formal Theory of the Meaning Generating Processes in a Cognitive
 System. In Proceedings of the 13th International Joint Conference on Artificial Intelligence. Chambéry, France, August 28 -
-September 3, 1993 , Ruzena Bajcsy (Ed.). Morgan Kaufmann, 845-851. http://ijcai.org/Proceedings/93-2/Papers/002.pdf
+September 3, 1993, Ruzena Bajcsy (Ed.). Morgan Kaufmann, 845-851. http://ijcai.org/Proceedings/93-2/Papers/002.pdf
 [19] Iz Beltagy, Matthew E. Peters, and Arman Cohan. 2020. Longformer: The Long-Document Transformer. ArXiv
 preprint abs/2004.05150 (2020). https://arxiv.org/abs/2004.05150
 [20] Emily M. Bender, Timnit Gebru, Angelina McMillan-Major, and Shmargaret Shmitchell. 2021. On the Dangers of
@@ -1861,7 +1861,7 @@ ACM Transactions on Information Systems, Vol. 1, No. 1, Article 1. Publication d
 comparisons. Biometrika 39, 3/4 (1952), 324-345. https://www.jstor.org/stable/2334029
 [27] Ruben Branco, António Branco, João António Rodrigues, and João Ricardo Silva. 2021. Shortcutted Commonsense:
 Data Spuriousness in Deep Learning of Commonsense Reasoning. In Proceedings of the 2021 Conference on Empirical
-Methods in Natural Language Processing . Association for Computational Linguistics, Online and Punta Cana, Dominican
+Methods in Natural Language Processing. Association for Computational Linguistics, Online and Punta Cana, Dominican
 Republic, 1504-1521. https://doi.org/10.18653/v1/2021.emnlp-main.113
 [28] Andrei Z Broder. 1997. On the resemblance and containment of documents. InProceedings. Compression and Complexity
 of SEQUENCES 1997 (Cat. No. 97TB100171) . IEEE, 21-29.
@@ -1871,7 +1871,7 @@ Rewon Child, Aditya Ramesh, Daniel M. Ziegler, Jeffrey Wu, Clemens Winter, Chris
 Sigler, Mateusz Litwin, Scott Gray, Benjamin Chess, Jack Clark, Christopher Berner, Sam McCandlish, Alec Radford,
 Ilya Sutskever, and Dario Amodei. 2020. Language Models are Few-Shot Learners. In Advances in Neural Information
 Processing Systems 33: Annual Conference on Neural Information Processing Systems 2020, NeurIPS 2020, December 6-12,
-2020, virtual , Hugo Larochelle, Marc'Aurelio Ranzato, Raia Hadsell, Maria-Florina Balcan, and Hsuan-Tien Lin (Eds.).
+2020, virtual, Hugo Larochelle, Marc'Aurelio Ranzato, Raia Hadsell, Maria-Florina Balcan, and Hsuan-Tien Lin (Eds.).
 https://proceedings.neurips.cc/paper/2020/hash/1457c0d6bfcb4967418bfb8ac142f64a-Abstract.html
 [30] Sébastien Bubeck, Varun Chandrasekaran, Ronen Eldan, Johannes Gehrke, Eric Horvitz, Ece Kamar, Peter Lee,
 Yin Tat Lee, Yuanzhi Li, Scott M. Lundberg, Harsha Nori, Hamid Palangi, Marco Túlio Ribeiro, and Yi Zhang. 2023.
@@ -1902,7 +1902,7 @@ Jordan L. Boyd-Graber, and Naoaki Okazaki (Eds.). Association for Computational 
 //doi.org/10.18653/V1/2023.FINDINGS-ACL.805
 [38] Haw-Shiuan Chang and Andrew McCallum. 2022. Softmax Bottleneck Makes Language Models Unable to Represent
 Multi-mode Word Distributions. In Proceedings of the 60th Annual Meeting of the Association for Computational
-Linguistics (Volume 1: Long Papers) . Association for Computational Linguistics, Dublin, Ireland, 8048-8073. https:
+Linguistics (Volume 1: Long Papers). Association for Computational Linguistics, Dublin, Ireland, 8048-8073. https:
 //doi.org/10.18653/v1/2022.acl-long.554
 [39] Canyu Chen and Kai Shu. 2023. Combating Misinformation in the Age of LLMs: Opportunities and Challenges. CoRR
 abs/2311.05656 (2023). https://doi.org/10.48550/ARXIV.2311.05656 arXiv:2311.05656
@@ -1995,7 +1995,7 @@ ai-alignment-could-be-hard-with-modern-deep-learning/ Cold Takes.
 Nicola Tonellotto, and Fabrizio Silvestri. 2024. The Power of Noise: Redefining Retrieval for RAG Systems. CoRR
 abs/2401.14887 (2024). https://doi.org/10.48550/ARXIV.2401.14887 arXiv:2401.14887
 [66] Damai Dai, Li Dong, Yaru Hao, Zhifang Sui, Baobao Chang, and Furu Wei. 2022. Knowledge Neurons in Pretrained
-Transformers. InProceedings of the 60th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long
+Transformers. In Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long
 Papers). Association for Computational Linguistics, Dublin, Ireland, 8493-8502. https://doi.org/10.18653/v1/2022.acl-
 long.581
 [67] Damai Dai, Wenbin Jiang, Qingxiu Dong, Yajuan Lyu, Qiaoqiao She, and Zhifang Sui. 2022. Neural knowledge bank
@@ -2040,7 +2040,7 @@ tional Linguistics. Association for Computational Linguistics, Online, 5055-5070
 main.454
 [78] Nouha Dziri, Andrea Madotto, Osmar Zaïane, and Avishek Joey Bose. 2021. Neural Path Hunter: Reducing Hallu-
 cination in Dialogue Systems via Path Grounding. In Proceedings of the 2021 Conference on Empirical Methods in
-Natural Language Processing . Association for Computational Linguistics, Online and Punta Cana, Dominican Republic,
+Natural Language Processing. Association for Computational Linguistics, Online and Punta Cana, Dominican Republic,
 2197-2214. https://doi.org/10.18653/v1/2021.emnlp-main.168
 [79] Nouha Dziri, Hannah Rashkin, Tal Linzen, and David Reitter. 2021. Evaluating groundedness in dialogue systems:
 The begin benchmark. ArXiv preprint abs/2105.00071 (2021). https://arxiv.org/abs/2105.00071
@@ -2059,7 +2059,7 @@ Florence, Italy, 2214-2220. https://doi.org/10.18653/v1/P19-1213
 Question Answering. In Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics .
 Association for Computational Linguistics, Florence, Italy, 3558-3567. https://doi.org/10.18653/v1/P19-1346
 [84] Angela Fan, Mike Lewis, and Yann Dauphin. 2018. Hierarchical Neural Story Generation. In Proceedings of the 56th
-Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers) . Association for Computational
+Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers). Association for Computational
 Linguistics, Melbourne, Australia, 889-898. https://doi.org/10.18653/v1/P18-1082
 [85] Huawen Feng, Yan Fan, Xiong Liu, Ting-En Lin, Zekun Yao, Yuchuan Wu, Fei Huang, Yongbin Li, and Qianli
 Ma. 2023. Improving Factual Consistency of Text Summarization by Adversarially Decoupling Comprehension
@@ -2091,7 +2091,7 @@ ACM Transactions on Information Systems, Vol. 1, No. 1, Article 1. Publication d
 1:40 Huang, et al.
 [94] Luyu Gao, Zhuyun Dai, Panupong Pasupat, Anthony Chen, Arun Tejasvi Chaganty, Yicheng Fan, Vincent Y. Zhao, Ni
 Lao, Hongrae Lee, Da-Cheng Juan, and Kelvin Guu. 2023. RARR: Researching and Revising What Language Models
-Say, Using Language Models. InProceedings of the 61st Annual Meeting of the Association for Computational Linguistics
+Say, Using Language Models. In Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics
 (Volume 1: Long Papers), ACL 2023, Toronto, Canada, July 9-14, 2023 , Anna Rogers, Jordan L. Boyd-Graber, and Naoaki
 Okazaki (Eds.). Association for Computational Linguistics, 16477-16508. https://aclanthology.org/2023.acl-long.910
 [95] Mingqi Gao, Jie Ruan, Renliang Sun, Xunjian Yin, Shiping Yang, and Xiaojun Wan. 2023. Human-like summarization
@@ -2114,7 +2114,7 @@ Findings of the Association for Computational Linguistics: EMNLP 2020 . Associat
 Online, 3592-3603. https://doi.org/10.18653/v1/2020.findings-emnlp.322
 [102] Tanya Goyal and Greg Durrett. 2021. Annotating and Modeling Fine-grained Factuality in Summarization. In
 Proceedings of the 2021 Conference of the North American Chapter of the Association for Computational Linguistics:
-Human Language Technologies . Association for Computational Linguistics, Online, 1449-1462. https://doi.org/10.
+Human Language Technologies. Association for Computational Linguistics, Online, 1449-1462. https://doi.org/10.
 18653/v1/2021.naacl-main.114
 [103] Yuxuan Gu, Xiaocheng Feng, Sicheng Ma, Jiaming Wu, Heng Gong, and Bing Qin. 2022. Improving Controllable Text
 Generation with Position-Aware Weighted Decoding. InFindings of the Association for Computational Linguistics: ACL
@@ -2168,15 +2168,15 @@ models. ArXiv preprint abs/2304.00740 (2023). https://arxiv.org/abs/2304.00740
 [118] Ari Holtzman, Jan Buys, Li Du, Maxwell Forbes, and Yejin Choi. 2020. The Curious Case of Neural Text Degeneration.
 In 8th International Conference on Learning Representations, ICLR 2020, Addis Ababa, Ethiopia, April 26-30, 2020 .
 OpenReview.net. https://openreview.net/forum?id=rygGQyrFvH
-[119] Or Honovich, Leshem Choshen, Roee Aharoni, Ella Neeman, Idan Szpektor, and Omri Abend. 2021. 𝑄2: Evaluating
+[119] Or Honovich, Leshem Choshen, Roee Aharoni, Ella Neeman, Idan Szpektor, and Omri Abend. 2021. 𝑄 2: Evaluating
 Factual Consistency in Knowledge-Grounded Dialogues via Question Generation and Question Answering. In
-Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing . Association for Computational
+Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing. Association for Computational
 Linguistics, Online and Punta Cana, Dominican Republic, 7856-7870. https://doi.org/10.18653/v1/2021.emnlp-
 main.619
 [120] Lei Huang, Xiaocheng Feng, Weitao Ma, Yuxuan Gu, Weihong Zhong, Xiachong Feng, Weijiang Yu, Weihua Peng,
 Duyu Tang, Dandan Tu, and Bing Qin. 2024. Learning Fine-Grained Grounded Citations for Attributed Large Language
 Models. In Findings of the Association for Computational Linguistics, ACL 2024, Bangkok, Thailand and virtual meeting,
-August 11-16, 2024 , Lun-Wei Ku, Andre Martins, and Vivek Srikumar (Eds.). Association for Computational Linguistics,
+August 11-16, 2024, Lun-Wei Ku, Andre Martins, and Vivek Srikumar (Eds.). Association for Computational Linguistics,
 14095-14113. https://doi.org/10.18653/V1/2024.FINDINGS-ACL.838
 [121] Lei Huang, Xiaocheng Feng, Weitao Ma, Liang Zhao, Yuchun Fan, Weihong Zhong, Dongliang Xu, Qing Yang,
 Hongtao Liu, and Bing Qin. 2024. Advancing Large Language Model Attribution through Self-Improving.
@@ -2260,7 +2260,7 @@ Webber, Trevor Cohn, Yulan He, and Yang Liu (Eds.). Association for Computationa
 Smith, Yejin Choi, and Kentaro Inui. 2022. RealTime QA: What's the Answer Right Now?ArXiv preprint abs/2207.13332
 (2022). https://arxiv.org/abs/2207.13332
 [149] Daniel Martin Katz, Michael James Bommarito, Shang Gao, and Pablo Arredondo. 2023. Gpt-4 passes the bar exam.
-Available at SSRN 4389233 (2023). https://www.datascienceassn.org/sites/default/files/GPT-4%20Passes%20the%
+A vailable at SSRN 4389233 (2023). https://www.datascienceassn.org/sites/default/files/GPT-4%20Passes%20the%
 20Bar%20Exam.pdf
 ACM Transactions on Information Systems, Vol. 1, No. 1, Article 1. Publication date: January 2024.
 A Survey on Hallucination in Large Language Models: Principles, Taxonomy, Challenges, and Open Questions 1:43
@@ -2271,7 +2271,7 @@ Memorization: Nearest Neighbor Language Models. In 8th International Conference 
 are zero-shot reasoners. Advances in neural information processing systems 35 (2022), 22199-22213.
 [152] Wojciech Kryscinski, Bryan McCann, Caiming Xiong, and Richard Socher. 2020. Evaluating the Factual Consistency
 of Abstractive Text Summarization. In Proceedings of the 2020 Conference on Empirical Methods in Natural Language
-Processing (EMNLP) . Association for Computational Linguistics, Online, 9332-9346. https://doi.org/10.18653/v1/2020.
+Processing (EMNLP). Association for Computational Linguistics, Online, 9332-9346. https://doi.org/10.18653/v1/2020.
 emnlp-main.750
 [153] Philippe Laban, Wojciech Kryściński, Divyansh Agarwal, Alexander R Fabbri, Caiming Xiong, Shafiq Joty, and
 Chien-Sheng Wu. 2023. LLMs as Factual Reasoners: Insights from Existing Benchmarks and Beyond. ArXiv preprint
@@ -2387,7 +2387,7 @@ abs/2304.08485 (2023). https://arxiv.org/abs/2304.08485
 Peng. 2024. A survey on hallucination in large vision-language models. arXiv preprint arXiv:2402.00253 (2024).
 [188] Junyi Liu, Liangzhi Li, Tong Xiang, Bowen Wang, and Yiming Qian. 2023. TCRA-LLM: Token Compression Retrieval
 Augmented Large Language Model for Inference Cost Reduction. In Findings of the Association for Computational
-Linguistics: EMNLP 2023, Singapore, December 6-10, 2023 , Houda Bouamor, Juan Pino, and Kalika Bali (Eds.). Association
+Linguistics: EMNLP 2023, Singapore, December 6-10, 2023, Houda Bouamor, Juan Pino, and Kalika Bali (Eds.). Association
 for Computational Linguistics, 9796-9810. https://aclanthology.org/2023.findings-emnlp.655
 [189] Nelson F. Liu, Kevin Lin, John Hewitt, Ashwin Paranjape, Michele Bevilacqua, Fabio Petroni, and Percy Liang.
 2023. Lost in the Middle: How Language Models Use Long Contexts. ArXiv preprint abs/2307.03172 (2023). https:
@@ -2454,7 +2454,7 @@ GPT. In NeurIPS. http://papers.nips.cc/paper_files/paper/2022/hash/6f1d43d5a82a3
 Conference.html
 [211] Kevin Meng, Arnab Sen Sharma, Alex J. Andonian, Yonatan Belinkov, and David Bau. 2023. Mass-Editing Memory in
 a Transformer. In The Eleventh International Conference on Learning Representations, ICLR 2023, Kigali, Rwanda, May
-1-5, 2023 . OpenReview.net. https://openreview.net/pdf?id=MkbcAHIYgyS
+1-5, 2023. OpenReview.net. https://openreview.net/pdf?id=MkbcAHIYgyS
 [212] Mengqi Miao, Fandong Meng, Yijin Liu, Xiao-Hua Zhou, and Jie Zhou. 2021. Prevent the Language Model from
 being Overconfident in Neural Machine Translation. In Proceedings of the 59th Annual Meeting of the Association for
 Computational Linguistics and the 11th International Joint Conference on Natural Language Processing (Volume 1: Long
@@ -2471,7 +2471,7 @@ Generation. ArXiv preprint abs/2305.14251 (2023). https://arxiv.org/abs/2305.142
 [217] Anshuman Mishra, Dhruvesh Patel, Aparna Vijayakumar, Xiang Lorraine Li, Pavan Kapanipathi, and Kartik Tala-
 madupula. 2021. Looking Beyond Sentence-Level Natural Language Inference for Question Answering and Text
 Summarization. In Proceedings of the 2021 Conference of the North American Chapter of the Association for Compu-
-tational Linguistics: Human Language Technologies . Association for Computational Linguistics, Online, 1322-1336.
+tational Linguistics: Human Language Technologies. Association for Computational Linguistics, Online, 1322-1336.
 https://doi.org/10.18653/v1/2021.naacl-main.104
 [218] Eric Mitchell, Charles Lin, Antoine Bosselut, Chelsea Finn, and Christopher D. Manning. 2022. Fast Model Editing at
 Scale. In The Tenth International Conference on Learning Representations, ICLR 2022, Virtual Event, April 25-29, 2022 .
@@ -2514,7 +2514,7 @@ Disentangling Parametric and Contextual Knowledge with Counterfactual Question A
 July 9-14, 2023 , Anna Rogers, Jordan L. Boyd-Graber, and Naoaki Okazaki (Eds.). Association for Computational
 Linguistics, 10056-10070. https://doi.org/10.18653/V1/2023.ACL-LONG.559
 [228] Shiyu Ni, Keping Bi, Jiafeng Guo, and Xueqi Cheng. 2024. When Do LLMs Need Retrieval Augmentation? Mitigating
-LLMs' Overconfidence Helps Retrieval Augmentation. CoRR abs/2402.11457 (2024). https://doi.org/10.48550/ARXIV.
+LLMs' Overconfidence Helps Retrieval Augmentation.CoRR abs/2402.11457 (2024). https://doi.org/10.48550/ARXIV.
 2402.11457 arXiv:2402.11457
 [229] Sean O'Brien and Mike Lewis. 2023. Contrastive Decoding Improves Reasoning in Large Language Models. ArXiv
 preprint abs/2309.09117 (2023). https://arxiv.org/abs/2309.09117
@@ -2555,7 +2555,7 @@ Yulan He, and Yang Liu (Eds.). Association for Computational Linguistics, 1173-1
 ACM Transactions on Information Systems, Vol. 1, No. 1, Article 1. Publication date: January 2024.
 1:48 Huang, et al.
 [241] Debjit Paul, Robert West, Antoine Bosselut, and Boi Faltings. 2024. Making Reasoning Matter: Measuring and
-Improving Faithfulness of Chain-of-Thought Reasoning.CoRR abs/2402.13950 (2024). https://doi.org/10.48550/ARXIV.
+Improving Faithfulness of Chain-of-Thought Reasoning. CoRR abs/2402.13950 (2024). https://doi.org/10.48550/ARXIV.
 2402.13950 arXiv:2402.13950
 [242] Amandalynne Paullada, Inioluwa Deborah Raji, Emily M. Bender, Emily Denton, and Alex Hanna. 2021. Data and its
 (dis)contents: A survey of dataset development and use in machine learning research. Patterns 2, 11 (2021), 100336.
@@ -2576,7 +2576,7 @@ Johnston, Shauna Kravec, Sheer El Showk, Tamera Lanham, Timothy Telleen-Lawton, 
 Tristan Hume, Yuntao Bai, Zac Hatfield-Dodds, Jack Clark, Samuel R. Bowman, Amanda Askell, Roger Grosse, Danny
 Hernandez, Deep Ganguli, Evan Hubinger, Nicholas Schiefer, and Jared Kaplan. 2023. Discovering Language Model
 Behaviors with Model-Written Evaluations. In Findings of the Association for Computational Linguistics: ACL 2023,
-Toronto, Canada, July 9-14, 2023 , Anna Rogers, Jordan L. Boyd-Graber, and Naoaki Okazaki (Eds.). Association for
+Toronto, Canada, July 9-14, 2023, Anna Rogers, Jordan L. Boyd-Graber, and Naoaki Okazaki (Eds.). Association for
 Computational Linguistics, 13387-13434. https://doi.org/10.18653/V1/2023.FINDINGS-ACL.847
 [246] Fabio Petroni, Tim Rocktäschel, Sebastian Riedel, Patrick Lewis, Anton Bakhtin, Yuxiang Wu, and Alexander Miller.
 2019. Language Models as Knowledge Bases?. In Proceedings of the 2019 Conference on Empirical Methods in Natural
@@ -2762,7 +2762,7 @@ preprint abs/2310.10638 (2023). https://arxiv.org/abs/2310.10638
 tau Yih. 2023. REPLUG: Retrieval-Augmented Black-Box Language Models. CoRR abs/2301.12652 (2023). https:
 //doi.org/10.48550/ARXIV.2301.12652 arXiv:2301.12652
 [278] Kurt Shuster, Spencer Poff, Moya Chen, Douwe Kiela, and Jason Weston. 2021. Retrieval Augmentation Reduces
-Hallucination in Conversation. InFindings of the Association for Computational Linguistics: EMNLP 2021 . Association for
+Hallucination in Conversation. InFindings of the Association for Computational Linguistics: EMNLP 2021. Association for
 Computational Linguistics, Punta Cana, Dominican Republic, 3784-3803. https://doi.org/10.18653/v1/2021.findings-
 emnlp.320
 [279] Karan Singhal, Tao Tu, Juraj Gottweis, Rory Sayres, Ellery Wulczyn, Le Hou, Kevin Clark, Stephen Pfohl, Heather
@@ -2793,7 +2793,7 @@ main.566
 [285] Nisan Stiennon, Long Ouyang, Jeffrey Wu, Daniel M. Ziegler, Ryan Lowe, Chelsea Voss, Alec Radford, Dario Amodei,
 and Paul F. Christiano. 2020. Learning to summarize with human feedback. In Advances in Neural Information
 Processing Systems 33: Annual Conference on Neural Information Processing Systems 2020, NeurIPS 2020, December 6-12,
-2020, virtual , Hugo Larochelle, Marc'Aurelio Ranzato, Raia Hadsell, Maria-Florina Balcan, and Hsuan-Tien Lin (Eds.).
+2020, virtual, Hugo Larochelle, Marc'Aurelio Ranzato, Raia Hadsell, Maria-Florina Balcan, and Hsuan-Tien Lin (Eds.).
 https://proceedings.neurips.cc/paper/2020/hash/1f89885d556929e98d3ef9b86448f951-Abstract.html
 [286] Hongjin Su, Howard Yen, Mengzhou Xia, Weijia Shi, Niklas Muennighoff, Han yu Wang, Haisu Liu, Quan Shi, Zachary S.
 Siegel, Michael Tang, Ruoxi Sun, Jinsung Yoon, Sercan O. Arik, Danqi Chen, and Tao Yu. 2024. BRIGHT: A Realistic and
@@ -2804,7 +2804,7 @@ Position Embedding. CoRR abs/2104.09864 (2021). arXiv:2104.09864 https://arxiv.o
 Generation based on the Real-time Information Needs of Large Language Models. CoRR abs/2403.10081 (2024).
 https://doi.org/10.48550/ARXIV.2403.10081 arXiv:2403.10081
 [289] Nishant Subramani, Nivedita Suresh, and Matthew Peters. 2022. Extracting Latent Steering Vectors from Pretrained
-Language Models. InFindings of the Association for Computational Linguistics: ACL 2022 . Association for Computational
+Language Models. InFindings of the Association for Computational Linguistics: ACL 2022. Association for Computational
 Linguistics, Dublin, Ireland, 566-581. https://doi.org/10.18653/v1/2022.findings-acl.48
 [290] Kai Sun, Yifan Ethan Xu, Hanwen Zha, Yue Liu, and Xin Luna Dong. 2023. Head-to-Tail: How Knowledgeable
 are Large Language Models (LLM)? A.K.A. Will LLMs Replace Knowledge Graphs? CoRR abs/2308.10168 (2023).
@@ -2859,7 +2859,7 @@ test for large language models. ArXiv preprint abs/2307.15343 (2023). https://ar
 [304] Aäron van den Oord, Yazhe Li, and Oriol Vinyals. 2018. Representation Learning with Contrastive Predictive Coding.
 CoRR abs/1807.03748 (2018). arXiv:1807.03748 http://arxiv.org/abs/1807.03748
 [305] Liam van der Poel, Ryan Cotterell, and Clara Meister. 2022. Mutual Information Alleviates Hallucinations in Abstractive
-Summarization. In Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing . Association
+Summarization. In Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing. Association
 for Computational Linguistics, Abu Dhabi, United Arab Emirates, 5956-5965. https://aclanthology.org/2022.emnlp-
 main.399
 [306] Neeraj Varshney, Wenlin Yao, Hongming Zhang, Jianshu Chen, and Dong Yu. 2023. A Stitch in Time Saves Nine: Detect-
@@ -2919,7 +2919,7 @@ for Retrieval-Augmented Generation. CoRR abs/2311.08377 (2023). https://doi.org/
 arXiv:2311.08377
 [324] Zhenyi Wang, Xiaoyang Wang, Bang An, Dong Yu, and Changyou Chen. 2020. Towards Faithful Neural Table-to-Text
 Generation with Content-Matching Constraints. In Proceedings of the 58th Annual Meeting of the Association for
-Computational Linguistics . Association for Computational Linguistics, Online, 1072-1086. https://doi.org/10.18653/
+Computational Linguistics. Association for Computational Linguistics, Online, 1072-1086. https://doi.org/10.18653/
 v1/2020.acl-main.101
 [325] Zirui Wang, Jiahui Yu, Adams Wei Yu, Zihang Dai, Yulia Tsvetkov, and Yuan Cao. 2022. SimVLM: Simple Visual
 Language Model Pretraining with Weak Supervision. InThe Tenth International Conference on Learning Representations,
@@ -2945,7 +2945,7 @@ and external evidence. arXiv:2404.10198 [cs.CL] https://arxiv.org/abs/2404.10198
 Chinese Embedding. CoRR abs/2309.07597 (2023). https://doi.org/10.48550/ARXIV.2309.07597 arXiv:2309.07597
 [333] Yijun Xiao and William Yang Wang. 2021. On Hallucination and Predictive Uncertainty in Conditional Language
 Generation. In Proceedings of the 16th Conference of the European Chapter of the Association for Computational
-Linguistics: Main Volume . Association for Computational Linguistics, Online, 2734-2744. https://doi.org/10.18653/v1/
+Linguistics: Main Volume. Association for Computational Linguistics, Online, 2734-2744. https://doi.org/10.18653/v1/
 2021.eacl-main.236
 [334] Jian Xie, Kai Zhang, Jiangjie Chen, Renze Lou, and Yu Su. 2023. Adaptive Chameleon or Stubborn Sloth: Unraveling
 the Behavior of Large Language Models in Knowledge Clashes. ArXiv preprint abs/2305.13300 (2023). https:
@@ -2998,7 +2998,7 @@ Enhong Chen. 2023. Woodpecker: Hallucination Correction for Multimodal Large Lan
 //arxiv.org/abs/2310.16045
 [350] Zhangyue Yin, Qiushi Sun, Qipeng Guo, Jiawen Wu, Xipeng Qiu, and Xuanjing Huang. 2023. Do Large Language
 Models Know What They Don't Know?. In Findings of the Association for Computational Linguistics: ACL 2023,
-Toronto, Canada, July 9-14, 2023 , Anna Rogers, Jordan L. Boyd-Graber, and Naoaki Okazaki (Eds.). Association for
+Toronto, Canada, July 9-14, 2023, Anna Rogers, Jordan L. Boyd-Graber, and Naoaki Okazaki (Eds.). Association for
 Computational Linguistics, 8653-8665. https://doi.org/10.18653/V1/2023.FINDINGS-ACL.551
 [351] Chanwoong Yoon, Gangwoo Kim, Byeongguk Jeon, Sungdong Kim, Yohan Jo, and Jaewoo Kang. 2024. Ask Op-
 timal Questions: Aligning Large Language Models with Retriever's Preference in Conversational Search. CoRR
@@ -3028,11 +3028,11 @@ Percy Liang, and Jennifer Wortman Vaughan (Eds.). 27263-27277. https://proceedin
 e4d2b6e6fdeca3e60e0f1a62fee3d9dd-Abstract.html
 [360] Rowan Zellers, Yonatan Bisk, Ali Farhadi, and Yejin Choi. 2019. From Recognition to Cognition: Visual Commonsense
 Reasoning. In IEEE Conference on Computer Vision and Pattern Recognition, CVPR 2019, Long Beach, CA, USA, June
-16-20, 2019 . Computer Vision Foundation / IEEE, 6720-6731. https://doi.org/10.1109/CVPR.2019.00688
+16-20, 2019. Computer Vision Foundation / IEEE, 6720-6731. https://doi.org/10.1109/CVPR.2019.00688
 [361] Bohan Zhai, Shijia Yang, Chenfeng Xu, Sheng Shen, Kurt Keutzer, and Manling Li. 2023. Halle-switch: Controlling
 object hallucination in large vision language models. arXiv e-prints (2023), arXiv-2310.
 [362] Hanning Zhang, Shizhe Diao, Yong Lin, Yi R. Fung, Qing Lian, Xingyao Wang, Yangyi Chen, Heng Ji, and Tong
-Zhang. 2023. R-Tuning: Teaching Large Language Models to Refuse Unknown Questions.CoRR abs/2311.09677 (2023).
+Zhang. 2023. R-Tuning: Teaching Large Language Models to Refuse Unknown Questions. CoRR abs/2311.09677 (2023).
 https://doi.org/10.48550/ARXIV.2311.09677 arXiv:2311.09677
 [363] Hugh Zhang, Daniel Duckworth, Daphne Ippolito, and Arvind Neelakantan. 2021. Trading Off Diversity and Quality
 in Natural Language Generation. In Proceedings of the Workshop on Human Evaluation of NLP Systems (HumEval) .
@@ -3091,7 +3091,7 @@ Survey from the Perspective of Position Encoding. CoRR abs/2312.17044 (2023). ht
 17044 arXiv:2312.17044
 [381] Ruochen Zhao, Xingxuan Li, Shafiq Joty, Chengwei Qin, and Lidong Bing. 2023. Verify-and-Edit: A Knowledge-
 Enhanced Chain-of-Thought Framework. InProceedings of the 61st Annual Meeting of the Association for Computational
-Linguistics (Volume 1: Long Papers), ACL 2023, Toronto, Canada, July 9-14, 2023 , Anna Rogers, Jordan L. Boyd-Graber, and
+Linguistics (Volume 1: Long Papers), ACL 2023, Toronto, Canada, July 9-14, 2023, Anna Rogers, Jordan L. Boyd-Graber, and
 Naoaki Okazaki (Eds.). Association for Computational Linguistics, 5823-5840. https://doi.org/10.18653/v1/2023.acl-
 long.320
 [382] Wayne Xin Zhao, Jing Liu, Ruiyang Ren, and Ji-Rong Wen. 2024. Dense text retrieval based on pretrained language
